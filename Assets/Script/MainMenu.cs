@@ -7,16 +7,17 @@ public class MainMenu : MonoBehaviour
     private GameObject menuTitre;
     private GameObject menuPrincipal;
     private GameObject menuJouer;
-    private GameObject menuQuitter;
+    private GameObject menuOption;
     // Start is called before the first frame update
     void Start()
     {
         menuPrincipal = GameObject.Find("MenuPrincipal");
         menuTitre = GameObject.Find("MenuTitre");
         menuJouer = GameObject.Find("MenuJouer");
-        menuQuitter = GameObject.Find("MenuQuitter"); 
+        menuOption = GameObject.Find("MenuOption"); 
 
         menuPrincipal.SetActive(false); 
+        menuJouer.SetActive(false);
     }
 
     // Update is called once per frame
