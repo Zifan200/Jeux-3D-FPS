@@ -18,6 +18,7 @@ public class MainMenu : MonoBehaviour
 
         menuPrincipal.SetActive(false); 
         menuJouer.SetActive(false);
+        menuOption.SetActive(false);
     }
 
     // Update is called once per frame
@@ -30,6 +31,24 @@ public class MainMenu : MonoBehaviour
     {
         menuTitre.SetActive(false);
         menuPrincipal.SetActive(true);
-        
+    }
+
+    public void onButtonJouer()
+    {
+        menuPrincipal.SetActive(false);
+        menuJouer.SetActive(true);
+    }
+
+    public void onButtonOption()
+    {
+        menuPrincipal.SetActive(false);
+        menuOption.SetActive(true);
+    }
+
+    public void onButtonRetour()
+    {
+        menuPrincipal.SetActive(true);
+        menuJouer.SetActive(false);
+        menuOption.SetActive(false);
     }
 }
