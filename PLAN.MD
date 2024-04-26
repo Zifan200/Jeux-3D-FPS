@@ -6,3 +6,7 @@ Menus :
 
 GameScene:
 -	Environnement(Plane, Portes, cabanes)
+
+Player logique:
+-	Prefab
+-	Mouvement
