@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -45,10 +46,25 @@ public class MainMenu : MonoBehaviour
         menuOption.SetActive(true);
     }
 
-    public void onButtonRetour()
+    public void onButtonRetourMenuOption()
     {
-        menuPrincipal.SetActive(true);
-        menuJouer.SetActive(false);
         menuOption.SetActive(false);
+        menuPrincipal.SetActive(true);
+    }
+
+    public void onButtonRetourMenuJouer()
+    {
+        menuJouer.SetActive(false);
+        menuPrincipal.SetActive(true);
+    }
+
+    public void onButtonNormal()
+    {
+        SceneManager.LoadScene("GameScene");
+    }
+
+    public void onButtonDifficile()
+    {
+        SceneManager.LoadScene("GameScene");
     }
 }
