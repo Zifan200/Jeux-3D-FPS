@@ -4,3 +4,5 @@ Menus :
 -	Layout
 -	Navigation
 
+GameScene:
+-	Environnement(Plane, Portes, cabanes)
