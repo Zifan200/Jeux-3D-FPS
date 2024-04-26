@@ -6,6 +6,7 @@ public class PlayerLogic : MonoBehaviour
 {
     private CharacterController characterController;
     [SerializeField] private float characterSpeed = 5f;
+     [SerializeField] private Transform cameraTransform; 
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +20,17 @@ public class PlayerLogic : MonoBehaviour
     }
 
     private void playerMovement(){
+        // Capture les entrées du joueur
         Vector3 input = Vector3.zero;
         input.x = Input.GetAxis("Horizontal");
         input.z = Input.GetAxis("Vertical");
 
-        characterController.Move(input * Time.deltaTime * characterSpeed);
+        // Transforme les axes de mouvement en fonction de la direction de la caméra
+        Vector3 move = cameraTransform.right * input.x + cameraTransform.forward * input.z;
+
+        move.y = 0;
+
+        // Déplace le joueur selon la direction transformée
+        characterController.Move(move * Time.deltaTime * characterSpeed);
     }
 }

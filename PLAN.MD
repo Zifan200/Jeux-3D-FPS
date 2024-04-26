@@ -10,3 +10,4 @@ GameScene:
 Player logique:
 -	Prefab
 -	Mouvement
+-	Camera
