@@ -11,3 +11,4 @@ Player logique:
 -	Prefab
 -	Mouvement
 -	Camera
+-   Point de vie
