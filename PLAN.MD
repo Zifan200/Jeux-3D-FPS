@@ -22,3 +22,7 @@ Conditions de jeu :
 -	Message de victoire ou message qui indique qu’il manque des objets à ramasser
 -   Message qui affiche les objets qui manquent.
 
+Tir sur ennemi Ennemi
+-	Prefab
+
+

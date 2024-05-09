@@ -2328,6 +2328,9 @@ MonoBehaviour:
   checkmarkCle: {fileID: 888793568}
   messageVictory: {fileID: 1010078040}
   messageObjectMissing: {fileID: 691948260}
+  objetNotFound: {fileID: 0}
+  textObjectMissing: {fileID: 0}
+  missingItem: []
 --- !u!1 &1214256493
 GameObject:
   m_ObjectHideFlags: 0
@@ -3285,6 +3288,63 @@ Transform:
   - {fileID: 1676887320}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1717786541
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 802114265286779345, guid: 650ba1924dbdd1c4eae47f957da0d9c3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 493.6669
+      objectReference: {fileID: 0}
+    - target: {fileID: 802114265286779345, guid: 650ba1924dbdd1c4eae47f957da0d9c3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 351.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 802114265286779345, guid: 650ba1924dbdd1c4eae47f957da0d9c3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -525.8272
+      objectReference: {fileID: 0}
+    - target: {fileID: 802114265286779345, guid: 650ba1924dbdd1c4eae47f957da0d9c3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.751383
+      objectReference: {fileID: 0}
+    - target: {fileID: 802114265286779345, guid: 650ba1924dbdd1c4eae47f957da0d9c3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 802114265286779345, guid: 650ba1924dbdd1c4eae47f957da0d9c3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.65986633
+      objectReference: {fileID: 0}
+    - target: {fileID: 802114265286779345, guid: 650ba1924dbdd1c4eae47f957da0d9c3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 802114265286779345, guid: 650ba1924dbdd1c4eae47f957da0d9c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 802114265286779345, guid: 650ba1924dbdd1c4eae47f957da0d9c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -82.579
+      objectReference: {fileID: 0}
+    - target: {fileID: 802114265286779345, guid: 650ba1924dbdd1c4eae47f957da0d9c3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8509658553138125859, guid: 650ba1924dbdd1c4eae47f957da0d9c3, type: 3}
+      propertyPath: m_Name
+      value: Ennemi
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 650ba1924dbdd1c4eae47f957da0d9c3, type: 3}
 --- !u!1 &1820195590
 GameObject:
   m_ObjectHideFlags: 0
@@ -3571,3 +3631,4 @@ SceneRoots:
   - {fileID: 1067009383}
   - {fileID: 476810329}
   - {fileID: 787970498}
+  - {fileID: 1717786541}
