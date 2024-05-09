@@ -20,4 +20,7 @@ Inventaire:
     4- Si le joueur touche la clé, la case de la clé doit être cochée.
 
 Condition de victoire:
-    1- Lorsque le joueur à tous les 3 objets et qu'il arrive à la porte, un message de victoire s'affiche.
+    1- Lorsque le joueur à tous les 3 objets et qu'il arrive à la porte, un message de victoire s'affiche avec un bouton rejouer et quitter.
+
+Condition des objets manquant:
+    1- Lorsque le joueur se rend à la porte et il manque des objets, un message apparaît pour lui dire des objets qu'il lui manque à    récupérer.

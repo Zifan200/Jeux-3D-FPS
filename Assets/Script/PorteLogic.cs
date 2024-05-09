@@ -17,14 +17,19 @@ public class PorteLogic : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other)
-{
-    if (other.gameObject.name == "Player")
     {
-        Debug.Log("Le joueur a atteint la porte");
-        if(GameManager.instance.checkmarkDocumentA.isOn && GameManager.instance.checkmarkDocumentB.isOn && GameManager.instance.checkmarkCle.isOn)
+        if (other.gameObject.name == "Player")
         {
             GameManager.instance.messageVictoire();
         }
     }
-}
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.name == "Player")
+        {
+            // Supprimer le message lorsque le joueur quitte la porte
+            GameManager.instance.messagesCacherInitialement();
+        }
+    }
 }
