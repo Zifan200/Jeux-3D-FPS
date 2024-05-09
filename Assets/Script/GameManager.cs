@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
     public Toggle checkmarkDocumentA;
     public Toggle checkmarkDocumentB;
     public Toggle checkmarkCle;
 
-    public static GameManager instance;
+    public GameObject messageCacher; 
+
     private void Awake()
     {
         if (instance == null) 
@@ -26,7 +28,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         ObjectPasTrouve();
+        messagesCacherInitialement();
     }
 
     // Update is called once per frame
@@ -54,5 +58,12 @@ public class GameManager : MonoBehaviour
     public void cleTrouve()
     {
         checkmarkCle.isOn = true;
+    }
+
+    private void messagesCacherInitialement(){
+        messageCacher.SetActive(false);
+    }
+    public void messageVictoire(){
+        messageCacher.SetActive(true);
     }
 }

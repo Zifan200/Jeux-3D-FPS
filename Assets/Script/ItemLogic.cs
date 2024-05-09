@@ -17,7 +17,7 @@ public class ItemLogic : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-    if (other.gameObject.name == "Player") // Utiliser un tag au lieu du nom
+    if (other.gameObject.name == "Player")
         {
             if(gameObject.name == "DocumentA"){
                 GameManager.instance.documentATrouve();

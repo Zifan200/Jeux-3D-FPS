@@ -18,3 +18,6 @@ Inventaire:
     2- Si le joueur touche le documentA, la case du documentA doit être cochée.
     3- Si le joueur touche le documentB, la case du documentB doit être cochée.
     4- Si le joueur touche la clé, la case de la clé doit être cochée.
+
+Condition de victoire:
+    1- Lorsque le joueur à tous les 3 objets et qu'il arrive à la porte, un message de victoire s'affiche.
