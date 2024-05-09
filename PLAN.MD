@@ -12,3 +12,8 @@ Player logique:
 -	Mouvement
 -	Camera
 -   Point de vie
+
+Inventaire
+-	Document
+-	Clé
+-	Ramasser

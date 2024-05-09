@@ -12,3 +12,9 @@ Player Camera:
     3- Bouger la souris vers la gauche fait tourner la caméra vers la gauche.
     4- Bouger la souris vers la droite fait tourner la caméra vers la droite.
     5- Lorsque la caméra se tourne vers une nouvelle direction, les touches WASD doivent se mettre à jour.
+
+Inventaire:
+    1- Être proche ou sur le documentA, le documentB et la clé doit faire dispaître les objets.
+    2- Si le joueur touche le documentA, la case du documentA doit être cochée.
+    3- Si le joueur touche le documentB, la case du documentB doit être cochée.
+    4- Si le joueur touche la clé, la case de la clé doit être cochée.
