@@ -10,11 +10,13 @@ public class GameManager : MonoBehaviour
     public Toggle checkmarkDocumentA;
     public Toggle checkmarkDocumentB;
     public Toggle checkmarkCle;
+    public RawImage iconGrenade;
     public GameObject messageVictory; 
     public GameObject messageObjectMissing;
     public GameObject objetNotFound;
     public TextMeshProUGUI textObjectMissing;
     public List<string> missingItem = new List<string>();
+    public List<string> grenadeList = new List<string>();
     public float pistolDamage = 25f;
     public float submachineGunDamage = 10f;
     public float assaultRiffleDamage = 30f;
@@ -22,6 +24,7 @@ public class GameManager : MonoBehaviour
     public float headDamageRatio = 4f;
     private GameObject ennemi;
     private EnnemiLogic ennemiLogic;
+    GrenadeLogic grenadeLogic;
     private void Awake()
     {
         if (instance == null) 
@@ -42,6 +45,8 @@ public class GameManager : MonoBehaviour
         textObjectMissing = objetNotFound.GetComponent<TextMeshProUGUI>();
         ennemi = GameObject.Find("Ennemi");
         ennemiLogic = ennemi.GetComponent<EnnemiLogic>();
+        iconGrenade = GameObject.Find("GrenadeIcon").GetComponent<RawImage>();
+        grenadeLogic = GameObject.Find("Player").GetComponent<GrenadeLogic>();
         addItemToList();
         ObjectPasTrouve();
         messagesCacherInitialement();
@@ -63,6 +68,7 @@ public class GameManager : MonoBehaviour
         checkmarkDocumentA.isOn = false;
         checkmarkDocumentB.isOn = false;
         checkmarkCle.isOn = false;
+        iconGrenade.enabled = false;
     }
 
     public void documentATrouve()
@@ -82,6 +88,25 @@ public class GameManager : MonoBehaviour
     {
         checkmarkCle.isOn = true;
         missingItem.Remove("Cle");
+    }
+
+    public void grenadeTrouve()
+    {
+        iconGrenade.enabled = true;
+        grenadeList.Add("Grenade");
+    }
+
+    public void lancerGrenade(){
+        // Lancer granade avec button "g" et si il y a des grenades dans la liste
+        if(Input.GetKeyDown(KeyCode.G) && grenadeList.Count > 0)
+        {
+            grenadeList.RemoveAt(0);
+            if(grenadeList.Count == 0)
+            {
+                iconGrenade.enabled = false;
+            }
+            grenadeLogic.instanciateGrenade();
+        }
     }
 
     public void messagesCacherInitialement(){
@@ -126,4 +151,6 @@ public class GameManager : MonoBehaviour
             ennemiLogic.TakeDamage(pistolDamage * bodyDamageRatio);
         } 
     }
+
+   
 }

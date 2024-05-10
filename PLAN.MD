@@ -32,3 +32,4 @@ Tir sur ennemi Ennemi
 
 Grenade
 -   Prefab
+-   Instanciate

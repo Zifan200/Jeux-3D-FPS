@@ -39,3 +39,6 @@ Gestion des tirs sur l'ennemi:
         premier cours de feu.
 
     note: pour le moment j'ai implémenté seulement les dommages pour le pistolet. Je reviendrais plus tard pour implémenté le reste des armes. 
+
+    Grenade:
+    

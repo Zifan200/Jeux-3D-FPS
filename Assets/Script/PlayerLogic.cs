@@ -19,6 +19,7 @@ public class PlayerLogic : MonoBehaviour
     {
         playerMovement();
         playerShooting();
+        throwGrenade();
     }
 
     private void playerMovement(){
@@ -69,6 +70,11 @@ public class PlayerLogic : MonoBehaviour
                 Debug.Log("Raté");
             }
         }
+    }
+
+    private void throwGrenade()
+    {
+        GameManager.instance.lancerGrenade();
     }
 
 
