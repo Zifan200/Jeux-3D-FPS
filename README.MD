@@ -27,4 +27,15 @@ Condition des objets manquant:
     2-Une fois le message affiché devant la porte, lorsque le joueur s'éloigne de la porte, le message des objets à récupurer disparaît. 
 
 Gestion des tirs sur l'ennemi:
-    1- 
+    1- Appuyer sur le click gauche de la souris devrait tirer/raycast
+        Vérification avec un Debug.Log.
+    *Test pour le pistolet:
+    1- Head Shot 
+        Tirer sur la tête/yeux de l'ennemi fait 100(25 * 4) dommages et les vies de l'ennemi devrait tomber à zéro.
+    2- Body Shot
+        Tirer sur le coprs de l'ennemi fait 25 dégâts et les vies de l'ennemi devrait tombé à 75,25,0.
+    3- Reste du corps
+        Tirer sur les mains de l'ennemi fait 6.25 dégâts(25 * 0.25) et les vies de l'ennemi devrait tombé à 93.75 vies après le 
+        premier cours de feu.
+
+    note: pour le moment j'ai implémenté seulement les dommages pour le pistolet. Je reviendrais plus tard pour implémenté le reste des armes. 

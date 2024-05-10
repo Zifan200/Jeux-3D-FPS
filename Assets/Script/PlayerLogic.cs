@@ -6,7 +6,8 @@ public class PlayerLogic : MonoBehaviour
 {
     private CharacterController characterController;
     [SerializeField] private float characterSpeed = 5f;
-     [SerializeField] private Transform cameraTransform; 
+    [SerializeField] private Transform cameraTransform; 
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -43,20 +44,32 @@ public class PlayerLogic : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
+               Debug.Log(hit.collider.gameObject.name);
                 Rigidbody rb = hit.collider.GetComponent<Rigidbody>();
-                if (rb != null)
+
+                // Headshot
+                if(hit.collider.gameObject.name == "Tete" || hit.collider.gameObject.name == "YeuxDroit" || hit.collider.gameObject.name == "YeuxGauche")
                 {
-                    //rb.AddExplosionForce(2f, hit.point, 2f, 1f, ForceMode.Impulse);
-                    Debug.Log("Touché");
+                    GameManager.instance.headShot();
                 }
+                // BodyShot
+                if(hit.collider.gameObject.name == "Ennemi")
+                {
+                    GameManager.instance.bodyShot();
+                }
+
+                // Le reste du coprs
+                if(hit.collider.gameObject.name == "Corps" || hit.collider.gameObject.name == "MainDroite" || hit.collider.gameObject.name == "MainGauche")
+                {
+                    GameManager.instance.otherPartShot();
+                } 
             }
             else
             {
                 Debug.Log("Raté");
             }
         }
-
-
-        
     }
+
+
 }

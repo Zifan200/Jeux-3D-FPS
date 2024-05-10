@@ -26,4 +26,7 @@ Tir sur ennemi Ennemi
 -	Prefab.
 -   Nombre de vie.
 -   Raycast.
+-   Gestion des vies(dommage, perte de vie).
+    *Note: Gestion des dégâts pour le pistolet seulement. Je reviendrais plus tard pour implémenter le reste des armes pour avoir 
+            le plus de fonctionnalités faites.
 

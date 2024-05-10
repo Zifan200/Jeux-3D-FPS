@@ -10,13 +10,18 @@ public class GameManager : MonoBehaviour
     public Toggle checkmarkDocumentA;
     public Toggle checkmarkDocumentB;
     public Toggle checkmarkCle;
-
     public GameObject messageVictory; 
     public GameObject messageObjectMissing;
     public GameObject objetNotFound;
     public TextMeshProUGUI textObjectMissing;
     public List<string> missingItem = new List<string>();
-
+    public float pistolDamage = 25f;
+    public float submachineGunDamage = 10f;
+    public float assaultRiffleDamage = 30f;
+    public float bodyDamageRatio = 0.25f;
+    public float headDamageRatio = 4f;
+    private GameObject ennemi;
+    private EnnemiLogic ennemiLogic;
     private void Awake()
     {
         if (instance == null) 
@@ -35,9 +40,9 @@ public class GameManager : MonoBehaviour
     {
         objetNotFound = GameObject.Find("MessageObjet");
         textObjectMissing = objetNotFound.GetComponent<TextMeshProUGUI>();
-        missingItem.Add("DocumentA");
-        missingItem.Add("DocumentB");
-        missingItem.Add("Cle");
+        ennemi = GameObject.Find("Ennemi");
+        ennemiLogic = ennemi.GetComponent<EnnemiLogic>();
+        addItemToList();
         ObjectPasTrouve();
         messagesCacherInitialement();
     }
@@ -46,6 +51,12 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void addItemToList(){
+        missingItem.Add("DocumentA");
+        missingItem.Add("DocumentB");
+        missingItem.Add("Cle"); 
     }
     private void ObjectPasTrouve()
     {
@@ -93,5 +104,26 @@ public class GameManager : MonoBehaviour
         string message = "Vous devez encore trouver : " + string.Join(", ", missingItem);
         textObjectMissing.text = message;
         messageObjectMissing.SetActive(true);
+    }
+
+    public void bodyShot() {
+        if (ennemiLogic != null) 
+        {
+         ennemiLogic.TakeDamage(pistolDamage);
+        } 
+    }
+
+    public void headShot() {
+        if (ennemiLogic != null) 
+        {
+            ennemiLogic.TakeDamage(pistolDamage * headDamageRatio);
+        } 
+    }
+
+    public void otherPartShot() {
+        if (ennemiLogic != null) 
+        {
+            ennemiLogic.TakeDamage(pistolDamage * bodyDamageRatio);
+        } 
     }
 }

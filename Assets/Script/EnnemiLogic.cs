@@ -4,8 +4,8 @@ using UnityEngine;
 using TMPro;
 public class EnnemiLogic : MonoBehaviour
 {
-    [SerializeField] float maxHealth = 100f;
-    [SerializeField] float currentHealth = 100f;
+    [SerializeField] public float maxHealth = 100f;
+    [SerializeField] public float currentHealth = 100f;
     public GameObject healthBar;
     public TextMeshProUGUI healthText;
 
@@ -14,13 +14,33 @@ public class EnnemiLogic : MonoBehaviour
     {
         healthBar = GameObject.Find("HP");
         healthText = healthBar.GetComponent<TextMeshProUGUI>();
-         healthText.text = $"{currentHealth}/{maxHealth}";
+        healthText.text = $"{currentHealth}/{maxHealth}";
     }
 
     // Update is called once per frame
     void Update()
     {
        
+    }
+
+    public void TakeDamage(float gunDamage)
+    {
+        // Calcul du dommage
+        float damage = gunDamage;
+        Debug.Log($"Dommage: {damage}");
+
+        // Appliquer le dommage à la santé actuelle
+        currentHealth -= damage;
+        Debug.Log($"Santé actuelle: {currentHealth}");
+
+        // Empêcher la santé de tomber en dessous de zéro
+        currentHealth = Mathf.Max(0, currentHealth);
+
+        // Update les vies
+        if (healthText != null)
+        {
+            healthText.text = $"{currentHealth}/{maxHealth}";
+        }
     }
      
 }
