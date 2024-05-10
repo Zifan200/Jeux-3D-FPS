@@ -30,3 +30,5 @@ Tir sur ennemi Ennemi
     *Note: Gestion des dégâts pour le pistolet seulement. Je reviendrais plus tard pour implémenter le reste des armes pour avoir 
             le plus de fonctionnalités faites.
 
+Grenade
+-   Prefab

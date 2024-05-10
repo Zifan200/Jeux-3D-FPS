@@ -666,6 +666,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 312048882}
   m_CullTransparentMesh: 1
+--- !u!1001 &329306375
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 383631350153694812, guid: a8f18e3b63d05e14c9d50160c2891c2b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 491.64035
+      objectReference: {fileID: 0}
+    - target: {fileID: 383631350153694812, guid: a8f18e3b63d05e14c9d50160c2891c2b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 350.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 383631350153694812, guid: a8f18e3b63d05e14c9d50160c2891c2b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -534.65643
+      objectReference: {fileID: 0}
+    - target: {fileID: 383631350153694812, guid: a8f18e3b63d05e14c9d50160c2891c2b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 383631350153694812, guid: a8f18e3b63d05e14c9d50160c2891c2b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 383631350153694812, guid: a8f18e3b63d05e14c9d50160c2891c2b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 383631350153694812, guid: a8f18e3b63d05e14c9d50160c2891c2b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 383631350153694812, guid: a8f18e3b63d05e14c9d50160c2891c2b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 383631350153694812, guid: a8f18e3b63d05e14c9d50160c2891c2b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 383631350153694812, guid: a8f18e3b63d05e14c9d50160c2891c2b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4305705094867908657, guid: a8f18e3b63d05e14c9d50160c2891c2b, type: 3}
+      propertyPath: m_Name
+      value: Grenade
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a8f18e3b63d05e14c9d50160c2891c2b, type: 3}
 --- !u!1 &355428110
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,8 +757,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.3, y: -0.3}
-  m_SizeDelta: {x: 13.9369, y: 13.555}
+  m_AnchoredPosition: {x: -0.1, y: 0.1}
+  m_SizeDelta: {x: 17.4707, y: 16.5528}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &355428112
 MonoBehaviour:
@@ -2403,6 +2460,11 @@ MonoBehaviour:
   objetNotFound: {fileID: 0}
   textObjectMissing: {fileID: 0}
   missingItem: []
+  pistolDamage: 25
+  submachineGunDamage: 10
+  assaultRiffleDamage: 30
+  bodyDamageRatio: 0.25
+  headDamageRatio: 4
 --- !u!1 &1214256493
 GameObject:
   m_ObjectHideFlags: 0
@@ -3409,6 +3471,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6732593654787704437, guid: 650ba1924dbdd1c4eae47f957da0d9c3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6732593654787704437, guid: 650ba1924dbdd1c4eae47f957da0d9c3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8509658553138125859, guid: 650ba1924dbdd1c4eae47f957da0d9c3, type: 3}
       propertyPath: m_Name
       value: Ennemi
@@ -3705,3 +3775,4 @@ SceneRoots:
   - {fileID: 476810329}
   - {fileID: 787970498}
   - {fileID: 1717786541}
+  - {fileID: 329306375}
