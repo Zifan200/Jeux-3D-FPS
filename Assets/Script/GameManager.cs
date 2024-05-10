@@ -34,7 +34,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         objetNotFound = GameObject.Find("MessageObjet");
-        Debug.Log(objetNotFound);
         textObjectMissing = objetNotFound.GetComponent<TextMeshProUGUI>();
         missingItem.Add("DocumentA");
         missingItem.Add("DocumentB");
