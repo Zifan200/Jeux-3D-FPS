@@ -7,6 +7,15 @@ public class PlayerLogic : MonoBehaviour
     private CharacterController characterController;
     [SerializeField] private float characterSpeed = 5f;
     [SerializeField] private Transform cameraTransform; 
+    public float playerPositionX;
+    public float playerPositionY;
+    public Vector3 playerPosition;
+    [SerializeField]
+    public GameObject grenade;
+    [SerializeField]
+    private float spawnDistance = 2f;
+    [SerializeField]
+    private float launchForce = 15f;
    
     // Start is called before the first frame update
     void Start()
@@ -20,6 +29,16 @@ public class PlayerLogic : MonoBehaviour
         playerMovement();
         playerShooting();
         throwGrenade();
+        playerPositionUpdate();
+    }
+
+    public void playerPositionUpdate(){
+        // la position du joueur
+        playerPosition = transform.position;
+
+        // Mettre à jour les valeurs de playerPositionX et playerPositionY
+        playerPositionX = playerPosition.x;
+        playerPositionY = playerPosition.y;
     }
 
     private void playerMovement(){
@@ -45,7 +64,7 @@ public class PlayerLogic : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-               Debug.Log(hit.collider.gameObject.name);
+                //Debug.Log(hit.collider.gameObject.name);
                 Rigidbody rb = hit.collider.GetComponent<Rigidbody>();
 
                 // Headshot
@@ -75,6 +94,17 @@ public class PlayerLogic : MonoBehaviour
     private void throwGrenade()
     {
         GameManager.instance.lancerGrenade();
+    }
+
+    public void instanciateGrenade(){
+        //décalage vers l'avant
+        Vector3 spawnPosition = transform.position + (transform.forward * spawnDistance);
+        GameObject GrenadeInstance = Instantiate(grenade, spawnPosition, this.transform.rotation);
+        
+        // Accéder au Rigidbody de l'instance de la grenade 
+        Rigidbody rb = GrenadeInstance.GetComponent<Rigidbody>();
+        // Ajout de la force à la grenade
+        rb.AddForce(transform.forward * launchForce, ForceMode.Impulse);
     }
 
 

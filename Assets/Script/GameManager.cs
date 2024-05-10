@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     public float headDamageRatio = 4f;
     private GameObject ennemi;
     private EnnemiLogic ennemiLogic;
-    GrenadeLogic grenadeLogic;
+    PlayerLogic grenadeLogic;
     private void Awake()
     {
         if (instance == null) 
@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
         ennemi = GameObject.Find("Ennemi");
         ennemiLogic = ennemi.GetComponent<EnnemiLogic>();
         iconGrenade = GameObject.Find("GrenadeIcon").GetComponent<RawImage>();
-        grenadeLogic = GameObject.Find("Player").GetComponent<GrenadeLogic>();
+        grenadeLogic = GameObject.Find("Player").GetComponent<PlayerLogic>();
         addItemToList();
         ObjectPasTrouve();
         messagesCacherInitialement();
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+    
     }
 
     private void addItemToList(){
@@ -108,6 +108,12 @@ public class GameManager : MonoBehaviour
             grenadeLogic.instanciateGrenade();
         }
     }
+    public void grenadeExplosion() {
+        if (ennemiLogic != null) 
+        {
+            Debug.Log("Explosion de la grenade");
+        } 
+    }
 
     public void messagesCacherInitialement(){
         messageVictory.SetActive(false);
@@ -151,6 +157,4 @@ public class GameManager : MonoBehaviour
             ennemiLogic.TakeDamage(pistolDamage * bodyDamageRatio);
         } 
     }
-
-   
 }
