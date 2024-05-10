@@ -106,6 +106,4 @@ public class PlayerLogic : MonoBehaviour
         // Ajout de la force à la grenade
         rb.AddForce(transform.forward * launchForce, ForceMode.Impulse);
     }
-
-
 }

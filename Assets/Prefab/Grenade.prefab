@@ -108,9 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3301d4ee80f6e494da1a26908d232ca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grenade: {fileID: 0}
-  spawnDistance: 2
-  launchForce: 0
+  grenadeDamage: 100
 --- !u!1 &5715710356083007768
 GameObject:
   m_ObjectHideFlags: 0

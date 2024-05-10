@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GrenadeLogic : MonoBehaviour
 {
+    public float grenadeDamage = 100f; // Dégâts de la grenade
+    public bool hasBeenThrown = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,17 +15,24 @@ public class GrenadeLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        SetThrown();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        // Si le trigger est un ennemi
-        if (other.gameObject.name == "Ennemi") 
+        // Si la collision est avec un ennemi
+        if (hasBeenThrown == true) 
         {
-            GameManager.instance.grenadeExplosion();
-            Destroy(gameObject); // Détruire la grenade
+            if(collision.gameObject.name == "Ennemi"){
+                GameManager.instance.grenadeExplosion();
+            }
+            // Détruire la grenade après la collision
+            Destroy(gameObject);
         }
     }
 
+     public void SetThrown()
+    {
+        hasBeenThrown = true;
+    }
 }
