@@ -17,6 +17,7 @@ public class PlayerLogic : MonoBehaviour
     void Update()
     {
         playerMovement();
+        playerShooting();
     }
 
     private void playerMovement(){
@@ -32,5 +33,30 @@ public class PlayerLogic : MonoBehaviour
 
         // Déplace le joueur selon la direction transformée
         characterController.Move(move * Time.deltaTime * characterSpeed);
+    }
+
+    private void playerShooting(){
+        //Tirer clic gauche
+         if (Input.GetButtonDown("Fire1"))
+        {
+            Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                Rigidbody rb = hit.collider.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    //rb.AddExplosionForce(2f, hit.point, 2f, 1f, ForceMode.Impulse);
+                    Debug.Log("Touché");
+                }
+            }
+            else
+            {
+                Debug.Log("Raté");
+            }
+        }
+
+
+        
     }
 }

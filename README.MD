@@ -27,3 +27,4 @@ Condition des objets manquant:
     2-Une fois le message affiché devant la porte, lorsque le joueur s'éloigne de la porte, le message des objets à récupurer disparaît. 
 
 Gestion des tirs sur l'ennemi:
+    1- 

@@ -25,4 +25,5 @@ Conditions de jeu :
 Tir sur ennemi Ennemi
 -	Prefab.
 -   Nombre de vie.
+-   Raycast.
 
