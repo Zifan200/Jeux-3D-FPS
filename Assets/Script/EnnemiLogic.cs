@@ -23,10 +23,10 @@ public class EnnemiLogic : MonoBehaviour
        
     }
 
-    public void TakeDamage(float gunDamage)
+    public void TakeDamage(float anyDamage)
     {
         // Calcul du dommage
-        float damage = gunDamage;
+        float damage = anyDamage;
         Debug.Log($"Dommage: {damage}");
 
         // Appliquer le dommage à la santé actuelle

@@ -110,12 +110,6 @@ public class GameManager : MonoBehaviour
             playerLogic.instanciateGrenade();
         }
     }
-    public void grenadeExplosion() {
-        if (ennemiLogic != null) 
-        {
-            Debug.Log("Explosion de la grenade");
-        } 
-    }
 
     public void messagesCacherInitialement(){
         messageVictory.SetActive(false);

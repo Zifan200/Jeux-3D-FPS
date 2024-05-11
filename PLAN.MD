@@ -33,3 +33,6 @@ Tir sur ennemi Ennemi
 Grenade
 -   Prefab
 -   Instanciate
+-	Collision
+-	Dommage
+

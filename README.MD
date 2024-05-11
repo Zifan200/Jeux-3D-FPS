@@ -41,4 +41,10 @@ Gestion des tirs sur l'ennemi:
     note: pour le moment j'ai implémenté seulement les dommages pour le pistolet. Je reviendrais plus tard pour implémenté le reste des armes. 
 
     Grenade:
+        1- Lorsque le joueur ramasse une grenade:
+            a- La grenade doit disparaître du jeu.
+            b- Une icône de grenade doit apparaître.
+        2- Une grenade est instanciée en appuyant sur la touche "g".
+        3- Lorsqu'une grenade entre en collision avec n'importe quoi, elle doit disparaître.
+        4- Si la grenade touche un ennemi, la barre des vie de l'ennemi devrait diminuer.
     
