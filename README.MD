@@ -48,3 +48,6 @@ Gestion des tirs sur l'ennemi:
         3- Lorsqu'une grenade entre en collision avec n'importe quoi, elle doit disparaître.
         4- Si la grenade touche un ennemi, la barre des vie de l'ennemi devrait diminuer.
     
+    Agression:
+        
+    

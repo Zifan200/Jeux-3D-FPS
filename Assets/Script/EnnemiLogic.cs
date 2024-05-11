@@ -67,6 +67,7 @@ public class EnnemiLogic : MonoBehaviour
     if (distanceToPlayer < distanceThreshold)
     {
         pourSuivreJoueur();
+        tirerJoueur();
     }
     else
     {
@@ -84,5 +85,18 @@ public class EnnemiLogic : MonoBehaviour
     {
         // Définir la position de destination de l'agent sur celle du joueur au démarrage
         agent.SetDestination(playerTransform.position);
+    }
+    public void tirerJoueur()
+    {
+        // Raycast pour tirer sur le joueur
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, detectionDistance))
+        {
+            Debug.Log($"Touché: {hit.transform.name}");
+            if (hit.transform.CompareTag("Player"))
+            {
+                Debug.Log("Joueur touché");
+            }
+        }
     }
 }
