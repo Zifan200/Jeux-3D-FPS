@@ -36,3 +36,6 @@ Grenade
 -	Collision
 -	Dommage
 
+Agression de l’ennemi:
+-	Détection du player
+
