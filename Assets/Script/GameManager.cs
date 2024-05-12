@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
     public float headDamageRatio = 4f;
     private GameObject ennemi;
     private EnnemiLogic ennemiLogic;
+    private GameObject timer;
+    private TextMeshProUGUI timerText;
+    private float timeElapsed = 91f;
     GrenadeLogic grenadeLogic;
     PlayerLogic playerLogic;
     private void Awake()
@@ -51,6 +54,8 @@ public class GameManager : MonoBehaviour
         iconGrenade = GameObject.Find("GrenadeIcon").GetComponent<RawImage>();
         grenadeLogic = GameObject.Find("Grenade").GetComponent<GrenadeLogic>();
         playerLogic = GameObject.Find("Player").GetComponent<PlayerLogic>();
+        timer = GameObject.Find("Temps");
+        timerText = timer.GetComponent<TextMeshProUGUI>();
         addItemToList();
         ObjectPasTrouve();
         messagesCacherInitialement();
@@ -59,7 +64,19 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
+        //Vérifier si le temps est supérieur à 0
+        if (timeElapsed >= 1)
+        {
+            //Décrémenter le temps de Time.deltaTime
+            timeElapsed -= Time.deltaTime;
+
+            //Update le temps
+            UpdateTimeText();
+        }
+        else
+        {
+           onPlayerDeath();
+        }
     }
 
     private void addItemToList(){
@@ -162,5 +179,25 @@ public class GameManager : MonoBehaviour
         {
             playerLogic.playerTakeDamage(pistolDamage);
         } 
+    }
+
+    public void onPlayerDeath() {
+        messageDefaite.SetActive(true);
+    }
+
+    void UpdateTimeText()
+    {
+        // Calculer les minutes et les secondes
+        int minutes = Mathf.FloorToInt(timeElapsed / 60f);
+        int seconds = Mathf.FloorToInt(timeElapsed % 60f);
+
+        // Formater le temps dans le format MM:SS en utilisant string.Format
+        string timeString = string.Format("Temps: {0:00}:{1:00}", minutes, seconds);
+
+        // Mettre à jour le texte du composant Text
+        if (timerText != null)
+        {
+            timerText.text = timeString;
+        }
     }
 }

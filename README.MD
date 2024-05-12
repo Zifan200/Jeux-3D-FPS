@@ -56,4 +56,6 @@ Gestion des tirs sur l'ennemi:
         5- Si le player est touché, les points de vie du player doit diminuer.
     
     Condition de défaite :
+        1- Le timer diminue. 
+        
     

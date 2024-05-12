@@ -20,6 +20,7 @@ public class EnnemiLogic : MonoBehaviour
     public float distanceThreshold;
     private float tempsEcouleDepuisTir = 0f;
     public float delaiCadenceTir = 2.0f;
+    private bool playerDetected = false;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +32,6 @@ public class EnnemiLogic : MonoBehaviour
         healthText.text = $"{currentHealth}/{maxHealth}";
         agent = GetComponent<NavMeshAgent>();
         agent.stoppingDistance = stopDistance;
-        initialPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -69,6 +69,11 @@ public class EnnemiLogic : MonoBehaviour
     // Vérifier si le joueur est suffisamment proche
     if (distanceToPlayer < distanceThreshold)
     {
+        playerDetected = true;
+        
+    }
+    if (playerDetected)
+    {
         pourSuivreJoueur();
         if(tempsEcouleDepuisTir >= delaiCadenceTir)
         {
@@ -76,18 +81,7 @@ public class EnnemiLogic : MonoBehaviour
             tirerJoueur();
         }
     }
-    else
-    {
-        retourPositionInitiale();
-    }
 }
-
-    public void retourPositionInitiale()
-    {
-        // Si le joueur n'est pas détecté, retourner à la position initiale
-        agent.SetDestination(initialPosition);
-    }
-
     private void pourSuivreJoueur()
     {
         // Définir la position de destination de l'agent sur celle du joueur au démarrage

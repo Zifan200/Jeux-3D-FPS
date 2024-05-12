@@ -44,5 +44,6 @@ Agression de l’ennemi:
 
 Condition de défaite :
 -	Layout
+-   Timer
 
 
