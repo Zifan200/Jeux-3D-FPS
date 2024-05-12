@@ -132,5 +132,9 @@ public class PlayerLogic : MonoBehaviour
         {
             vieText.text = $"{currentHealth}/{maxHealth}";
         }
+        if(currentHealth == 0)
+        {
+            GameManager.instance.onPlayerDeath();
+        }
     }
 }

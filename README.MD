@@ -57,5 +57,6 @@ Gestion des tirs sur l'ennemi:
     
     Condition de défaite :
         1- Le timer diminue. 
+        2- Si la vie du joueur ou le timer tombent à 0, le message de défaite s'affiche.
         
     
