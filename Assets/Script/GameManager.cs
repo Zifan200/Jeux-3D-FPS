@@ -28,8 +28,11 @@ public class GameManager : MonoBehaviour
     private GameObject timer;
     private TextMeshProUGUI timerText;
     private float timeElapsed = 91f;
+    public GameObject tempsEcoule;
+    public TextMeshProUGUI tempsEcouleText;
     GrenadeLogic grenadeLogic;
     PlayerLogic playerLogic;
+    bool isPlayerDead = false;
     private void Awake()
     {
         if (instance == null) 
@@ -56,6 +59,8 @@ public class GameManager : MonoBehaviour
         playerLogic = GameObject.Find("Player").GetComponent<PlayerLogic>();
         timer = GameObject.Find("Temps");
         timerText = timer.GetComponent<TextMeshProUGUI>();
+        tempsEcoule = GameObject.Find("TempsEcoule");
+        tempsEcouleText = tempsEcoule.GetComponent<TextMeshProUGUI>();
         addItemToList();
         ObjectPasTrouve();
         messagesCacherInitialement();
@@ -72,8 +77,9 @@ public class GameManager : MonoBehaviour
 
             //Update le temps
             UpdateTimeText();
+            UpdateTimeEcouleText();
         }
-        else
+        if(isPlayerDead)
         {
            onPlayerDeath();
         }
@@ -139,6 +145,7 @@ public class GameManager : MonoBehaviour
         if(checkmarkDocumentA.isOn && checkmarkDocumentB.isOn && checkmarkCle.isOn)
             {
                messageVictory.SetActive(true);
+               arreterTimer();
             }
             else
             {
@@ -183,6 +190,8 @@ public class GameManager : MonoBehaviour
 
     public void onPlayerDeath() {
         messageDefaite.SetActive(true);
+        isPlayerDead = true;
+        arreterTimer();
     }
 
     // Fonction pour mettre à jour le temps du jeu
@@ -200,5 +209,24 @@ public class GameManager : MonoBehaviour
         {
             timerText.text = timeString;
         }
+    }
+
+    void UpdateTimeEcouleText()
+{
+    // Calculer le temps écoulé en secondes
+    float tempsEcouleSeconds = Mathf.Abs(Mathf.Floor(timeElapsed) - 90);
+
+    // Formater le temps écoulé en format "SS secondes"
+    string timeString = string.Format("Temps écoulé: {0} secondes", tempsEcouleSeconds);
+
+    // Mettre à jour le texte du composant Text
+    if (tempsEcouleText != null)
+    {
+        tempsEcouleText.text = timeString;
+    }
+}
+    void arreterTimer()
+    {
+        timeElapsed = 0;
     }
 }

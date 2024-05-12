@@ -40,23 +40,26 @@ Gestion des tirs sur l'ennemi:
 
     note: pour le moment j'ai implémenté seulement les dommages pour le pistolet. Je reviendrais plus tard pour implémenté le reste des armes. 
 
-    Grenade:
-        1- Lorsque le joueur ramasse une grenade:
-            a- La grenade doit disparaître du jeu.
-            b- Une icône de grenade doit apparaître.
-        2- Une grenade est instanciée en appuyant sur la touche "g".
-        3- Lorsqu'une grenade entre en collision avec n'importe quoi, elle doit disparaître.
-        4- Si la grenade touche un ennemi, la barre des vie de l'ennemi devrait diminuer.
+Grenade:
+    1- Lorsque le joueur ramasse une grenade:
+        a- La grenade doit disparaître du jeu.
+        b- Une icône de grenade doit apparaître.
+    2- Une grenade est instanciée en appuyant sur la touche "g".
+    3- Lorsqu'une grenade entre en collision avec n'importe quoi, elle doit disparaître.
+    4- Si la grenade touche un ennemi, la barre des vie de l'ennemi devrait diminuer.
     
-    Agression:
-        1- Si le joueur est dans le champ de vision et proche de l'ennemi, il va commencer à poursuivre le joueur.
-        2- L'ennemi ne doit pas toucher le joueur en le poursuivant et doit être à une distance raisonnable entre le player et lui.
-        3- Lorsque l'ennemi tire, il a 33% de chance de toucher le joueur.
-        4- Après que l'ennemi tire, il ne doit pas tirer après 2 secondes.
-        5- Si le player est touché, les points de vie du player doit diminuer.
+Agression:
+    1- Si le joueur est dans le champ de vision et proche de l'ennemi, il va commencer à poursuivre le joueur.
+    2- L'ennemi ne doit pas toucher le joueur en le poursuivant et doit être à une distance raisonnable entre le player et lui.
+    3- Lorsque l'ennemi tire, il a 33% de chance de toucher le joueur.
+    4- Après que l'ennemi tire, il ne doit pas tirer après 2 secondes.
+    5- Si le player est touché, les points de vie du player doit diminuer.
     
-    Condition de défaite :
-        1- Le timer diminue. 
-        2- Si la vie du joueur ou le timer tombent à 0, le message de défaite s'affiche.
+Condition de défaite :
+    1- Le timer diminue. 
+    2- Si la vie du joueur ou le timer tombent à 0, le message de défaite s'affiche.
+
+Condition de victoire(suite):
+    1- Dans le message de victoire, le temps écoulé devrait s'afficher.
         
     

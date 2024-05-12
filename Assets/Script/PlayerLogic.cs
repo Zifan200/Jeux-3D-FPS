@@ -21,7 +21,8 @@ public class PlayerLogic : MonoBehaviour
     private TextMeshProUGUI vieText;
     public float maxHealth = 100f;
     public float currentHealth = 100f;
-   
+    public float positionPlayerInitiale;
+
     // Start is called before the first frame update
     void Start()
     {

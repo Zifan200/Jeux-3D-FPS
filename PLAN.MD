@@ -43,8 +43,12 @@ Agression de l’ennemi:
 -   Dégât au joueur.
 
 Condition de défaite :
--	Layout
--   Timer
--   Affichage du message de défaite
+-	Layout.
+-   Timer.
+-   Affichage du message de défaite.
+
+Condition de victoire(suite):
+-   Ajout du temps écoulé dans la condition de victoire
+
 
 
