@@ -185,6 +185,7 @@ public class GameManager : MonoBehaviour
         messageDefaite.SetActive(true);
     }
 
+    // Fonction pour mettre à jour le temps du jeu
     void UpdateTimeText()
     {
         // Calculer les minutes et les secondes
