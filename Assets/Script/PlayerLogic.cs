@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerLogic : MonoBehaviour
 {
@@ -16,11 +17,17 @@ public class PlayerLogic : MonoBehaviour
     private float spawnDistance = 2f;
     [SerializeField]
     private float launchForce = 15f;
+    private GameObject vie;
+    private TextMeshProUGUI vieText;
+    public float maxHealth = 100f;
+    public float currentHealth = 100f;
    
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        vie = GameObject.Find("LifePoints");
+        vieText = vie.GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -105,5 +112,25 @@ public class PlayerLogic : MonoBehaviour
         Rigidbody rb = GrenadeInstance.GetComponent<Rigidbody>();
         // Ajout de la force à la grenade
         rb.AddForce(transform.forward * launchForce, ForceMode.Impulse);
+    }
+
+    public void playerTakeDamage(float anyDamage)
+    {
+        // Calcul du dommage
+        float damage = anyDamage;
+        Debug.Log($"Dommage: {damage}");
+
+        // Appliquer le dommage à la santé actuelle
+        currentHealth -= damage;
+        //Debug.Log($"Santé actuelle: {currentHealth}");
+
+        // Empêcher la santé de tomber en dessous de zéro
+        currentHealth = Mathf.Max(0, currentHealth);
+
+        // Update les vies
+        if (vieText != null)
+        {
+            vieText.text = $"{currentHealth}/{maxHealth}";
+        }
     }
 }

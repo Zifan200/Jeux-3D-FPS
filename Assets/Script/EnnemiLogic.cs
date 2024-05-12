@@ -70,7 +70,11 @@ public class EnnemiLogic : MonoBehaviour
     if (distanceToPlayer < distanceThreshold)
     {
         pourSuivreJoueur();
-        tirerJoueur();
+        if(tempsEcouleDepuisTir >= delaiCadenceTir)
+        {
+            // Tirer sur le joueur
+            tirerJoueur();
+        }
     }
     else
     {
@@ -98,12 +102,16 @@ public class EnnemiLogic : MonoBehaviour
             if (hit.transform.CompareTag("Player"))
             {
              float chanceDeToucher = Random.value;
-                if (chanceDeToucher <= 0.33f && tempsEcouleDepuisTir >= delaiCadenceTir) // 33% de chance
+                if (chanceDeToucher <= 0.33f) // 33% de chance
                 {
-                    tempsEcouleDepuisTir = 0;
-                    Debug.Log("Joueur touché");
+                    GameManager.instance.onPlayerHit();
+                }
+                else
+                {
+                    Debug.Log("Raté");
                 }
             }
         }
+        tempsEcouleDepuisTir = 0;
     }
 }

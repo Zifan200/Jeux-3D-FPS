@@ -31,13 +31,14 @@ Tir sur ennemi Ennemi
             le plus de fonctionnalités faites.
 
 Grenade
--   Prefab
--   Instanciate
--	Collision
--	Dommage
+-   Prefab.
+-   Instanciate.
+-	Collision.
+-	Dommage.
 
 Agression de l’ennemi:
--	Détection du player
--   tirer
--   cadence de tir
+-	Détection du player.
+-   tirer.
+-   cadence de tir.
+-   Dégât au joueur.
 

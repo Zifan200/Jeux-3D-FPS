@@ -49,5 +49,9 @@ Gestion des tirs sur l'ennemi:
         4- Si la grenade touche un ennemi, la barre des vie de l'ennemi devrait diminuer.
     
     Agression:
-        
+        1- Si le joueur est dans le champ de vision et proche de l'ennemi, il va commencer à poursuivre le joueur.
+        2- L'ennemi ne doit pas toucher le joueur en le poursuivant et doit être à une distance raisonnable entre le player et lui.
+        3- Lorsque l'ennemi tire, il a 33% de chance de toucher le joueur.
+        4- Après que l'ennemi tire, il ne doit pas tirer après 2 secondes.
+        5- Si le player est touché, les points de vie du player doit diminuer.
     

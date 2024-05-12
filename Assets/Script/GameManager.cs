@@ -153,4 +153,11 @@ public class GameManager : MonoBehaviour
             ennemiLogic.TakeDamage(pistolDamage * bodyDamageRatio);
         } 
     }
+
+    public void onPlayerHit() {
+        if (playerLogic != null) 
+        {
+            playerLogic.playerTakeDamage(pistolDamage);
+        } 
+    }
 }
