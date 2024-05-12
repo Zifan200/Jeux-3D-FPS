@@ -18,6 +18,8 @@ public class EnnemiLogic : MonoBehaviour
     public float detectionDistance = 10f;
     [SerializeField]
     public float distanceThreshold;
+    private float tempsEcouleDepuisTir = 0f;
+    public float delaiCadenceTir = 2.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +38,7 @@ public class EnnemiLogic : MonoBehaviour
     void Update()
     {
         detectionJoueur();
+        tempsEcouleDepuisTir += Time.deltaTime;
     }
 
     public void TakeDamage(float anyDamage)
@@ -92,10 +95,14 @@ public class EnnemiLogic : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, detectionDistance))
         {
-            Debug.Log($"Touché: {hit.transform.name}");
             if (hit.transform.CompareTag("Player"))
             {
-                Debug.Log("Joueur touché");
+             float chanceDeToucher = Random.value;
+                if (chanceDeToucher <= 0.33f && tempsEcouleDepuisTir >= delaiCadenceTir) // 33% de chance
+                {
+                    tempsEcouleDepuisTir = 0;
+                    Debug.Log("Joueur touché");
+                }
             }
         }
     }

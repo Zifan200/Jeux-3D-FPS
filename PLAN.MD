@@ -39,4 +39,5 @@ Grenade
 Agression de l’ennemi:
 -	Détection du player
 -   tirer
+-   cadence de tir
 
