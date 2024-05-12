@@ -55,3 +55,5 @@ Gestion des tirs sur l'ennemi:
         4- Après que l'ennemi tire, il ne doit pas tirer après 2 secondes.
         5- Si le player est touché, les points de vie du player doit diminuer.
     
+    Condition de défaite :
+    

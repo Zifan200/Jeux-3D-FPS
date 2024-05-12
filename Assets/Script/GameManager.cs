@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public RawImage iconGrenade;
     public GameObject messageVictory; 
     public GameObject messageObjectMissing;
+    public GameObject messageDefaite;
     public GameObject objetNotFound;
     public TextMeshProUGUI textObjectMissing;
     public List<string> missingItem = new List<string>();
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour
     {
         objetNotFound = GameObject.Find("MessageObjet");
         textObjectMissing = objetNotFound.GetComponent<TextMeshProUGUI>();
+        messageDefaite = GameObject.Find("ConditionDefaite");
         ennemi = GameObject.Find("Ennemi");
         ennemiLogic = ennemi.GetComponent<EnnemiLogic>();
         iconGrenade = GameObject.Find("GrenadeIcon").GetComponent<RawImage>();
@@ -114,6 +116,7 @@ public class GameManager : MonoBehaviour
     public void messagesCacherInitialement(){
         messageVictory.SetActive(false);
         messageObjectMissing.SetActive(false);
+        messageDefaite.SetActive(false);
     }
     public void messageVictoire(){
         if(checkmarkDocumentA.isOn && checkmarkDocumentB.isOn && checkmarkCle.isOn)

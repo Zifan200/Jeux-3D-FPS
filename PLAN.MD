@@ -42,3 +42,7 @@ Agression de l’ennemi:
 -   cadence de tir.
 -   Dégât au joueur.
 
+Condition de défaite :
+-	Layout
+
+
