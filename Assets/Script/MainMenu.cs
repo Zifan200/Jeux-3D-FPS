@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    private GameObject menuTitre;
-    private GameObject menuPrincipal;
-    private GameObject menuJouer;
-    private GameObject menuOption;
+    public GameObject menuTitre;
+    public GameObject menuPrincipal;
+    public GameObject menuJouer;
+    public GameObject menuOption;
     // Start is called before the first frame update
     void Start()
     {
