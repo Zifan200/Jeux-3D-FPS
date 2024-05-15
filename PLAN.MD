@@ -48,7 +48,5 @@ Condition de défaite :
 -   Affichage du message de défaite.
 
 Condition de victoire(suite):
--   Ajout du temps écoulé dans la condition de victoire
-
-
-
+-   Ajout du temps écoulé dans la condition de victoire.
+-   Arreter le jeu.

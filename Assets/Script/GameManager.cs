@@ -145,7 +145,7 @@ public class GameManager : MonoBehaviour
         if(checkmarkDocumentA.isOn && checkmarkDocumentB.isOn && checkmarkCle.isOn)
             {
                messageVictory.SetActive(true);
-               arreterTimer();
+               finDeJeu();
             }
             else
             {
@@ -228,5 +228,12 @@ public class GameManager : MonoBehaviour
     void arreterTimer()
     {
         timeElapsed = 0;
+    }
+
+    public void finDeJeu(){
+        arreterTimer();
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 0f;
     }
 }
