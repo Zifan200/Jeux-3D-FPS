@@ -65,6 +65,9 @@ Condition de victoire(suite):
     3- Appuyer sur le button quitter nous ramène au menu principal.
 
 MenuPause:
-    1- Appuyer sur le button ESC devrait mettre le jeu en pause
+    1- Appuyer sur le button ESC devrait mettre le jeu en pause.
+    2- Lorsque le jeu est en pause, cliquer pour tirer ne doit pas faire perdre des vies à l'ennemi.
+    3- Cliquer sur le boutton reprendre, devrait faire disparaitre le menu et reprendre le jeu.
+    4- Cliquer sur le boutton quitter, devrait ramener au menu Principal.
         
     
