@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
     GrenadeLogic grenadeLogic;
     PlayerLogic playerLogic;
     bool isPlayerDead = false;
+    private GameObject menuPause;
+    private bool jeuEnPause = false;
     private void Awake()
     {
         if (instance == null) 
@@ -62,6 +64,7 @@ public class GameManager : MonoBehaviour
         timerText = timer.GetComponent<TextMeshProUGUI>();
         tempsEcoule = GameObject.Find("TempsEcoule");
         tempsEcouleText = tempsEcoule.GetComponent<TextMeshProUGUI>();
+        menuPause = GameObject.Find("MenuPause");
         addItemToList();
         ObjectPasTrouve();
         messagesCacherInitialement();
@@ -84,6 +87,7 @@ public class GameManager : MonoBehaviour
         {
            onPlayerDeath();
         }
+        menuPauseActive();
     }
 
     private void addItemToList(){
@@ -141,6 +145,7 @@ public class GameManager : MonoBehaviour
         messageVictory.SetActive(false);
         messageObjectMissing.SetActive(false);
         messageDefaite.SetActive(false);
+        menuPause.SetActive(false);
     }
     public void messageVictoire(){
         if(checkmarkDocumentA.isOn && checkmarkDocumentB.isOn && checkmarkCle.isOn)
@@ -162,31 +167,41 @@ public class GameManager : MonoBehaviour
     }
 
     public void bodyShot() {
-        if (ennemiLogic != null) 
-        {
-         ennemiLogic.TakeDamage(pistolDamage);
-        } 
+        if (jeuEnPause == false) {
+            if (ennemiLogic != null) 
+            {
+                ennemiLogic.TakeDamage(pistolDamage * bodyDamageRatio);
+            } 
+        }
     }
 
     public void headShot() {
-        if (ennemiLogic != null) 
-        {
-            ennemiLogic.TakeDamage(pistolDamage * headDamageRatio);
-        } 
+        if (jeuEnPause == false) {
+            if (ennemiLogic != null) 
+            {
+                ennemiLogic.TakeDamage(pistolDamage * headDamageRatio);
+            } 
+        }
     }
 
     public void otherPartShot() {
-        if (ennemiLogic != null) 
+        if (jeuEnPause == false) 
         {
-            ennemiLogic.TakeDamage(pistolDamage * bodyDamageRatio);
-        } 
+            if (ennemiLogic != null) 
+            {
+                ennemiLogic.TakeDamage(pistolDamage * bodyDamageRatio);
+            } 
+        }
     }
 
     public void onPlayerHit() {
-        if (playerLogic != null) 
+        if(jeuEnPause == false)
         {
-            playerLogic.playerTakeDamage(pistolDamage);
-        } 
+            if (playerLogic != null) 
+            {
+                playerLogic.playerTakeDamage(pistolDamage);
+            } 
+        }
     }
 
     public void onPlayerDeath() {
@@ -241,5 +256,26 @@ public class GameManager : MonoBehaviour
     public void onButtonQuitter()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+    public void onButtonReprendre()
+    {
+        Time.timeScale = 1f;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        jeuEnPause = false;
+        menuPause.SetActive(false);
+    }
+
+    public void menuPauseActive()
+    {
+        //Si appui sur ESC, afficher le menu pause et arrêter le jeu
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Time.timeScale = 0f;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            jeuEnPause = true;
+            menuPause.SetActive(true);
+        }
     }
 }

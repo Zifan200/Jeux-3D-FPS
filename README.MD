@@ -63,5 +63,8 @@ Condition de victoire(suite):
     1- Dans le message de victoire, le temps écoulé devrait s'afficher.
     2- Lorsque le message de victoire s'affiche, le jeu devrais se mettre en pause.
     3- Appuyer sur le button quitter nous ramène au menu principal.
+
+MenuPause:
+    1- Appuyer sur le button ESC devrait mettre le jeu en pause
         
     
