@@ -108,7 +108,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3301d4ee80f6e494da1a26908d232ca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grenadeDamage: 100
+  grenadeDegat: 100
+  hasBeenThrown: 0
+  damageRadius: 2
+  totalGrenadeDamage: 0
+  distance: 0
 --- !u!1 &5715710356083007768
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,7 +232,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.94225204, g: 0.9924528, b: 0.013107816, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30

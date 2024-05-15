@@ -74,5 +74,8 @@ Gestion de munition:
     1- Le HUD affiche les informations des munitions actuelle, des munitions totales du chargeur de l'arme et des munitions d'extra.
     2- Apuuyer sur le boutton tirer, update le hud des munitions actuelles.
     3- Appuyer sur le boutton "r", update et ajoute le nombre de munition extra dans munitions actuelle et le nombre de munition extra diminue.
+
+Gestion des armes:
+    1- Ramasser un assault rifle ou un SMG devrait disparaitre du jeu.
         
     

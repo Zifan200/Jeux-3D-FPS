@@ -61,3 +61,7 @@ MenuPause:
 Gestion de munition:
 -       Layout
 -       Reload
+
+Gestion des armes
+-       Prefab des deux autres armes pas encore implémentés dans le jeu.
+-       Ramasser les deux autres armes.

@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ennemi
+  - PistolPlayer
+  - SMGPlayer
+  - AssaultRifflePlayer
+  - SMG
+  - AssaultRiffle
   layers:
   - Default
   - TransparentFX

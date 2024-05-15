@@ -22,6 +22,7 @@ public class PlayerLogic : MonoBehaviour
     public float maxHealth = 100f;
     public float currentHealth = 100f;
     public float positionPlayerInitiale;
+    public GunLogic gunLogic;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,7 @@ public class PlayerLogic : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         vie = GameObject.Find("LifePoints");
         vieText = vie.GetComponent<TextMeshProUGUI>();
+        gunLogic = GetComponent<GunLogic>();
     }
 
     // Update is called once per frame
@@ -66,7 +68,7 @@ public class PlayerLogic : MonoBehaviour
 
     private void playerShooting(){
         //Tirer clic gauche
-         if (Input.GetButtonDown("Fire1") && GameManager.instance.munitionActuellePistol > 0)
+         if (Input.GetButtonDown("Fire1") && GameManager.instance.munitionActuellePistol > 0 )
         {
             GameManager.instance.gestionMunition();
             Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);

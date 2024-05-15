@@ -297,7 +297,7 @@ public class GameManager : MonoBehaviour
     }
     public void gestionMunition()
     {
-        if(munitionActuellePistol > 0)
+        if(munitionActuellePistol > 0 && jeuEnPause == false)
         {
             munitionActuellePistol--;
             ballesActuellesText.text = "Nombre de balles dans le chargeur: " + munitionActuellePistol + "/" + chargeurMaxPistol;
@@ -306,7 +306,7 @@ public class GameManager : MonoBehaviour
 
     public void reload()
     {
-        if(Input.GetKeyDown(KeyCode.R) && munitionExtra > 0)
+        if(Input.GetKeyDown(KeyCode.R) && munitionExtra > 0 && jeuEnPause == false)
         {
             // Calculer le nombre de balles supplémentaires nécessaires pour remplir le chargeur
             float ballesSupplementaires = chargeurMaxPistol - munitionActuellePistol;
