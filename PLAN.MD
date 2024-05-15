@@ -60,3 +60,4 @@ MenuPause:
 
 Gestion de munition:
 -       Layout
+-       Reload

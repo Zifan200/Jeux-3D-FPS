@@ -40,8 +40,8 @@ public class GameManager : MonoBehaviour
     private TextMeshProUGUI ballesActuellesText;
     private GameObject extraBalles;
     private TextMeshProUGUI ballesExtraText;
-    private float munitionTotalPistol = 10;
-    private float munitionActuellePistol;
+    private float chargeurMaxPistol = 10;
+    public float munitionActuellePistol;
     private float munitionExtra = 10;
     private void Awake()
     {
@@ -76,8 +76,11 @@ public class GameManager : MonoBehaviour
         ballesActuellesText = BallesActuelles.GetComponent<TextMeshProUGUI>();
         extraBalles = GameObject.Find("MunitionExtra");
         ballesExtraText = extraBalles.GetComponent<TextMeshProUGUI>();
-        munitionActuellePistol = munitionTotalPistol;
-        
+        munitionActuellePistol = chargeurMaxPistol;
+        ballesActuellesText.text = "Nombre de balles dans le chargeur: " + munitionActuellePistol + "/" + chargeurMaxPistol;
+        ballesExtraText.text = "Nombre de balles supplémentaires: " + munitionExtra;
+        Cursor.visible = false;
+
         addItemToList();
         ObjectPasTrouve();
         messagesCacherInitialement();
@@ -101,6 +104,7 @@ public class GameManager : MonoBehaviour
            onPlayerDeath();
         }
         menuPauseActive();
+        reload();
     }
 
     private void addItemToList(){
@@ -296,7 +300,31 @@ public class GameManager : MonoBehaviour
         if(munitionActuellePistol > 0)
         {
             munitionActuellePistol--;
-            ballesActuellesText.text = "Nombre de balles dans le chargeur: " + munitionActuellePistol + "/" + munitionTotalPistol;
+            ballesActuellesText.text = "Nombre de balles dans le chargeur: " + munitionActuellePistol + "/" + chargeurMaxPistol;
+        }
+    }
+
+    public void reload()
+    {
+        if(Input.GetKeyDown(KeyCode.R) && munitionExtra > 0)
+        {
+            // Calculer le nombre de balles supplémentaires nécessaires pour remplir le chargeur
+            float ballesSupplementaires = chargeurMaxPistol - munitionActuellePistol;
+
+            // Vérifier si le nombre de balles supplémentaires est supérieur à celles disponibles
+             if (ballesSupplementaires > munitionExtra)
+            {
+                // ajouter toutes les munitions supplémentaires restantes
+                ballesSupplementaires = munitionExtra;
+            }
+
+            // Mettre à jour le nombre de balles dans le chargeur et les balles supplémentaires
+            munitionActuellePistol += ballesSupplementaires;
+            munitionExtra -= ballesSupplementaires;
+
+            // Mettre à jour les textes affichant les informations sur les balles
+            ballesActuellesText.text = "Nombre de balles dans le chargeur: " + munitionActuellePistol + "/" + chargeurMaxPistol;
+            ballesExtraText.text = "Nombre de balles supplémentaires: " + munitionExtra;
         }
     }
 }
