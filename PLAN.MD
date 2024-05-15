@@ -50,3 +50,4 @@ Condition de défaite :
 Condition de victoire(suite):
 -   Ajout du temps écoulé dans la condition de victoire.
 -   Arreter le jeu.
+-   Navigation pour le button quitter.
