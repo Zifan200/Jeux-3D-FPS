@@ -57,3 +57,6 @@ MenuPause:
 -       Button ESC pour mettre le jeu en pause.
 -       Reprendre le jeu.
 -       Quitter gameScene.
+
+Gestion de munition:
+-       Layout

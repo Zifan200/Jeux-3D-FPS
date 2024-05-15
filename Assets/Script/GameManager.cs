@@ -36,6 +36,13 @@ public class GameManager : MonoBehaviour
     bool isPlayerDead = false;
     private GameObject menuPause;
     private bool jeuEnPause = false;
+    private GameObject BallesActuelles;
+    private TextMeshProUGUI ballesActuellesText;
+    private GameObject extraBalles;
+    private TextMeshProUGUI ballesExtraText;
+    private float munitionTotalPistol = 10;
+    private float munitionActuellePistol;
+    private float munitionExtra = 10;
     private void Awake()
     {
         if (instance == null) 
@@ -65,6 +72,12 @@ public class GameManager : MonoBehaviour
         tempsEcoule = GameObject.Find("TempsEcoule");
         tempsEcouleText = tempsEcoule.GetComponent<TextMeshProUGUI>();
         menuPause = GameObject.Find("MenuPause");
+        BallesActuelles = GameObject.Find("MunitionActuelle");
+        ballesActuellesText = BallesActuelles.GetComponent<TextMeshProUGUI>();
+        extraBalles = GameObject.Find("MunitionExtra");
+        ballesExtraText = extraBalles.GetComponent<TextMeshProUGUI>();
+        munitionActuellePistol = munitionTotalPistol;
+        
         addItemToList();
         ObjectPasTrouve();
         messagesCacherInitialement();
@@ -276,6 +289,14 @@ public class GameManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             jeuEnPause = true;
             menuPause.SetActive(true);
+        }
+    }
+    public void gestionMunition()
+    {
+        if(munitionActuellePistol > 0)
+        {
+            munitionActuellePistol--;
+            ballesActuellesText.text = "Nombre de balles dans le chargeur: " + munitionActuellePistol + "/" + munitionTotalPistol;
         }
     }
 }

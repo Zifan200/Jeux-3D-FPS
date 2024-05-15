@@ -69,5 +69,8 @@ MenuPause:
     2- Lorsque le jeu est en pause, cliquer pour tirer ne doit pas faire perdre des vies à l'ennemi.
     3- Cliquer sur le boutton reprendre, devrait faire disparaitre le menu et reprendre le jeu.
     4- Cliquer sur le boutton quitter, devrait ramener au menu Principal.
+
+Gestion de munition:
+    1-
         
     
