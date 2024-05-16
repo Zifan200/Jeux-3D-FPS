@@ -70,6 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2314b71e56475144b52ff26d27f2834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ramasserSon: {fileID: 8300000, guid: 9423065c1c0d64ea3a434687a804188b, type: 3}
 --- !u!54 &3628661021341093572
 Rigidbody:
   m_ObjectHideFlags: 0

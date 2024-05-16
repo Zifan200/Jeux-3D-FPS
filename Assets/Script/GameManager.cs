@@ -52,6 +52,10 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI assaultRiffleText;
     [SerializeField]
     private AudioClip rechargeSon;
+    [SerializeField]
+    private AudioClip explosionGrenadeSon;
+    [SerializeField]
+    private AudioClip screamSon;
     AudioSource audioSource;
     private void Awake()
     {
@@ -389,5 +393,13 @@ public class GameManager : MonoBehaviour
         {
             munitionExtra = extraMaxMunition;
         }
+    }
+    public void playScreamSon()
+    {
+        audioSource.PlayOneShot(screamSon);
+    }
+    public void playExplosionGrenadeSon()
+    {
+        audioSource.PlayOneShot(explosionGrenadeSon);
     }
 }

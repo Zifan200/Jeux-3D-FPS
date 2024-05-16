@@ -43,6 +43,8 @@ public class PlayerLogic : MonoBehaviour
     private AudioClip surfaceSon;
     [SerializeField]
     private AudioClip changerArmeSon;
+    [SerializeField]
+    public AudioClip ramasserArmeSon;
     AudioSource audioSource;
 
     // Start is called before the first frame update
@@ -203,6 +205,11 @@ public class PlayerLogic : MonoBehaviour
             // Ajouter l'arme à la liste des armes
             gunList.Add(subMachineGunPlayer);
             afficherListe();
+
+            // Son de récupération d'arme
+            audioSource.PlayOneShot(ramasserArmeSon);
+
+
             Debug.Log(gunList.Count);
             Destroy(other.gameObject); 
         }
@@ -211,8 +218,12 @@ public class PlayerLogic : MonoBehaviour
             // Ajouter l'arme à la liste des armes
             gunList.Add(assaultRifflePlayer);
             afficherListe();
+
+            // Son de récupération d'arme
+            audioSource.PlayOneShot(ramasserArmeSon);
+            
             Debug.Log(gunList.Count);
-            Destroy(other.gameObject); 
+            Destroy(other.gameObject);
         }
        
     }
@@ -399,5 +410,9 @@ public class PlayerLogic : MonoBehaviour
                 }
             }      
         }
+    }
+    public void playSound()
+    {
+        audioSource.PlayOneShot(ramasserArmeSon);
     }
 }

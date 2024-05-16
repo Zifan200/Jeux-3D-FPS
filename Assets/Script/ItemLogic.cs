@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class ItemLogic : MonoBehaviour
 {
+    PlayerLogic playerLogic;
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerLogic = GameObject.Find("Player").GetComponent<PlayerLogic>();
     }
 
     // Update is called once per frame
@@ -34,8 +35,14 @@ public class ItemLogic : MonoBehaviour
                     GameManager.instance.grenadeTrouve();
                 }            
             }
+
+            // Jouer le son après avoir détruit l'objet
+            playerLogic.playSound();
+
+            // Détruire l'objet avant de jouer le son
+            Destroy(gameObject);
+
             Debug.Log($"Le joueur a ramassé: {gameObject.name}");// Affiche l'objet ramasser
-            Destroy(gameObject); // L'objet disparaît
         }
     }
 }
