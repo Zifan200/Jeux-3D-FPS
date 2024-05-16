@@ -39,6 +39,8 @@ public class PlayerLogic : MonoBehaviour
     private AudioClip tirPistol;
     [SerializeField]
     private AudioClip plusDeMunitionSon;
+    [SerializeField]
+    private AudioClip surfaceSon;
     AudioSource audioSource;
 
     // Start is called before the first frame update
@@ -115,6 +117,11 @@ public class PlayerLogic : MonoBehaviour
             {
                 // Effet pour l'impact de la balle
                 Instantiate(etincellePrefab, hit.point, Quaternion.identity);
+                // Si le raycast touche autre qu'un ennemi, jouer le son de surface
+                if(hit.collider.name != "Ennemi")
+                {
+                    audioSource.PlayOneShot(surfaceSon);
+                }
 
                 //Debug.Log(hit.collider.gameObject.name);
                 Rigidbody rb = hit.collider.GetComponent<Rigidbody>();
