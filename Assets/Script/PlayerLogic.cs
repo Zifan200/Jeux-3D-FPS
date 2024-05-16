@@ -33,6 +33,8 @@ public class PlayerLogic : MonoBehaviour
     public bool isAssaultRiffle = false;
     [SerializeField]
     public GameObject smokePrefab;
+    [SerializeField]
+    public GameObject explosionPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -102,6 +104,9 @@ public class PlayerLogic : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
+                // Effet pour l'impact de la balle
+                Instantiate(explosionPrefab, hit.point, Quaternion.identity);
+
                 //Debug.Log(hit.collider.gameObject.name);
                 Rigidbody rb = hit.collider.GetComponent<Rigidbody>();
 

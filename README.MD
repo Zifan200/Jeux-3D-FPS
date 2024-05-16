@@ -92,5 +92,6 @@ Gestion des armes:
 
 Particle System:
     1- Si le joueur ou l'ennemi tire, il doit avoir de la fumé qui va instanciate.
+    2- Si la balle touche une touche, un particle d'étincelle va instanciate.
         
     

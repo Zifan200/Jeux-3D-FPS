@@ -23,6 +23,8 @@ public class EnnemiLogic : MonoBehaviour
     private bool playerDetected = false;
     [SerializeField]
     private GameObject smokePrefab;
+    [SerializeField]
+    private GameObject explosionPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -105,6 +107,8 @@ public class EnnemiLogic : MonoBehaviour
                 if (chanceDeToucher <= 0.33f) // 33% de chance
                 {
                     GameManager.instance.onPlayerHit();
+                    // Effet pour l'impact de la balle
+                    Instantiate(explosionPrefab, hit.point, Quaternion.identity);
                 }
                 else
                 {
