@@ -24,7 +24,7 @@ public class EnnemiLogic : MonoBehaviour
     [SerializeField]
     private GameObject smokePrefab;
     [SerializeField]
-    private GameObject explosionPrefab;
+    private GameObject etincellePrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -108,7 +108,7 @@ public class EnnemiLogic : MonoBehaviour
                 {
                     GameManager.instance.onPlayerHit();
                     // Effet pour l'impact de la balle
-                    Instantiate(explosionPrefab, hit.point, Quaternion.identity);
+                    Instantiate(etincellePrefab, hit.point, Quaternion.identity);
                 }
                 else
                 {

@@ -1144,7 +1144,7 @@ MonoBehaviour:
   distanceThreshold: 15
   delaiCadenceTir: 2
   smokePrefab: {fileID: 100000, guid: fad0c563b44f1e744be433dade05be3f, type: 3}
-  explosionPrefab: {fileID: 168542, guid: d2d39e15b126a364e80c3f5ccc8c9479, type: 3}
+  etincellePrefab: {fileID: 168542, guid: d2d39e15b126a364e80c3f5ccc8c9479, type: 3}
 --- !u!65 &4582528704814979058
 BoxCollider:
   m_ObjectHideFlags: 0

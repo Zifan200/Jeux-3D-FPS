@@ -9,6 +9,8 @@ public class GrenadeLogic : MonoBehaviour
     public float damageRadius = 2f;
     public float totalGrenadeDamage = 0f;
     public float distance = 0f;
+    [SerializeField]
+    private GameObject explosionPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +40,9 @@ public class GrenadeLogic : MonoBehaviour
                     collision.gameObject.GetComponent<EnnemiLogic>().TakeDamage(totalGrenadeDamage);
                 }
             }
+            // Effet pour l'impact de la balle
+            Instantiate(explosionPrefab, collision.GetContact(0).point, Quaternion.identity);
+
             // Détruire la grenade après la collision
             Destroy(gameObject);
         }

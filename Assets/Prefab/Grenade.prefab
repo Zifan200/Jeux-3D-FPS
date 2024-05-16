@@ -113,6 +113,7 @@ MonoBehaviour:
   damageRadius: 2
   totalGrenadeDamage: 0
   distance: 0
+  explosionPrefab: {fileID: 191186, guid: 5ec40937386b6d248af80e26adfd3724, type: 3}
 --- !u!1 &5715710356083007768
 GameObject:
   m_ObjectHideFlags: 0
