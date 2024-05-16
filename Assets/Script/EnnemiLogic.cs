@@ -138,10 +138,10 @@ public class EnnemiLogic : MonoBehaviour
         {
             // Effet sonore pour la mort de l'ennemi
             audioSource.PlayOneShot(scream);
-            
+
             isDead = true;
         
-            // Delay before destroying the enemy GameObject
+            // Delay pour la destruction de l'ennemi
             float delay = scream.length;
             Invoke("DestroyEnemy", delay);
         }

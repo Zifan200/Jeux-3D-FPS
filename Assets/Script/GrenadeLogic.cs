@@ -11,10 +11,13 @@ public class GrenadeLogic : MonoBehaviour
     public float distance = 0f;
     [SerializeField]
     private GameObject explosionPrefab;
+    [SerializeField]
+    private AudioClip explosionSound;
+    AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -43,9 +46,17 @@ public class GrenadeLogic : MonoBehaviour
             // Effet pour l'impact de la balle
             Instantiate(explosionPrefab, collision.GetContact(0).point, Quaternion.identity);
 
-            // Détruire la grenade après la collision
-            Destroy(gameObject);
+            // Instancier l'explosion de la grenade
+            audioSource.PlayOneShot(explosionSound);
+            // Détruire la grenade après un délai
+            float delay = explosionSound.length + 0.1f;
+            Invoke("destroyGrenade", delay);
         }
+    }
+
+    public void destroyGrenade()
+    {
+        Destroy(gameObject);
     }
 
     public void SetThrown()
