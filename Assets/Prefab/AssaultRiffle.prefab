@@ -345,7 +345,6 @@ GameObject:
   - component: {fileID: 9117938948303470164}
   - component: {fileID: 4239810021862814452}
   - component: {fileID: 6687283361594658828}
-  - component: {fileID: -5464180741921964768}
   m_Layer: 0
   m_Name: AssaultRiffle
   m_TagString: AssaultRiffle
@@ -509,23 +508,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.024054889, y: 0.11259178, z: 0.6417267}
   m_Center: {x: -0.00031115348, y: 0.056040283, z: 0.28605577}
---- !u!114 &-5464180741921964768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7316538885775564673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eb902e17347bcf408724cdbf98a1aa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pistol: {fileID: 0}
-  pistolPlayer: {fileID: 0}
-  subMachineGunPlayer: {fileID: 0}
-  assaultRifflePlayer: {fileID: 0}
-  gunList: []
 --- !u!1 &7382888115523354685
 GameObject:
   m_ObjectHideFlags: 0

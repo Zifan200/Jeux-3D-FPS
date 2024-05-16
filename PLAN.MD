@@ -65,3 +65,4 @@ Gestion de munition:
 Gestion des armes
 -       Prefab des deux autres armes pas encore implémentés dans le jeu.
 -       Ramasser les deux autres armes.
+-       Changer d'arme.

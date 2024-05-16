@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3678447897942974427}
   - component: {fileID: 8159686918193562892}
   - component: {fileID: 124092004084227866}
-  - component: {fileID: -8415770783097087492}
   m_Layer: 0
   m_Name: SMG
   m_TagString: SMG
@@ -169,20 +168,3 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &-8415770783097087492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3678447897941033243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eb902e17347bcf408724cdbf98a1aa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pistol: {fileID: 0}
-  pistolPlayer: {fileID: 0}
-  subMachineGunPlayer: {fileID: 0}
-  assaultRifflePlayer: {fileID: 0}
-  gunList: []

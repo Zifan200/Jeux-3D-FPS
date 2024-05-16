@@ -77,5 +77,9 @@ Gestion de munition:
 
 Gestion des armes:
     1- Ramasser un assault rifle ou un SMG devrait disparaitre du jeu.
+    2- Appuyer sur le boutton e doit changer l'arme en trouvant la prochaine arme dans le tableau.
+    3- Appuyer sur le boutton q doit changer l'arme en trouvant l'arme qui précède dans le tableau.
+    4- En scollant avec le boutton de la souris vers le haut, on doit soit trouver la prochaine arme.
+    5- En scollant avec le boutton de la souris vers le bas, on doit trouver l'arme qui précède dans le tableau.
         
     

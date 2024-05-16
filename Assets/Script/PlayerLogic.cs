@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 public class PlayerLogic : MonoBehaviour
 {
@@ -22,7 +23,11 @@ public class PlayerLogic : MonoBehaviour
     public float maxHealth = 100f;
     public float currentHealth = 100f;
     public float positionPlayerInitiale;
-    public GunLogic gunLogic;
+    public GameObject pistolPlayer;
+    public GameObject subMachineGunPlayer;
+    public GameObject assaultRifflePlayer;
+    public List<GameObject> gunList = new List<GameObject>();
+    public float index = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +35,17 @@ public class PlayerLogic : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         vie = GameObject.Find("LifePoints");
         vieText = vie.GetComponent<TextMeshProUGUI>();
-        gunLogic = GetComponent<GunLogic>();
+
+        pistolPlayer = GameObject.Find("PistolPlayer");
+        subMachineGunPlayer = GameObject.Find("SMGPlayer");
+        assaultRifflePlayer = GameObject.Find("AssaultRifflePlayer");
+
+        subMachineGunPlayer.SetActive(false);
+        assaultRifflePlayer.SetActive(false);
+
+        gunList.Add(pistolPlayer);
+        afficherListe();
+
     }
 
     // Update is called once per frame
@@ -40,6 +55,7 @@ public class PlayerLogic : MonoBehaviour
         playerShooting();
         throwGrenade();
         playerPositionUpdate();
+        switchGun();
     }
 
     public void playerPositionUpdate(){
@@ -140,5 +156,106 @@ public class PlayerLogic : MonoBehaviour
         {
             GameManager.instance.onPlayerDeath();
         }
+    }    
+     void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "SMG" && !gunList.Contains(subMachineGunPlayer))
+        {
+            gunList.Add(subMachineGunPlayer);
+            afficherListe();
+            Debug.Log(gunList.Count);
+            Destroy(other.gameObject); 
+        }
+        if (other.gameObject.name == "AssaultRiffle" && !gunList.Contains(assaultRifflePlayer))
+        {
+            gunList.Add(assaultRifflePlayer);
+            afficherListe();
+            Debug.Log(gunList.Count);
+            Destroy(other.gameObject); 
+        }
+       
+    }
+
+    void afficherListe()
+    {
+        string guns = string.Join(", ", gunList.Select(gun => gun.name));
+        Debug.Log("Liste des armes : " + guns);
+    }
+
+    public void switchGun()
+    {
+        float scroll = Input.GetAxis("Mouse ScrollWheel"); // Récupérer le mouvement de la roulette de la souris
+
+        if (Input.GetKeyDown(KeyCode.E) || scroll > 0)
+        {
+        // Incrémenter l'index pour changer d'arme vers la droite
+        index++;
+        if(index >= gunList.Count)
+        {
+            index = 0;
+        }
+            for(int i = 0; i < gunList.Count;i++)
+            {
+                if(index == i)
+                {
+                    if (gunList[i] == subMachineGunPlayer)
+                    {
+                        Debug.Log(i);
+                        Debug.Log(gunList[i]);
+                        subMachineGunPlayer.SetActive(true);
+                        pistolPlayer.SetActive(false);
+                        assaultRifflePlayer.SetActive(false);
+                    }
+                    if (gunList[i] == assaultRifflePlayer)
+                    {
+                        assaultRifflePlayer.SetActive(true);
+                        pistolPlayer.SetActive(false);
+                        subMachineGunPlayer.SetActive(false);
+                    }
+                    if (gunList[i] == pistolPlayer)
+                    {
+                        pistolPlayer.SetActive(true);
+                        subMachineGunPlayer.SetActive(false);
+                        assaultRifflePlayer.SetActive(false);
+                    }
+                }
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Q) || scroll < 0)
+    {
+        // Décrémenter l'index pour changer d'arme vers l'arrière
+        index--;
+        if(index < 0) // Si l'index est inférieur à zéro, revenir à la dernière arme dans la liste
+        {
+            index = gunList.Count - 1;
+        }
+        
+        for(int i = 0; i < gunList.Count; i++)
+        {
+            if(index == i)
+            {
+                if (gunList[i] == subMachineGunPlayer)
+                {
+                    Debug.Log(i);
+                    Debug.Log(gunList[i]);
+                    subMachineGunPlayer.SetActive(true);
+                    pistolPlayer.SetActive(false);
+                    assaultRifflePlayer.SetActive(false);
+                }
+                if (gunList[i] == assaultRifflePlayer)
+                {
+                    assaultRifflePlayer.SetActive(true);
+                    pistolPlayer.SetActive(false);
+                    subMachineGunPlayer.SetActive(false);
+                }
+                if (gunList[i] == pistolPlayer)
+                {
+                    pistolPlayer.SetActive(true);
+                    subMachineGunPlayer.SetActive(false);
+                    assaultRifflePlayer.SetActive(false);
+                }
+            }
+        }
+    }      
     }
 }

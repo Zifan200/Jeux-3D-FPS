@@ -197,7 +197,9 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   positionPlayerInitiale: 0
-  gunLogic: {fileID: 0}
+  pistolPlayer: {fileID: 0}
+  subMachineGunPlayer: {fileID: 0}
+  assaultRifflePlayer: {fileID: 0}
 --- !u!65 &961969887694151631
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -378,6 +380,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5435938549839580888}
     m_Modifications:
+    - target: {fileID: -5464180741921964768, guid: 040d29504a4c3904fa132b23376bf972, type: 3}
+      propertyPath: index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5464180741921964768, guid: 040d29504a4c3904fa132b23376bf972, type: 3}
+      propertyPath: pistolPlayer
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -5464180741921964768, guid: 040d29504a4c3904fa132b23376bf972, type: 3}
+      propertyPath: assaultRifflePlayer
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -5464180741921964768, guid: 040d29504a4c3904fa132b23376bf972, type: 3}
+      propertyPath: subMachineGunPlayer
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4239810021862814452, guid: 040d29504a4c3904fa132b23376bf972, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -386,9 +404,13 @@ PrefabInstance:
       propertyPath: m_DrawHalo
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6687283361594658828, guid: 040d29504a4c3904fa132b23376bf972, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7316538885775564673, guid: 040d29504a4c3904fa132b23376bf972, type: 3}
       propertyPath: m_Name
-      value: AssaultRiffle
+      value: AssaultRifflePlayer
       objectReference: {fileID: 0}
     - target: {fileID: 7316538885775564673, guid: 040d29504a4c3904fa132b23376bf972, type: 3}
       propertyPath: m_IsActive
@@ -438,7 +460,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4239810021862814452, guid: 040d29504a4c3904fa132b23376bf972, type: 3}
+    - {fileID: 6687283361594658828, guid: 040d29504a4c3904fa132b23376bf972, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -456,6 +480,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5435938549839580888}
     m_Modifications:
+    - target: {fileID: -8415770783097087492, guid: 6c5149719716be8409f39c572f8159bd, type: 3}
+      propertyPath: index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8415770783097087492, guid: 6c5149719716be8409f39c572f8159bd, type: 3}
+      propertyPath: pistolPlayer
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -8415770783097087492, guid: 6c5149719716be8409f39c572f8159bd, type: 3}
+      propertyPath: assaultRifflePlayer
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -8415770783097087492, guid: 6c5149719716be8409f39c572f8159bd, type: 3}
+      propertyPath: subMachineGunPlayer
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 124092004084227866, guid: 6c5149719716be8409f39c572f8159bd, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -465,8 +505,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3678447897940679995, guid: 6c5149719716be8409f39c572f8159bd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4774141
+      objectReference: {fileID: 0}
+    - target: {fileID: 3678447897940679995, guid: 6c5149719716be8409f39c572f8159bd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.445
+      value: 0.371
       objectReference: {fileID: 0}
     - target: {fileID: 3678447897940679995, guid: 6c5149719716be8409f39c572f8159bd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -474,7 +518,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3678447897940679995, guid: 6c5149719716be8409f39c572f8159bd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.634
+      value: 0.642
       objectReference: {fileID: 0}
     - target: {fileID: 3678447897940679995, guid: 6c5149719716be8409f39c572f8159bd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -506,7 +550,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3678447897941033243, guid: 6c5149719716be8409f39c572f8159bd, type: 3}
       propertyPath: m_Name
-      value: SMG
+      value: SMGPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 3678447897941033243, guid: 6c5149719716be8409f39c572f8159bd, type: 3}
       propertyPath: m_IsActive
@@ -516,7 +560,13 @@ PrefabInstance:
       propertyPath: m_TagString
       value: SMGPlayer
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8159686918193562892, guid: 6c5149719716be8409f39c572f8159bd, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 124092004084227866, guid: 6c5149719716be8409f39c572f8159bd, type: 3}
+    - {fileID: 8159686918193562892, guid: 6c5149719716be8409f39c572f8159bd, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -534,9 +584,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5435938549839580888}
     m_Modifications:
+    - target: {fileID: -642767758639224802, guid: 98472c9d77ed06444bcfa2884036fd57, type: 3}
+      propertyPath: index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -642767758639224802, guid: 98472c9d77ed06444bcfa2884036fd57, type: 3}
+      propertyPath: pistolPlayer
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -642767758639224802, guid: 98472c9d77ed06444bcfa2884036fd57, type: 3}
+      propertyPath: assaultRifflePlayer
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -642767758639224802, guid: 98472c9d77ed06444bcfa2884036fd57, type: 3}
+      propertyPath: subMachineGunPlayer
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1571873486409940420, guid: 98472c9d77ed06444bcfa2884036fd57, type: 3}
       propertyPath: m_Name
-      value: Pistol
+      value: PistolPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1571873486409940420, guid: 98472c9d77ed06444bcfa2884036fd57, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1571873486409940420, guid: 98472c9d77ed06444bcfa2884036fd57, type: 3}
       propertyPath: m_TagString
