@@ -81,5 +81,6 @@ Gestion des armes:
     3- Appuyer sur le boutton q doit changer l'arme en trouvant l'arme qui précède dans le tableau.
     4- En scollant avec le boutton de la souris vers le haut, on doit soit trouver la prochaine arme.
     5- En scollant avec le boutton de la souris vers le bas, on doit trouver l'arme qui précède dans le tableau.
+    6- En changeant d'arme, l'îcone de l'arme doit apparaître et correspondre à l'arme en main du joueur. 
         
     

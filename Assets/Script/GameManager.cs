@@ -43,6 +43,9 @@ public class GameManager : MonoBehaviour
     private float chargeurMaxPistol = 10;
     public float munitionActuellePistol;
     private float munitionExtra = 10;
+    public RawImage pistolIcon;
+    public RawImage subMachineGunIcon;
+    public RawImage assaultRiffleIcon;
     private void Awake()
     {
         if (instance == null) 
@@ -80,10 +83,14 @@ public class GameManager : MonoBehaviour
         ballesActuellesText.text = "Nombre de balles dans le chargeur: " + munitionActuellePistol + "/" + chargeurMaxPistol;
         ballesExtraText.text = "Nombre de balles supplémentaires: " + munitionExtra;
         Cursor.visible = false;
+        pistolIcon = GameObject.Find("PistolIcon").GetComponent<RawImage>();
+        subMachineGunIcon = GameObject.Find("SMGIcon").GetComponent<RawImage>();
+        assaultRiffleIcon = GameObject.Find("ARIcon").GetComponent<RawImage>();
 
         addItemToList();
         ObjectPasTrouve();
         messagesCacherInitialement();
+        iconCacherInitialement();
     }
 
     // Update is called once per frame
@@ -163,6 +170,10 @@ public class GameManager : MonoBehaviour
         messageObjectMissing.SetActive(false);
         messageDefaite.SetActive(false);
         menuPause.SetActive(false);
+    }
+    public void iconCacherInitialement(){
+        subMachineGunIcon.enabled = false;
+        assaultRiffleIcon.enabled = false;
     }
     public void messageVictoire(){
         if(checkmarkDocumentA.isOn && checkmarkDocumentB.isOn && checkmarkCle.isOn)

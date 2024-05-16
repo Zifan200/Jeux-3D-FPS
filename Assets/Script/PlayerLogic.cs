@@ -205,18 +205,27 @@ public class PlayerLogic : MonoBehaviour
                         subMachineGunPlayer.SetActive(true);
                         pistolPlayer.SetActive(false);
                         assaultRifflePlayer.SetActive(false);
+                        GameManager.instance.pistolIcon.enabled = false;
+                        GameManager.instance.subMachineGunIcon.enabled = true;
+                        GameManager.instance.assaultRiffleIcon.enabled = false;
                     }
                     if (gunList[i] == assaultRifflePlayer)
                     {
                         assaultRifflePlayer.SetActive(true);
                         pistolPlayer.SetActive(false);
                         subMachineGunPlayer.SetActive(false);
+                        GameManager.instance.pistolIcon.enabled = false;
+                        GameManager.instance.subMachineGunIcon.enabled = false;
+                        GameManager.instance.assaultRiffleIcon.enabled = true;
                     }
                     if (gunList[i] == pistolPlayer)
                     {
                         pistolPlayer.SetActive(true);
                         subMachineGunPlayer.SetActive(false);
                         assaultRifflePlayer.SetActive(false);
+                        GameManager.instance.pistolIcon.enabled = true;
+                        GameManager.instance.subMachineGunIcon.enabled = false;
+                        GameManager.instance.assaultRiffleIcon.enabled = false;
                     }
                 }
             }
@@ -241,18 +250,27 @@ public class PlayerLogic : MonoBehaviour
                     subMachineGunPlayer.SetActive(true);
                     pistolPlayer.SetActive(false);
                     assaultRifflePlayer.SetActive(false);
+                    GameManager.instance.pistolIcon.enabled = false;
+                    GameManager.instance.subMachineGunIcon.enabled = true;
+                    GameManager.instance.assaultRiffleIcon.enabled = false;
                 }
                 if (gunList[i] == assaultRifflePlayer)
                 {
                     assaultRifflePlayer.SetActive(true);
                     pistolPlayer.SetActive(false);
                     subMachineGunPlayer.SetActive(false);
+                    GameManager.instance.pistolIcon.enabled = false;
+                    GameManager.instance.subMachineGunIcon.enabled = false;
+                    GameManager.instance.assaultRiffleIcon.enabled = true;
                 }
                 if (gunList[i] == pistolPlayer)
                 {
                     pistolPlayer.SetActive(true);
                     subMachineGunPlayer.SetActive(false);
                     assaultRifflePlayer.SetActive(false);
+                    GameManager.instance.pistolIcon.enabled = true;
+                    GameManager.instance.subMachineGunIcon.enabled = false;
+                    GameManager.instance.assaultRiffleIcon.enabled = false;
                 }
             }
         }
