@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     PlayerLogic playerLogic;
     bool isPlayerDead = false;
     private GameObject menuPause;
-    private bool jeuEnPause = false;
+    public bool jeuEnPause = false;
     private GameObject BallesActuelles;
     private TextMeshProUGUI ballesActuellesText;
     private GameObject extraBalles;
@@ -163,14 +163,17 @@ public class GameManager : MonoBehaviour
 
     public void lancerGrenade(){
         // Lancer granade avec button "g" et si il y a des grenades dans la liste
-        if(Input.GetKeyDown(KeyCode.G) && grenadeList.Count > 0)
+        if(jeuEnPause == false)
         {
-            grenadeList.RemoveAt(0);
-            if(grenadeList.Count == 0)
+            if(Input.GetKeyDown(KeyCode.G) && grenadeList.Count > 0)
             {
-                iconGrenade.enabled = false;
+                grenadeList.RemoveAt(0);
+                if(grenadeList.Count == 0)
+                {
+                    iconGrenade.enabled = false;
+                }
+                playerLogic.instanciateGrenade();
             }
-            playerLogic.instanciateGrenade();
         }
     }
 
@@ -207,10 +210,18 @@ public class GameManager : MonoBehaviour
 
     public void bodyShot() {
         if (jeuEnPause == false) {
-            if (ennemiLogic != null) 
+            if (ennemiLogic != null && playerLogic.isPistol) 
             {
                 ennemiLogic.TakeDamage(pistolDamage * bodyDamageRatio);
-            } 
+            }
+            if(ennemiLogic != null && playerLogic.isSubMachineGun)
+            {
+                ennemiLogic.TakeDamage(submachineGunDamage * bodyDamageRatio);
+            }
+            if(ennemiLogic != null && playerLogic.isAssaultRiffle)
+            {
+                ennemiLogic.TakeDamage(assaultRiffleDamage * bodyDamageRatio);
+            }
         }
     }
 

@@ -28,6 +28,9 @@ public class PlayerLogic : MonoBehaviour
     public GameObject assaultRifflePlayer;
     public List<GameObject> gunList = new List<GameObject>();
     public float index = 0;
+    public bool isPistol = true;
+    public bool isSubMachineGun = false;
+    public bool isAssaultRiffle = false;
 
     // Start is called before the first frame update
     void Start()
@@ -187,7 +190,7 @@ public class PlayerLogic : MonoBehaviour
     public void switchGun()
     {
         float scroll = Input.GetAxis("Mouse ScrollWheel"); // Récupérer le mouvement de la roulette de la souris
-
+        if(GameManager.instance.jeuEnPause == false){
         if (Input.GetKeyDown(KeyCode.E) || scroll > 0)
         {
         // Incrémenter l'index pour changer d'arme vers la droite
@@ -217,6 +220,11 @@ public class PlayerLogic : MonoBehaviour
                         GameManager.instance.subMachineGunText.enabled = true;
                         GameManager.instance.assaultRiffleText.enabled = false;
 
+                        // Changer les booléens
+                        isPistol = false;
+                        isSubMachineGun = true;
+                        isAssaultRiffle = false;
+
                     }
                     if (gunList[i] == assaultRifflePlayer)
                     {
@@ -234,6 +242,11 @@ public class PlayerLogic : MonoBehaviour
                         GameManager.instance.pistolText.enabled = false;
                         GameManager.instance.subMachineGunText.enabled = false;
                         GameManager.instance.assaultRiffleText.enabled = true;
+
+                        // Changer les booléens
+                        isPistol = false;
+                        isSubMachineGun = false;
+                        isAssaultRiffle = true;
                     }
                     if (gunList[i] == pistolPlayer)
                     {
@@ -251,6 +264,11 @@ public class PlayerLogic : MonoBehaviour
                         GameManager.instance.pistolText.enabled = true;
                         GameManager.instance.subMachineGunText.enabled = false;
                         GameManager.instance.assaultRiffleText.enabled = false;
+
+                        // Changer les booléens
+                        isPistol = true;
+                        isSubMachineGun = false;
+                        isAssaultRiffle = false;
                     }
                 }
             }
@@ -284,6 +302,11 @@ public class PlayerLogic : MonoBehaviour
                     GameManager.instance.pistolText.enabled = false;
                     GameManager.instance.subMachineGunText.enabled = true;
                     GameManager.instance.assaultRiffleText.enabled = false;
+
+                    // Changer les booléens
+                    isPistol = false;
+                    isSubMachineGun = true;
+                    isAssaultRiffle = false;
                 }
                 if (gunList[i] == assaultRifflePlayer)
                 {
@@ -301,6 +324,11 @@ public class PlayerLogic : MonoBehaviour
                     GameManager.instance.pistolText.enabled = false;
                     GameManager.instance.subMachineGunText.enabled = false;
                     GameManager.instance.assaultRiffleText.enabled = true;
+
+                    // Changer les booléens
+                    isPistol = false;
+                    isSubMachineGun = false;
+                    isAssaultRiffle = true;
                 }
                 if (gunList[i] == pistolPlayer)
                 {
@@ -318,9 +346,15 @@ public class PlayerLogic : MonoBehaviour
                     GameManager.instance.pistolText.enabled = true;
                     GameManager.instance.subMachineGunText.enabled = false;
                     GameManager.instance.assaultRiffleText.enabled = false;
+
+                    // Changer les booléens
+                    isPistol = true;
+                    isSubMachineGun = false;
+                    isAssaultRiffle = false;
                 }
             }
         }
     }      
+    }
     }
 }
