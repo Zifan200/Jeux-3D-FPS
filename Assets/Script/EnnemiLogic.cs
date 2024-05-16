@@ -21,6 +21,8 @@ public class EnnemiLogic : MonoBehaviour
     private float tempsEcouleDepuisTir = 0f;
     public float delaiCadenceTir = 2.0f;
     private bool playerDetected = false;
+    [SerializeField]
+    private GameObject smokePrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -93,6 +95,10 @@ public class EnnemiLogic : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, detectionDistance))
         {
+            // Effet special smoke
+            Vector3 spawnPosition = transform.position + transform.forward * 1f + transform.right * 0.5f;
+            Instantiate(smokePrefab, spawnPosition, Quaternion.identity);
+
             if (hit.transform.CompareTag("Player"))
             {
              float chanceDeToucher = Random.value;

@@ -200,6 +200,12 @@ MonoBehaviour:
   pistolPlayer: {fileID: 0}
   subMachineGunPlayer: {fileID: 0}
   assaultRifflePlayer: {fileID: 0}
+  gunList: []
+  index: 0
+  isPistol: 1
+  isSubMachineGun: 0
+  isAssaultRiffle: 0
+  smokePrefab: {fileID: 100000, guid: fad0c563b44f1e744be433dade05be3f, type: 3}
 --- !u!65 &961969887694151631
 BoxCollider:
   m_ObjectHideFlags: 0

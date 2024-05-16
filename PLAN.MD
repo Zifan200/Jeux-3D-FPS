@@ -69,3 +69,8 @@ Gestion des armes
 -   Îcone.
 -   Afficher nom des armes.
 -   Dégâts des deux autres armes.
+
+Particle system
+- Tirer
+- Toucher
+- Explosion pour la grenade

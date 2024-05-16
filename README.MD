@@ -89,5 +89,8 @@ Gestion des armes:
     11- Tirer sur le corps d'un ennemi avec un SMG doit enlever 10 dommages.
     12- Tirer sur la tête d'un ennemi avec un SMG  doit enlever 40 dommages. 
     13- Tirer sur la main d'un ennemi avec un SMG doit enlever 2.5 dommages.
+
+Particle System:
+    1- Si le joueur ou l'ennemi tire, il doit avoir de la fumé qui va instanciate.
         
     

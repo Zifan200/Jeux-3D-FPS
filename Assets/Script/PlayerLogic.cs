@@ -31,6 +31,8 @@ public class PlayerLogic : MonoBehaviour
     public bool isPistol = true;
     public bool isSubMachineGun = false;
     public bool isAssaultRiffle = false;
+    [SerializeField]
+    public GameObject smokePrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +49,7 @@ public class PlayerLogic : MonoBehaviour
         assaultRifflePlayer.SetActive(false);
 
         gunList.Add(pistolPlayer);
+
         afficherListe();
 
     }
@@ -87,9 +90,14 @@ public class PlayerLogic : MonoBehaviour
 
     private void playerShooting(){
         //Tirer clic gauche
-         if (Input.GetButtonDown("Fire1") && GameManager.instance.munitionActuellePistol > 0 )
+         if (Input.GetButtonDown("Fire1") && GameManager.instance.munitionActuellePistol > 0)
         {
             GameManager.instance.gestionMunition();
+
+            // Effet special smoke
+            Vector3 spawnPosition = transform.position + transform.forward * 1f + transform.right * 0.5f;
+            Instantiate(smokePrefab, spawnPosition, Quaternion.identity);
+
             Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
