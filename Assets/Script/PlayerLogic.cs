@@ -37,6 +37,8 @@ public class PlayerLogic : MonoBehaviour
     public GameObject etincellePrefab;
     [SerializeField]
     private AudioClip tirPistol;
+    [SerializeField]
+    private AudioClip plusDeMunitionSon;
     AudioSource audioSource;
 
     // Start is called before the first frame update
@@ -94,8 +96,9 @@ public class PlayerLogic : MonoBehaviour
 
     private void playerShooting(){
         //Tirer clic gauche
-        if (Input.GetButtonDown("Fire1") && GameManager.instance.munitionActuellePistol > 0 && !GameManager.instance.jeuEnPause)
-        {
+        if (Input.GetButtonDown("Fire1") && !GameManager.instance.jeuEnPause)
+        {   
+            if(GameManager.instance.munitionActuellePistol > 0){
             // Jouer le son de tir
             audioSource.PlayOneShot(tirPistol);
 
@@ -137,6 +140,11 @@ public class PlayerLogic : MonoBehaviour
             {
                 Debug.Log("Raté");
             }
+            }
+            else
+            {
+                audioSource.PlayOneShot(plusDeMunitionSon);
+            } 
         }
     }
 

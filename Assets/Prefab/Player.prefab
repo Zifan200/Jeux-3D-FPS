@@ -209,6 +209,7 @@ MonoBehaviour:
   smokePrefab: {fileID: 100000, guid: fad0c563b44f1e744be433dade05be3f, type: 3}
   etincellePrefab: {fileID: 168542, guid: d2d39e15b126a364e80c3f5ccc8c9479, type: 3}
   tirPistol: {fileID: 8300000, guid: d3247579c549643a5b3a95f9224eaf3c, type: 3}
+  plusDeMunitionSon: {fileID: 8300000, guid: e7632c6401c09437e83de45d33c5858e, type: 3}
 --- !u!65 &961969887694151631
 BoxCollider:
   m_ObjectHideFlags: 0
