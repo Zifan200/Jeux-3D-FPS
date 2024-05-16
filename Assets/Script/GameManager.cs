@@ -50,6 +50,9 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI pistolText;
     public TextMeshProUGUI subMachineGunText;
     public TextMeshProUGUI assaultRiffleText;
+    [SerializeField]
+    private AudioClip rechargeSon;
+    AudioSource audioSource;
     private void Awake()
     {
         if (instance == null) 
@@ -93,6 +96,7 @@ public class GameManager : MonoBehaviour
         pistolText = GameObject.Find("PistolText").GetComponent<TextMeshProUGUI>();
         subMachineGunText = GameObject.Find("SMGText").GetComponent<TextMeshProUGUI>();
         assaultRiffleText = GameObject.Find("ARText").GetComponent<TextMeshProUGUI>();
+        audioSource = GetComponent<AudioSource>();
 
         addItemToList();
         ObjectPasTrouve();
@@ -113,7 +117,7 @@ public class GameManager : MonoBehaviour
             UpdateTimeText();
             UpdateTimeEcouleText();
         }
-        if(isPlayerDead)
+        if(isPlayerDead || timeElapsed <= 0)
         {
            onPlayerDeath();
         }
@@ -355,8 +359,11 @@ public class GameManager : MonoBehaviour
 
     public void reload()
     {
-        if(Input.GetKeyDown(KeyCode.R) && munitionExtra > 0 && jeuEnPause == false)
+        if(Input.GetKeyDown(KeyCode.R) && munitionExtra > 0 && !jeuEnPause)
         {
+            // Son de rechargement
+            audioSource.PlayOneShot(rechargeSon);
+
             // Calculer le nombre de balles supplémentaires nécessaires pour remplir le chargeur
             float ballesSupplementaires = chargeurMaxPistol - munitionActuellePistol;
 

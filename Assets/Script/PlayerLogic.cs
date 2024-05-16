@@ -94,7 +94,7 @@ public class PlayerLogic : MonoBehaviour
 
     private void playerShooting(){
         //Tirer clic gauche
-        if (Input.GetButtonDown("Fire1") && GameManager.instance.munitionActuellePistol > 0)
+        if (Input.GetButtonDown("Fire1") && GameManager.instance.munitionActuellePistol > 0 && !GameManager.instance.jeuEnPause)
         {
             // Jouer le son de tir
             audioSource.PlayOneShot(tirPistol);
