@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     private GameObject BallesActuelles;
     private TextMeshProUGUI ballesActuellesText;
     private GameObject extraBalles;
-    private TextMeshProUGUI ballesExtraText;
+    public TextMeshProUGUI ballesExtraText;
     private float chargeurMaxPistol = 10;
     public float munitionActuellePistol;
     private float munitionExtra = 10;
@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private AudioClip screamSon;
     AudioSource audioSource;
+    private GameObject munition;
     private void Awake()
     {
         if (instance == null) 
@@ -101,6 +102,7 @@ public class GameManager : MonoBehaviour
         subMachineGunText = GameObject.Find("SMGText").GetComponent<TextMeshProUGUI>();
         assaultRiffleText = GameObject.Find("ARText").GetComponent<TextMeshProUGUI>();
         audioSource = GetComponent<AudioSource>();
+        munition = GameObject.Find("Bullet");
 
         addItemToList();
         ObjectPasTrouve();
@@ -167,6 +169,12 @@ public class GameManager : MonoBehaviour
     {
         iconGrenade.enabled = true;
         grenadeList.Add("Grenade");
+    }
+    public void munitionTrouve()
+    {
+        munitionExtra += 10;
+        ballesExtraText.text = "Nombre de balles supplémentaires: " + munitionExtra;
+        munition.SetActive(false);
     }
 
     public void lancerGrenade(){
@@ -394,6 +402,7 @@ public class GameManager : MonoBehaviour
             munitionExtra = extraMaxMunition;
         }
     }
+
     public void playScreamSon()
     {
         audioSource.PlayOneShot(screamSon);

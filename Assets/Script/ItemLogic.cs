@@ -35,6 +35,9 @@ public class ItemLogic : MonoBehaviour
                     GameManager.instance.grenadeTrouve();
                 }            
             }
+            if (gameObject.name == "Bullet"){
+                GameManager.instance.munitionTrouve();
+            }
 
             // Jouer le son après avoir détruit l'objet
             playerLogic.playSound();

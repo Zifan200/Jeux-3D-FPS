@@ -84,5 +84,7 @@ Audio:
 - Son pour changer l'arme.
 - Son pour explosition de la grenade.
 - Son pour ramasser des objets.
-    *Note: Implémentation des munitions que le player peut ramasser
 
+Gestion des munitions(Suite):
+- Ramasser des munitions fait disparaitre les munitions récupérées.
+- Ramasser des munitions update le hud des extra munitions.

@@ -104,7 +104,8 @@ Audio:
     6- Un son doit jouer lorsque le player change d'arme.
     7- Un son doit jouer lorsque pour l'explostion de la grenade.
     8- Un son doit jouer lorsque le player ramasse des objets.
-        gestion des munitions(suite)
-            a- Implémenté des balles dans le jeu pour que le player puisse ramasser.
         
+Gestion des munitions(suite)
+    1- Implémenté des balles dans le jeu pour que le player puisse ramasser.  
+    2- Update le hud des extra munitions récupérés.     
     
