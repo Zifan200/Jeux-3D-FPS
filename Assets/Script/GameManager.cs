@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     private float chargeurMaxPistol = 10;
     public float munitionActuellePistol;
     private float munitionExtra = 10;
+    private float extraMaxMunition = 100;
     public RawImage pistolIcon;
     public RawImage subMachineGunIcon;
     public RawImage assaultRiffleIcon;
@@ -118,6 +119,8 @@ public class GameManager : MonoBehaviour
         }
         menuPauseActive();
         reload();
+        munitionMax();
+        
     }
 
     private void addItemToList(){
@@ -344,6 +347,13 @@ public class GameManager : MonoBehaviour
             // Mettre à jour les textes affichant les informations sur les balles
             ballesActuellesText.text = "Nombre de balles dans le chargeur: " + munitionActuellePistol + "/" + chargeurMaxPistol;
             ballesExtraText.text = "Nombre de balles supplémentaires: " + munitionExtra;
+        }
+    }
+    public void munitionMax()
+    {
+       if(munitionExtra > extraMaxMunition)
+        {
+            munitionExtra = extraMaxMunition;
         }
     }
 }

@@ -68,3 +68,4 @@ Gestion des armes
 -   Changer d'arme.
 -   Îcone.
 -   Afficher nom des armes.
+-   Dégâts des deux autres armes.
