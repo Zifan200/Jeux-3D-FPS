@@ -82,6 +82,7 @@ Audio:
 - Son pour tirer mais fusil vide.
 - Son pour toucher une surface(ennemi exclu). 
 - Son pour changer l'arme.
+- Son pour explosition de la grenade.
 - Son pour ramasser des objets.
     *Note: Implémentation des munitions que le player peut ramasser
-- Son pour explosition de la grenade.
+

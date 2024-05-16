@@ -27,7 +27,10 @@ public class EnnemiLogic : MonoBehaviour
     private GameObject etincellePrefab;
     [SerializeField]
     private AudioClip tirPistol;
+    [SerializeField]
+    private AudioClip scream;
     AudioSource audioSource;
+    private bool isDead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -67,29 +70,30 @@ public class EnnemiLogic : MonoBehaviour
         {
             healthText.text = $"{currentHealth}/{maxHealth}";
         }
+        mortEnnemi();
     }
 
     public void detectionJoueur()
-{
-    // Distance entre l'ennemi et le joueur
-    float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+    {
+        // Distance entre l'ennemi et le joueur
+        float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
 
-    // Vérifier si le joueur est suffisamment proche
-    if (distanceToPlayer < distanceThreshold)
-    {
-        playerDetected = true;
-        
-    }
-    if (playerDetected)
-    {
-        pourSuivreJoueur();
-        if(tempsEcouleDepuisTir >= delaiCadenceTir)
+        // Vérifier si le joueur est suffisamment proche
+        if (distanceToPlayer < distanceThreshold)
         {
-            // Tirer sur le joueur
-            tirerJoueur();
+            playerDetected = true;
+        
+        }
+        if (playerDetected)
+        {
+            pourSuivreJoueur();
+            if(tempsEcouleDepuisTir >= delaiCadenceTir)
+            {
+                // Tirer sur le joueur
+                tirerJoueur();
+            }
         }
     }
-}
     private void pourSuivreJoueur()
     {
         // Définir la position de destination de l'agent sur celle du joueur au démarrage
@@ -97,6 +101,7 @@ public class EnnemiLogic : MonoBehaviour
     }
     public void tirerJoueur()
     {
+        if(!isDead){
         // Raycast pour tirer sur le joueur
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, detectionDistance))
@@ -104,7 +109,7 @@ public class EnnemiLogic : MonoBehaviour
             // Effet special smoke
             Vector3 spawnPosition = transform.position + transform.forward * 1f + transform.right * 0.5f;
             Instantiate(smokePrefab, spawnPosition, Quaternion.identity);
-            
+
             // Effet sonore pour le tir
             audioSource.PlayOneShot(tirPistol);
 
@@ -124,5 +129,27 @@ public class EnnemiLogic : MonoBehaviour
             }
         }
         tempsEcouleDepuisTir = 0;
+        }
+    }
+
+    public void mortEnnemi()
+    {
+        if (currentHealth <= 0)
+        {
+            // Effet sonore pour la mort de l'ennemi
+            audioSource.PlayOneShot(scream);
+            
+            isDead = true;
+        
+            // Delay before destroying the enemy GameObject
+            float delay = scream.length;
+            Invoke("DestroyEnemy", delay);
+        }
+    }
+
+    private void DestroyEnemy()
+    {
+        // Détruire l'ennemi
+        Destroy(gameObject);
     }
 }

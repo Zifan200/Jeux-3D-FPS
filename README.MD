@@ -97,5 +97,14 @@ Particle System:
 
 Audio:
     1- Lorsque le player ou l'ennemi tire, un son va être jouer.
+    2- Un son doit jouer à la mort de l'ennemi.
+    3- Un son doit jouer lorsque le player appuie sur le boutton R pour recharger.
+    4- Un son doit jouer lorsque le joueur essaye de tirer mais que le chargeur est vide.
+    5- Un son doit jouer lorsque la balle touche un surface autre que l'ennemi.
+    6- Un son doit jouer lorsque le player change d'arme.
+    7- Un son doit jouer lorsque pour l'explostion de la grenade.
+    8- Un son doit jouer lorsque le player ramasse des objets.
+        gestion des munitions(suite)
+            a- Implémenté des balles dans le jeu pour que le player puisse ramasser.
         
     
