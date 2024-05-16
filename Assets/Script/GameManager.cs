@@ -46,6 +46,9 @@ public class GameManager : MonoBehaviour
     public RawImage pistolIcon;
     public RawImage subMachineGunIcon;
     public RawImage assaultRiffleIcon;
+    public TextMeshProUGUI pistolText;
+    public TextMeshProUGUI subMachineGunText;
+    public TextMeshProUGUI assaultRiffleText;
     private void Awake()
     {
         if (instance == null) 
@@ -86,6 +89,9 @@ public class GameManager : MonoBehaviour
         pistolIcon = GameObject.Find("PistolIcon").GetComponent<RawImage>();
         subMachineGunIcon = GameObject.Find("SMGIcon").GetComponent<RawImage>();
         assaultRiffleIcon = GameObject.Find("ARIcon").GetComponent<RawImage>();
+        pistolText = GameObject.Find("PistolText").GetComponent<TextMeshProUGUI>();
+        subMachineGunText = GameObject.Find("SMGText").GetComponent<TextMeshProUGUI>();
+        assaultRiffleText = GameObject.Find("ARText").GetComponent<TextMeshProUGUI>();
 
         addItemToList();
         ObjectPasTrouve();
@@ -170,6 +176,8 @@ public class GameManager : MonoBehaviour
         messageObjectMissing.SetActive(false);
         messageDefaite.SetActive(false);
         menuPause.SetActive(false);
+        subMachineGunText.enabled = false;
+        assaultRiffleText.enabled = false;
     }
     public void iconCacherInitialement(){
         subMachineGunIcon.enabled = false;

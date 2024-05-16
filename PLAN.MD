@@ -67,3 +67,4 @@ Gestion des armes
 -   Ramasser les deux autres armes.
 -   Changer d'arme.
 -   Îcone.
+-   Afficher nom des armes.

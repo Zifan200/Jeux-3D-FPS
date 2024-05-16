@@ -161,6 +161,7 @@ public class PlayerLogic : MonoBehaviour
     {
         if (other.gameObject.name == "SMG" && !gunList.Contains(subMachineGunPlayer))
         {
+            // Ajouter l'arme à la liste des armes
             gunList.Add(subMachineGunPlayer);
             afficherListe();
             Debug.Log(gunList.Count);
@@ -168,6 +169,7 @@ public class PlayerLogic : MonoBehaviour
         }
         if (other.gameObject.name == "AssaultRiffle" && !gunList.Contains(assaultRifflePlayer))
         {
+            // Ajouter l'arme à la liste des armes
             gunList.Add(assaultRifflePlayer);
             afficherListe();
             Debug.Log(gunList.Count);
@@ -200,32 +202,55 @@ public class PlayerLogic : MonoBehaviour
                 {
                     if (gunList[i] == subMachineGunPlayer)
                     {
-                        Debug.Log(i);
-                        Debug.Log(gunList[i]);
+                        // Changer l'arme active
                         subMachineGunPlayer.SetActive(true);
                         pistolPlayer.SetActive(false);
                         assaultRifflePlayer.SetActive(false);
+                        
+                        // Changer l'icône de l'arme active
                         GameManager.instance.pistolIcon.enabled = false;
                         GameManager.instance.subMachineGunIcon.enabled = true;
                         GameManager.instance.assaultRiffleIcon.enabled = false;
+
+                        // Changer le texte de l'arme active
+                        GameManager.instance.pistolText.enabled = false;
+                        GameManager.instance.subMachineGunText.enabled = true;
+                        GameManager.instance.assaultRiffleText.enabled = false;
+
                     }
                     if (gunList[i] == assaultRifflePlayer)
                     {
+                        // Changer l'arme active
                         assaultRifflePlayer.SetActive(true);
                         pistolPlayer.SetActive(false);
                         subMachineGunPlayer.SetActive(false);
+
+                        // Changer l'icône de l'arme active
                         GameManager.instance.pistolIcon.enabled = false;
                         GameManager.instance.subMachineGunIcon.enabled = false;
                         GameManager.instance.assaultRiffleIcon.enabled = true;
+
+                        // Changer le texte de l'arme active
+                        GameManager.instance.pistolText.enabled = false;
+                        GameManager.instance.subMachineGunText.enabled = false;
+                        GameManager.instance.assaultRiffleText.enabled = true;
                     }
                     if (gunList[i] == pistolPlayer)
                     {
+                        // Changer l'arme active
                         pistolPlayer.SetActive(true);
                         subMachineGunPlayer.SetActive(false);
                         assaultRifflePlayer.SetActive(false);
+
+                        // Changer l'icône de l'arme active
                         GameManager.instance.pistolIcon.enabled = true;
                         GameManager.instance.subMachineGunIcon.enabled = false;
                         GameManager.instance.assaultRiffleIcon.enabled = false;
+
+                        // Changer le texte de l'arme active
+                        GameManager.instance.pistolText.enabled = true;
+                        GameManager.instance.subMachineGunText.enabled = false;
+                        GameManager.instance.assaultRiffleText.enabled = false;
                     }
                 }
             }
@@ -245,32 +270,54 @@ public class PlayerLogic : MonoBehaviour
             {
                 if (gunList[i] == subMachineGunPlayer)
                 {
-                    Debug.Log(i);
-                    Debug.Log(gunList[i]);
+                    // Changer l'arme active
                     subMachineGunPlayer.SetActive(true);
                     pistolPlayer.SetActive(false);
                     assaultRifflePlayer.SetActive(false);
+
+                    // Changer l'icône de l'arme active
                     GameManager.instance.pistolIcon.enabled = false;
                     GameManager.instance.subMachineGunIcon.enabled = true;
                     GameManager.instance.assaultRiffleIcon.enabled = false;
+
+                    // Changer le texte de l'arme active
+                    GameManager.instance.pistolText.enabled = false;
+                    GameManager.instance.subMachineGunText.enabled = true;
+                    GameManager.instance.assaultRiffleText.enabled = false;
                 }
                 if (gunList[i] == assaultRifflePlayer)
                 {
+                    // Changer l'arme active
                     assaultRifflePlayer.SetActive(true);
                     pistolPlayer.SetActive(false);
                     subMachineGunPlayer.SetActive(false);
+
+                    // Changer l'icône de l'arme active
                     GameManager.instance.pistolIcon.enabled = false;
                     GameManager.instance.subMachineGunIcon.enabled = false;
                     GameManager.instance.assaultRiffleIcon.enabled = true;
+
+                    // Changer le texte de l'arme active
+                    GameManager.instance.pistolText.enabled = false;
+                    GameManager.instance.subMachineGunText.enabled = false;
+                    GameManager.instance.assaultRiffleText.enabled = true;
                 }
                 if (gunList[i] == pistolPlayer)
                 {
+                    // Changer l'arme active
                     pistolPlayer.SetActive(true);
                     subMachineGunPlayer.SetActive(false);
                     assaultRifflePlayer.SetActive(false);
+
+                    // Changer l'icône de l'arme active
                     GameManager.instance.pistolIcon.enabled = true;
                     GameManager.instance.subMachineGunIcon.enabled = false;
                     GameManager.instance.assaultRiffleIcon.enabled = false;
+
+                    // Changer le texte de l'arme active
+                    GameManager.instance.pistolText.enabled = true;
+                    GameManager.instance.subMachineGunText.enabled = false;
+                    GameManager.instance.assaultRiffleText.enabled = false;
                 }
             }
         }
