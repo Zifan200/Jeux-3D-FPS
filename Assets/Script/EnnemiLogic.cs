@@ -25,6 +25,9 @@ public class EnnemiLogic : MonoBehaviour
     private GameObject smokePrefab;
     [SerializeField]
     private GameObject etincellePrefab;
+    [SerializeField]
+    private AudioClip tirPistol;
+    AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +39,7 @@ public class EnnemiLogic : MonoBehaviour
         healthText.text = $"{currentHealth}/{maxHealth}";
         agent = GetComponent<NavMeshAgent>();
         agent.stoppingDistance = stopDistance;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -100,6 +104,9 @@ public class EnnemiLogic : MonoBehaviour
             // Effet special smoke
             Vector3 spawnPosition = transform.position + transform.forward * 1f + transform.right * 0.5f;
             Instantiate(smokePrefab, spawnPosition, Quaternion.identity);
+            
+            // Effet sonore pour le tir
+            audioSource.PlayOneShot(tirPistol);
 
             if (hit.transform.CompareTag("Player"))
             {

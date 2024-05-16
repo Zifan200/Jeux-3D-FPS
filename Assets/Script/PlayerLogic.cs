@@ -35,10 +35,14 @@ public class PlayerLogic : MonoBehaviour
     public GameObject smokePrefab;
     [SerializeField]
     public GameObject etincellePrefab;
+    [SerializeField]
+    private AudioClip tirPistol;
+    AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         characterController = GetComponent<CharacterController>();
         vie = GameObject.Find("LifePoints");
         vieText = vie.GetComponent<TextMeshProUGUI>();
@@ -51,9 +55,7 @@ public class PlayerLogic : MonoBehaviour
         assaultRifflePlayer.SetActive(false);
 
         gunList.Add(pistolPlayer);
-
         afficherListe();
-
     }
 
     // Update is called once per frame
@@ -92,8 +94,12 @@ public class PlayerLogic : MonoBehaviour
 
     private void playerShooting(){
         //Tirer clic gauche
-         if (Input.GetButtonDown("Fire1") && GameManager.instance.munitionActuellePistol > 0)
+        if (Input.GetButtonDown("Fire1") && GameManager.instance.munitionActuellePistol > 0)
         {
+            // Jouer le son de tir
+            audioSource.PlayOneShot(tirPistol);
+
+            // Réduire le nombre de munitions
             GameManager.instance.gestionMunition();
 
             // Effet special smoke

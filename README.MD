@@ -93,5 +93,9 @@ Gestion des armes:
 Particle System:
     1- Si le joueur ou l'ennemi tire, il doit avoir de la fumé qui va instanciate.
     2- Si la balle touche une touche, un particle d'étincelle va instanciate.
+    3- Lorsqu'une grenade touche une surface, un particle d'explostion va être instancié.
+
+Audio:
+    1- Lorsque le player ou l'ennemi tire, un son va être jouer.
         
     

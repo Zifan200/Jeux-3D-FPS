@@ -62,7 +62,7 @@ Gestion de munition:
 -   Layout
 -   Reload
 
-Gestion des armes
+Gestion des armes:
 -   Prefab des deux autres armes pas encore implémentés dans le jeu.
 -   Ramasser les deux autres armes.
 -   Changer d'arme.
@@ -70,7 +70,18 @@ Gestion des armes
 -   Afficher nom des armes.
 -   Dégâts des deux autres armes.
 
-Particle system
-- Tirer
-- Toucher
-- Explosion pour la grenade
+Particle system:
+- Tirer.
+- Toucher.
+- Explosion pour la grenade.
+
+Audio:
+- Son pour tirer.
+- Son pour mort d'un ennemi.
+- Son pour recharger.
+- Son pour tirer mais fusil vide.
+- Son pour toucher une surface(ennemi exclu). 
+- Son pour changer l'arme.
+- Son pour ramasser des objets.
+    *Note: Implémentation des munitions que le player peut ramasser
+- Son pour explosition de la grenade.
