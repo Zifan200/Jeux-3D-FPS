@@ -103,13 +103,13 @@ public class PlayerLogic : MonoBehaviour
                     GameManager.instance.headShot();
                 }
                 // BodyShot
-                if(hit.collider.gameObject.name == "Ennemi")
+                if(hit.collider.gameObject.name == "Ennemi" || hit.collider.gameObject.name == "Corps")
                 {
                     GameManager.instance.bodyShot();
                 }
 
                 // Le reste du coprs
-                if(hit.collider.gameObject.name == "Corps" || hit.collider.gameObject.name == "MainDroite" || hit.collider.gameObject.name == "MainGauche")
+                if(hit.collider.gameObject.name == "MainDroite" || hit.collider.gameObject.name == "MainGauche")
                 {
                     GameManager.instance.otherPartShot();
                 } 

@@ -212,8 +212,43 @@ public class GameManager : MonoBehaviour
         if (jeuEnPause == false) {
             if (ennemiLogic != null && playerLogic.isPistol) 
             {
-                ennemiLogic.TakeDamage(pistolDamage * bodyDamageRatio);
+                ennemiLogic.TakeDamage(pistolDamage);
             }
+            if(ennemiLogic != null && playerLogic.isSubMachineGun)
+            {
+                ennemiLogic.TakeDamage(submachineGunDamage);
+            }
+            if(ennemiLogic != null && playerLogic.isAssaultRiffle)
+            {
+                ennemiLogic.TakeDamage(assaultRiffleDamage);
+            }
+        }
+    }
+
+    public void headShot() {
+        if (jeuEnPause == false) {
+            if (ennemiLogic != null && playerLogic.isPistol) 
+            {
+                ennemiLogic.TakeDamage(pistolDamage * headDamageRatio);
+            }
+            if(ennemiLogic != null && playerLogic.isSubMachineGun)
+            {
+                ennemiLogic.TakeDamage(submachineGunDamage * headDamageRatio);
+            }
+            if(ennemiLogic != null && playerLogic.isAssaultRiffle)
+            {
+                ennemiLogic.TakeDamage(assaultRiffleDamage * headDamageRatio);
+            }
+        }
+    }
+
+    public void otherPartShot() {
+        if (jeuEnPause == false) 
+        {
+            if (ennemiLogic != null && playerLogic.isPistol) 
+            {
+                ennemiLogic.TakeDamage(pistolDamage * bodyDamageRatio);
+            } 
             if(ennemiLogic != null && playerLogic.isSubMachineGun)
             {
                 ennemiLogic.TakeDamage(submachineGunDamage * bodyDamageRatio);
@@ -222,25 +257,6 @@ public class GameManager : MonoBehaviour
             {
                 ennemiLogic.TakeDamage(assaultRiffleDamage * bodyDamageRatio);
             }
-        }
-    }
-
-    public void headShot() {
-        if (jeuEnPause == false) {
-            if (ennemiLogic != null) 
-            {
-                ennemiLogic.TakeDamage(pistolDamage * headDamageRatio);
-            } 
-        }
-    }
-
-    public void otherPartShot() {
-        if (jeuEnPause == false) 
-        {
-            if (ennemiLogic != null) 
-            {
-                ennemiLogic.TakeDamage(pistolDamage * bodyDamageRatio);
-            } 
         }
     }
 

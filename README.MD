@@ -82,6 +82,12 @@ Gestion des armes:
     4- En scollant avec le boutton de la souris vers le haut, on doit soit trouver la prochaine arme.
     5- En scollant avec le boutton de la souris vers le bas, on doit trouver l'arme qui précède dans le tableau.
     6- En changeant d'arme, l'îcone de l'arme doit apparaître et correspondre à l'arme en main du joueur.
-    7- Le nom des armes doivent s'affichent et correspondrent à l'arme en main du joueur. 
+    7- Le nom des armes doivent s'affichent et correspondrent à l'arme en main du joueur.
+    8- Tirer sur le corps d'un ennemi avec un fusil d'assaut doit enlever 30 dommages.
+    9- Tirer sur la tête d'un ennemi avec un fusil d'assaut doit enlever 120 dommages. 
+    10- Tirer sur la main d'un ennemi avec un fusil d'assaut doit enlever 7.5 dommages.
+    11- Tirer sur le corps d'un ennemi avec un SMG doit enlever 10 dommages.
+    12- Tirer sur la tête d'un ennemi avec un SMG  doit enlever 40 dommages. 
+    13- Tirer sur la main d'un ennemi avec un SMG doit enlever 2.5 dommages.
         
     
