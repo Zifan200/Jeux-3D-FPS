@@ -85,6 +85,12 @@ Audio:
 - Son pour explosition de la grenade.
 - Son pour ramasser des objets.
 
-Gestion des munitions(Suite):
+Récupération des munitions:
 - Ramasser des munitions fait disparaitre les munitions récupérées.
 - Ramasser des munitions update le hud des extra munitions.
+
+Audio Main menu:
+- Musique dans mainMenu en boucle.
+- Musique dans Level_01 en boucle.
+- Slider qui modifie son et musique.
+

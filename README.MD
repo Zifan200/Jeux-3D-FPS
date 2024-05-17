@@ -107,5 +107,10 @@ Audio:
         
 Gestion des munitions(suite)
     1- Implémenté des balles dans le jeu pour que le player puisse ramasser.  
-    2- Update le hud des extra munitions récupérés.     
+    2- Update le hud des extra munitions récupérés.
+
+Audio MainMenu:
+    1- Une musique doit jouer en boucle dans le main menu.
+    2- Une musique doit jouer en boucle dans Level_01.
+    3- Le slider doit pouvoir changer le volume de la musique et des sons.     
     
