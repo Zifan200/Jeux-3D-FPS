@@ -60,11 +60,11 @@ public class MainMenu : MonoBehaviour
 
     public void onButtonNormal()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("Level_01");
     }
 
     public void onButtonDifficile()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("Level_01");
     }
 }

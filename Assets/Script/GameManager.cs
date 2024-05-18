@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     private EnnemiLogic ennemiLogic;
     private GameObject timer;
     private TextMeshProUGUI timerText;
-    private float timeElapsed = 91f;
+    private float timeElapsed = 5f;
     public GameObject tempsEcoule;
     public TextMeshProUGUI tempsEcouleText;
     GrenadeLogic grenadeLogic;
@@ -57,7 +57,10 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private AudioClip screamSon;
     AudioSource audioSource;
+    private GameObject player;
     private GameObject munition;
+    Camera mainCamera;
+    private bool isTempsEcoule = false;
     private void Awake()
     {
         if (instance == null) 
@@ -103,11 +106,16 @@ public class GameManager : MonoBehaviour
         assaultRiffleText = GameObject.Find("ARText").GetComponent<TextMeshProUGUI>();
         audioSource = GetComponent<AudioSource>();
         munition = GameObject.Find("Bullet");
+        player = GameObject.Find("Player");
+        mainCamera = player.GetComponentInChildren<Camera>();
+        AudioSource audioSourceMainCamera = mainCamera.GetComponent<AudioSource>();
+        AudioClip audioClip = audioSourceMainCamera.clip;
 
         addItemToList();
         ObjectPasTrouve();
         messagesCacherInitialement();
         iconCacherInitialement();
+        tempsEcouleBool();
     }
 
     // Update is called once per frame
@@ -123,14 +131,36 @@ public class GameManager : MonoBehaviour
             UpdateTimeText();
             UpdateTimeEcouleText();
         }
-        if(isPlayerDead || timeElapsed <= 0)
+        if(isPlayerDead || isTempsEcoule)
         {
            onPlayerDeath();
         }
         menuPauseActive();
         reload();
         munitionMax();
+        pauseMusic();
+        playMusic();
         
+    }
+    public void pauseMusic()
+    {
+        if(jeuEnPause == true)
+        {
+            mainCamera.GetComponent<AudioSource>().Pause();
+        }
+    }
+    public void playMusic()
+    {
+        if(jeuEnPause == false){
+            mainCamera.GetComponent<AudioSource>().UnPause();
+        }
+    }
+    public void tempsEcouleBool()
+    {
+        if(timeElapsed <= 0)
+        {
+            isTempsEcoule = true;
+        }
     }
 
     private void addItemToList(){
@@ -209,6 +239,7 @@ public class GameManager : MonoBehaviour
         if(checkmarkDocumentA.isOn && checkmarkDocumentB.isOn && checkmarkCle.isOn)
             {
                messageVictory.SetActive(true);
+
                finDeJeu();
             }
             else
@@ -289,7 +320,8 @@ public class GameManager : MonoBehaviour
     public void onPlayerDeath() {
         messageDefaite.SetActive(true);
         isPlayerDead = true;
-        arreterTimer();
+        tempsEcouleBool();
+        finDeJeu();
     }
 
     // Fonction pour mettre à jour le temps du jeu
@@ -333,6 +365,7 @@ public class GameManager : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0f;
+        jeuEnPause = true;
     }
 
     public void onButtonQuitter()

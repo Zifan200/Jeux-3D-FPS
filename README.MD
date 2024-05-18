@@ -112,5 +112,7 @@ Gestion des munitions(suite)
 Audio MainMenu:
     1- Une musique doit jouer en boucle dans le main menu.
     2- Une musique doit jouer en boucle dans Level_01.
-    3- Le slider doit pouvoir changer le volume de la musique et des sons.     
+    3- Si on pause le jeu, la musique devrait s'arreter.
+    4- Si on reprend le jeu, la musique devrait rejouer.
+    5- Le slider doit pouvoir changer le volume de la musique et des sons.     
     
