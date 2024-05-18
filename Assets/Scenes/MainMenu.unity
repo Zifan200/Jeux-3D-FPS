@@ -627,7 +627,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1269,6 +1269,10 @@ GameObject:
   m_Component:
   - component: {fileID: 387514909}
   - component: {fileID: 387514908}
+  - component: {fileID: 387514913}
+  - component: {fileID: 387514912}
+  - component: {fileID: 387514911}
+  - component: {fileID: 387514910}
   m_Layer: 0
   m_Name: MainMenuManager
   m_TagString: Untagged
@@ -1307,6 +1311,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &387514910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387514907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 885565e504b47b74f8d31791aaa3d6fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sliderSon: {fileID: 155395444}
+  sliderMusique: {fileID: 1693021940}
+  textSon: {fileID: 420957144}
+  textMusique: {fileID: 855447473}
+  musicSource: {fileID: 1117210995}
+--- !u!114 &387514911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387514907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fb9806409e608d46b7f7a2e464b39b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &387514912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387514907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 971cd45d60e08ee4b88b695070fcc6d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &387514913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387514907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbb765aa2cc1a34aaf2a030bea38573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &389992475
 GameObject:
   m_ObjectHideFlags: 0
@@ -1608,7 +1665,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 213.8366, y: -1}
+  m_AnchoredPosition: {x: 213, y: -1}
   m_SizeDelta: {x: 175.6732, y: 44.6065}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &420957144
@@ -2327,7 +2384,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 213.8366, y: -1}
+  m_AnchoredPosition: {x: 208, y: -1}
   m_SizeDelta: {x: 175.6732, y: 44.6065}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &855447473
@@ -2724,8 +2781,8 @@ RectTransform:
   m_Children:
   - {fileID: 208869011}
   - {fileID: 1215754023}
-  - {fileID: 2063280908}
   - {fileID: 1722210569}
+  - {fileID: 2063280908}
   m_Father: {fileID: 1083366110}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3337,7 +3394,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -223, y: 1}
+  m_AnchoredPosition: {x: -216, y: 1}
   m_SizeDelta: {x: 191.4274, y: 42.607}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1359937671
@@ -3471,7 +3528,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -223, y: 1}
+  m_AnchoredPosition: {x: -209, y: 1}
   m_SizeDelta: {x: 191.4274, y: 42.607}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1392986896
@@ -3927,7 +3984,7 @@ GameObject:
   - component: {fileID: 1542164388}
   - component: {fileID: 1542164387}
   m_Layer: 5
-  m_Name: Handle
+  m_Name: HandleSon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3965,7 +4022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.98490566, b: 0.10255567, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4002,7 +4059,7 @@ GameObject:
   - component: {fileID: 1587428421}
   - component: {fileID: 1587428420}
   m_Layer: 5
-  m_Name: Handle
+  m_Name: HandleMusique
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4040,7 +4097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.98490566, b: 0.093091495, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4329,7 +4386,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 1, g: 0.98679245, b: 0.98679245, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -4355,7 +4412,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
