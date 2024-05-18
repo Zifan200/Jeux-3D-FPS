@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     private EnnemiLogic ennemiLogic;
     private GameObject timer;
     private TextMeshProUGUI timerText;
-    private float timeElapsed = 5f;
+    private float timeElapsed = 91f;
     public GameObject tempsEcoule;
     public TextMeshProUGUI tempsEcouleText;
     GrenadeLogic grenadeLogic;
@@ -57,9 +57,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private AudioClip screamSon;
     AudioSource audioSource;
-    private GameObject player;
     private GameObject munition;
-    Camera mainCamera;
     private bool isTempsEcoule = false;
     private void Awake()
     {
@@ -72,7 +70,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-}
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -106,10 +104,6 @@ public class GameManager : MonoBehaviour
         assaultRiffleText = GameObject.Find("ARText").GetComponent<TextMeshProUGUI>();
         audioSource = GetComponent<AudioSource>();
         munition = GameObject.Find("Bullet");
-        player = GameObject.Find("Player");
-        mainCamera = player.GetComponentInChildren<Camera>();
-        AudioSource audioSourceMainCamera = mainCamera.GetComponent<AudioSource>();
-        AudioClip audioClip = audioSourceMainCamera.clip;
 
         addItemToList();
         ObjectPasTrouve();
@@ -141,31 +135,18 @@ public class GameManager : MonoBehaviour
         menuPauseActive();
         reload();
         munitionMax();
-        pauseMusic();
-        playMusic();
-        
     }
-    public void pauseMusic()
-    {
-        if(jeuEnPause == true)
-        {
-            mainCamera.GetComponent<AudioSource>().Pause();
-        }
-    }
-    public void playMusic()
-    {
-        if(jeuEnPause == false){
-            mainCamera.GetComponent<AudioSource>().UnPause();
-        }
-    }
+    
 
     private void addItemToList(){
+        // Ajouter les objets dans la liste
         missingItem.Add("DocumentA");
         missingItem.Add("DocumentB");
         missingItem.Add("Cle"); 
     }
     private void ObjectPasTrouve()
     {
+        // Ne pas mettre des crochets si l'objet n'est pas trouvé.
         checkmarkDocumentA.isOn = false;
         checkmarkDocumentB.isOn = false;
         checkmarkCle.isOn = false;
@@ -174,12 +155,14 @@ public class GameManager : MonoBehaviour
 
     public void documentATrouve()
     {
+        // Mettre un checkmark si l'objet est trouvé et le retirer de la liste
         checkmarkDocumentA.isOn = true;
         missingItem.Remove("DocumentA");
     }
 
     public void documentBTrouve()
     {
+        // Mettre un checkmark si l'objet est trouvé et le retirer de la liste
         checkmarkDocumentB.isOn = true;
         missingItem.Remove("DocumentB");
     
@@ -187,17 +170,20 @@ public class GameManager : MonoBehaviour
 
     public void cleTrouve()
     {
+        // Mettre un checkmark si l'objet est trouvé et le retirer de la liste
         checkmarkCle.isOn = true;
         missingItem.Remove("Cle");
     }
 
     public void grenadeTrouve()
     {
+        // Afficher l'icône de la grenade et ajouter à la liste.
         iconGrenade.enabled = true;
         grenadeList.Add("Grenade");
     }
     public void munitionTrouve()
     {
+        // Ajouter des balles supplémentaires qu'on trouve à terre.
         munitionExtra += 10;
         ballesExtraText.text = "Nombre de balles supplémentaires: " + munitionExtra;
         munition.SetActive(false);
@@ -220,6 +206,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void messagesCacherInitialement(){
+        // Cacher les messages initialement.
         messageVictory.SetActive(false);
         messageObjectMissing.SetActive(false);
         messageDefaite.SetActive(false);
@@ -228,14 +215,15 @@ public class GameManager : MonoBehaviour
         assaultRiffleText.enabled = false;
     }
     public void iconCacherInitialement(){
+        // Cacher les icônes des armes pas trouvé initialement.
         subMachineGunIcon.enabled = false;
         assaultRiffleIcon.enabled = false;
     }
     public void messageVictoire(){
+        // Afficher le message de victoire si tous les objets sont trouvés.
         if(checkmarkDocumentA.isOn && checkmarkDocumentB.isOn && checkmarkCle.isOn)
             {
                messageVictory.SetActive(true);
-
                finDeJeu();
             }
             else
@@ -246,12 +234,14 @@ public class GameManager : MonoBehaviour
 
     public void messageObjetManquant()
     {
+        // Afficher le message des objets manquants.
         string message = "Vous devez encore trouver : " + string.Join(", ", missingItem);
         textObjectMissing.text = message;
         messageObjectMissing.SetActive(true);
     }
 
     public void bodyShot() {
+        // Si le jeu n'est pas en pause, infliger des dégâts à l'ennemi selon le type d'arme utilisé.
         if (jeuEnPause == false) {
             if (ennemiLogic != null && playerLogic.isPistol) 
             {
@@ -269,6 +259,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void headShot() {
+        // Si le jeu n'est pas en pause, infliger des dégâts à l'ennemi selon le type d'arme utilisé.
         if (jeuEnPause == false) {
             if (ennemiLogic != null && playerLogic.isPistol) 
             {
@@ -286,6 +277,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void otherPartShot() {
+        // Si le jeu n'est pas en pause, infliger des dégâts à l'ennemi selon le type d'arme utilisé.
         if (jeuEnPause == false) 
         {
             if (ennemiLogic != null && playerLogic.isPistol) 
@@ -304,6 +296,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void onPlayerHit() {
+        // Si le jeu n'est pas en pause, infliger des dégâts au joueur.
         if(jeuEnPause == false)
         {
             if (playerLogic != null) 
@@ -314,6 +307,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void onPlayerDeath() {
+        // Afficher le message de défaite si le joueur est mort.
         messageDefaite.SetActive(true);
         isPlayerDead = true;
         finDeJeu();
@@ -337,26 +331,21 @@ public class GameManager : MonoBehaviour
     }
 
     void UpdateTimeEcouleText()
-{
-    // Calculer le temps écoulé en secondes
-    float tempsEcouleSeconds = Mathf.Abs(Mathf.Floor(timeElapsed) - 90);
-
-    // Formater le temps écoulé en format "SS secondes"
-    string timeString = string.Format("Temps écoulé: {0} secondes", tempsEcouleSeconds);
-
-    // Mettre à jour le texte du composant Text
-    if (tempsEcouleText != null)
     {
-        tempsEcouleText.text = timeString;
-    }
-}
-    void arreterTimer()
-    {
-        timeElapsed = 0;
-    }
+        // Calculer le temps écoulé en secondes
+        float tempsEcouleSeconds = Mathf.Abs(Mathf.Floor(timeElapsed) - 90);
 
+        // Formater le temps écoulé en format "SS secondes"
+        string timeString = string.Format("Temps écoulé: {0} secondes", tempsEcouleSeconds);
+
+        // Mettre à jour le texte du composant Text
+        if (tempsEcouleText != null)
+        {
+            tempsEcouleText.text = timeString;
+        }
+    }
     public void finDeJeu(){
-        arreterTimer();
+        // Mettre tout le jeu en pause
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0f;
@@ -365,10 +354,12 @@ public class GameManager : MonoBehaviour
 
     public void onButtonQuitter()
     {
+        // changer de scene
         SceneManager.LoadScene("MainMenu");
     }
     public void onButtonReprendre()
     {
+        // Reprendre le jeu
         Time.timeScale = 1f;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -390,6 +381,7 @@ public class GameManager : MonoBehaviour
     }
     public void gestionMunition()
     {
+        // Uodate le HUD des balles
         if(munitionActuellePistol > 0 && jeuEnPause == false)
         {
             munitionActuellePistol--;
@@ -399,6 +391,7 @@ public class GameManager : MonoBehaviour
 
     public void reload()
     {
+        // Recharger les balles si appui sur R et s'il reste des balles supplémentaires
         if(Input.GetKeyDown(KeyCode.R) && munitionExtra > 0 && !jeuEnPause)
         {
             // Son de rechargement
@@ -425,6 +418,7 @@ public class GameManager : MonoBehaviour
     }
     public void munitionMax()
     {
+        // Mettre à jour le nombre de balles supplémentaires sur le HUD.
        if(munitionExtra > extraMaxMunition)
         {
             munitionExtra = extraMaxMunition;
@@ -433,10 +427,12 @@ public class GameManager : MonoBehaviour
 
     public void playScreamSon()
     {
+        // Jouer le son de cri
         audioSource.PlayOneShot(screamSon);
     }
     public void playExplosionGrenadeSon()
     {
+        // Jouer le son d'explosion de grenade
         audioSource.PlayOneShot(explosionGrenadeSon);
     }
 }

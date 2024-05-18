@@ -27,7 +27,7 @@ public class MainMenu : MonoBehaviour
     {
         
     }
-
+    
     public void onButtonCommencer()
     {
         menuTitre.SetActive(false);
