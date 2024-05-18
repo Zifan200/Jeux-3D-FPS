@@ -43,6 +43,7 @@ public class EnnemiLogic : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.stoppingDistance = stopDistance;
         audioSource = GetComponent<AudioSource>();
+        audioSource.volume = AudioManager.instance.soundVolume;
     }
 
     // Update is called once per frame

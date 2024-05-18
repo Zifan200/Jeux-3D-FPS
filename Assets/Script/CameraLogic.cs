@@ -10,7 +10,7 @@ public class CameraLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        mainCamera.GetComponent<AudioSource>().volume = AudioManager.instance.musicVolume;
     }
 
     // Update is called once per frame

@@ -5,7 +5,6 @@ using UnityEngine;
 public class GrenadeLogic : MonoBehaviour
 {
     public float grenadeDegat = 100f; // Dégâts de la grenade
-    public bool hasBeenThrown = false;
     public float damageRadius = 2f;
     public float totalGrenadeDamage = 0f;
     public float distance = 0f;
@@ -20,12 +19,12 @@ public class GrenadeLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SetThrown();
+        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (hasBeenThrown)
+        if (GameManager.instance.isGrenadeThrown)
         {
             if (collision.gameObject.CompareTag("Ennemi"))
             {
@@ -49,10 +48,6 @@ public class GrenadeLogic : MonoBehaviour
         }
     }
 
-    public void SetThrown()
-    {
-        hasBeenThrown = true;
-    }
 
     public void grenadeDamage(Collision collision)
     {

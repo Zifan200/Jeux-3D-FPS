@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
     AudioSource audioSource;
     private GameObject munition;
     private bool isTempsEcoule = false;
+    public bool isGrenadeThrown = false;
     private void Awake()
     {
         if (instance == null) 
@@ -104,6 +105,7 @@ public class GameManager : MonoBehaviour
         assaultRiffleText = GameObject.Find("ARText").GetComponent<TextMeshProUGUI>();
         audioSource = GetComponent<AudioSource>();
         munition = GameObject.Find("Bullet");
+        audioSource.volume = AudioManager.instance.soundVolume;
 
         addItemToList();
         ObjectPasTrouve();
@@ -200,9 +202,13 @@ public class GameManager : MonoBehaviour
                 {
                     iconGrenade.enabled = false;
                 }
+                grenadeThrow();
                 playerLogic.instanciateGrenade();
             }
         }
+    }
+    public void grenadeThrow(){
+        isGrenadeThrown = true;
     }
 
     public void messagesCacherInitialement(){

@@ -51,6 +51,7 @@ public class PlayerLogic : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        audioSource.volume = AudioManager.instance.soundVolume;
         characterController = GetComponent<CharacterController>();
         vie = GameObject.Find("LifePoints");
         vieText = vie.GetComponent<TextMeshProUGUI>();

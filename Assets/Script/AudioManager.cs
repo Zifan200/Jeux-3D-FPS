@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    private AudioSource musicSource;
-    
+    public float musicVolume = 100f;
+    public float soundVolume = 100f;
     public static AudioManager instance { get; private set; }
 
     private void Awake()
@@ -24,7 +24,7 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        musicSource = Camera.main.GetComponent<AudioSource>();
+       
     }
 
     // Update is called once per frame
@@ -32,11 +32,4 @@ public class AudioManager : MonoBehaviour
     {
 
     }
-
-    // Méthode pour régler le volume de la musique
-    public void SetMusicVolume(float volume)
-    {
-        musicSource.volume = volume; // Applique le volume au AudioSource de la musique
-    }
-
 }
