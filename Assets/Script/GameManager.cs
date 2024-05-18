@@ -115,7 +115,6 @@ public class GameManager : MonoBehaviour
         ObjectPasTrouve();
         messagesCacherInitialement();
         iconCacherInitialement();
-        tempsEcouleBool();
     }
 
     // Update is called once per frame
@@ -130,6 +129,10 @@ public class GameManager : MonoBehaviour
             //Update le temps
             UpdateTimeText();
             UpdateTimeEcouleText();
+        }
+        else
+        {
+            isTempsEcoule = true;
         }
         if(isPlayerDead || isTempsEcoule)
         {
@@ -153,13 +156,6 @@ public class GameManager : MonoBehaviour
     {
         if(jeuEnPause == false){
             mainCamera.GetComponent<AudioSource>().UnPause();
-        }
-    }
-    public void tempsEcouleBool()
-    {
-        if(timeElapsed <= 0)
-        {
-            isTempsEcoule = true;
         }
     }
 
@@ -320,7 +316,6 @@ public class GameManager : MonoBehaviour
     public void onPlayerDeath() {
         messageDefaite.SetActive(true);
         isPlayerDead = true;
-        tempsEcouleBool();
         finDeJeu();
     }
 
