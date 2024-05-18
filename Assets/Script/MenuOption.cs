@@ -4,6 +4,7 @@ using TMPro;
 
 public class MenuOption : MonoBehaviour
 {
+    public GameObject menuOption;
     [SerializeField] private Slider sliderSon;
     [SerializeField] private Slider sliderMusique;
     [SerializeField] private TextMeshProUGUI textSon;

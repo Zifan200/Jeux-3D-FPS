@@ -114,5 +114,10 @@ Audio MainMenu:
     2- Une musique doit jouer en boucle dans Level_01.
     3- Si on pause le jeu, la musique devrait s'arreter.
     4- Si on reprend le jeu, la musique devrait rejouer.
-    5- Le slider doit pouvoir changer le volume de la musique et des sons.     
+    5- Le slider doit pouvoir changer le volume de la musique et des sons.
+
+Main menu navigation:
+    MenuTitre:
+        1- Lors du démarrare du jeu, dans le menuTitre, le titre doit fade-in de 2 secondes.
+        2- Une fois que le titre est fade-in le boutton du même menu doit faire un fade-in de 1 seconde.
     

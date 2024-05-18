@@ -5,17 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject menuTitre;
     public GameObject menuPrincipal;
     public GameObject menuJouer;
     public GameObject menuOption;
+
     // Start is called before the first frame update
     void Start()
     {
-        menuPrincipal = GameObject.Find("MenuPrincipal");
-        menuTitre = GameObject.Find("MenuTitre");
-        menuJouer = GameObject.Find("MenuJouer");
-        menuOption = GameObject.Find("MenuOption"); 
 
         menuPrincipal.SetActive(false); 
         menuJouer.SetActive(false);
@@ -30,7 +26,6 @@ public class MainMenu : MonoBehaviour
     
     public void onButtonCommencer()
     {
-        menuTitre.SetActive(false);
         menuPrincipal.SetActive(true);
     }
 
