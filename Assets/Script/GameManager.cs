@@ -44,8 +44,8 @@ public class GameManager : MonoBehaviour
     private float chargeurMaxSMG = 30;
     private float chargeurMaxAR = 20;
     public float munitionActuellePistol;
-    private float munitionActuelleSMG = 30;
-    private float munitionActuelleAR = 20;
+    public float munitionActuelleSMG = 30;
+    public float munitionActuelleAR = 20;
     private float munitionExtra = 10;
     private float extraMaxMunition = 100;
     public RawImage pistolIcon;
@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour
     private GameObject munition;
     private bool isTempsEcoule = false;
     public bool isGrenadeThrown = false;
+    
     private void Awake()
     {
         if (instance == null) 
@@ -403,7 +404,14 @@ public class GameManager : MonoBehaviour
         }
         if(munitionActuelleAR > 0 && jeuEnPause == false && playerLogic.isAssaultRiffle)
         {
-            munitionActuelleAR--;
+            if(munitionActuelleAR >= 3)
+            {
+                munitionActuelleAR = munitionActuelleAR - 3;
+            }
+            else
+            {
+                munitionActuelleAR = 0;
+            }
         }
     }
     public void changerArmeHUD()

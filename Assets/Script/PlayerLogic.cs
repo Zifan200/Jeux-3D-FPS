@@ -46,10 +46,14 @@ public class PlayerLogic : MonoBehaviour
     [SerializeField]
     public AudioClip ramasserArmeSon;
     AudioSource audioSource;
+    private float fireRate = 300f;
+    private int burstCount = 3;
+    private float timeBetweenShots;
 
     // Start is called before the first frame update
     void Start()
     {
+        timeBetweenShots = 60f / fireRate;
         audioSource = GetComponent<AudioSource>();
         audioSource.volume = AudioManager.instance.soundVolume;
         characterController = GetComponent<CharacterController>();
@@ -104,8 +108,59 @@ public class PlayerLogic : MonoBehaviour
     private void playerShooting(){
         //Tirer clic gauche
         if (Input.GetButtonDown("Fire1") && !GameManager.instance.jeuEnPause)
-        {   
-            if(GameManager.instance.munitionActuellePistol > 0){
+        {   if(isAssaultRiffle)
+            {
+                StartCoroutine(FireBurst());
+            }
+            if(GameManager.instance.munitionActuellePistol > 0 && isPistol)
+            {
+                // Jouer le son de tir
+                audioSource.PlayOneShot(tirPistol);
+
+                // Réduire le nombre de munitions
+                GameManager.instance.gestionMunition();
+
+                // Effet special smoke
+                Vector3 spawnPosition = transform.position + transform.forward * 1f + transform.right * 0.5f;
+                Instantiate(smokePrefab, spawnPosition, Quaternion.identity);
+                rayCast();
+            }
+            if(GameManager.instance.munitionActuelleSMG > 0 && isSubMachineGun)
+            {
+                // Jouer le son de tir
+                audioSource.PlayOneShot(tirPistol);
+
+                // Réduire le nombre de munitions
+                GameManager.instance.gestionMunition();
+
+                // Effet special smoke
+                Vector3 spawnPosition = transform.position + transform.forward * 1f + transform.right * 0.5f;
+                Instantiate(smokePrefab, spawnPosition, Quaternion.identity);
+                rayCast();
+            }
+            if(GameManager.instance.munitionActuelleAR > 0 && isAssaultRiffle)
+            {
+                // Jouer le son de tir
+                audioSource.PlayOneShot(tirPistol);
+
+                // Réduire le nombre de munitions
+                GameManager.instance.gestionMunition();
+
+                // Effet special smoke
+                Vector3 spawnPosition = transform.position + transform.forward * 1f + transform.right * 0.5f;
+                Instantiate(smokePrefab, spawnPosition, Quaternion.identity);
+                rayCast();
+            }
+            else
+            {
+                noMoreAmmo();
+            } 
+        }
+    }
+    public void balleLogic()
+    {
+        if(GameManager.instance.munitionActuellePistol > 0 && !GameManager.instance.jeuEnPause && isPistol)
+        {
             // Jouer le son de tir
             audioSource.PlayOneShot(tirPistol);
 
@@ -115,29 +170,56 @@ public class PlayerLogic : MonoBehaviour
             // Effet special smoke
             Vector3 spawnPosition = transform.position + transform.forward * 1f + transform.right * 0.5f;
             Instantiate(smokePrefab, spawnPosition, Quaternion.identity);
+        }
+        if(GameManager.instance.munitionActuelleSMG > 0 && !GameManager.instance.jeuEnPause && isSubMachineGun)
+        {
+            // Jouer le son de tir
+            audioSource.PlayOneShot(tirPistol);
 
-            Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
+            // Réduire le nombre de munitions
+            GameManager.instance.gestionMunition();
+
+            // Effet special smoke
+            Vector3 spawnPosition = transform.position + transform.forward * 1f + transform.right * 0.5f;
+            Instantiate(smokePrefab, spawnPosition, Quaternion.identity);
+        }
+        if(GameManager.instance.munitionActuelleAR > 0 && !GameManager.instance.jeuEnPause && isAssaultRiffle)
+        {
+            // Jouer le son de tir
+            audioSource.PlayOneShot(tirPistol);
+
+            // Réduire le nombre de munitions
+            GameManager.instance.gestionMunition();
+
+            // Effet special smoke
+            Vector3 spawnPosition = transform.position + transform.forward * 1f + transform.right * 0.5f;
+            Instantiate(smokePrefab, spawnPosition, Quaternion.identity);
+        }
+    }
+    public void rayCast()
+    {
+        Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit))
+        {
+            // Effet pour l'impact de la balle
+            Instantiate(etincellePrefab, hit.point, Quaternion.identity);
+            // Si le raycast touche autre qu'un ennemi, jouer le son de surface
+            if(hit.collider.name != "Ennemi")
             {
-                // Effet pour l'impact de la balle
-                Instantiate(etincellePrefab, hit.point, Quaternion.identity);
-                // Si le raycast touche autre qu'un ennemi, jouer le son de surface
-                if(hit.collider.name != "Ennemi")
-                {
-                    audioSource.PlayOneShot(surfaceSon);
-                }
+                audioSource.PlayOneShot(surfaceSon);
+            }
 
-                //Debug.Log(hit.collider.gameObject.name);
-                Rigidbody rb = hit.collider.GetComponent<Rigidbody>();
+            //Debug.Log(hit.collider.gameObject.name);
+            Rigidbody rb = hit.collider.GetComponent<Rigidbody>();
 
-                // Headshot
-                if(hit.collider.gameObject.name == "Tete" || hit.collider.gameObject.name == "YeuxDroit" || hit.collider.gameObject.name == "YeuxGauche")
-                {
-                    GameManager.instance.headShot();
-                }
-                // BodyShot
-                if(hit.collider.gameObject.name == "Ennemi" || hit.collider.gameObject.name == "Corps")
+            // Headshot
+            if(hit.collider.gameObject.name == "Tete" || hit.collider.gameObject.name == "YeuxDroit" || hit.collider.gameObject.name == "YeuxGauche")
+            {
+                GameManager.instance.headShot();
+            }
+            // BodyShot
+            if(hit.collider.gameObject.name == "Ennemi" || hit.collider.gameObject.name == "Corps")
                 {
                     GameManager.instance.bodyShot();
                 }
@@ -147,16 +229,34 @@ public class PlayerLogic : MonoBehaviour
                 {
                     GameManager.instance.otherPartShot();
                 } 
-            }
-            else
-            {
-                Debug.Log("Raté");
-            }
-            }
-            else
-            {
-                audioSource.PlayOneShot(plusDeMunitionSon);
-            } 
+        }
+        else
+        {
+            Debug.Log("Raté");
+        }
+    }
+
+    public void noMoreAmmo()
+    {
+        if(GameManager.instance.munitionActuellePistol == 0 && isPistol)
+        {
+            audioSource.PlayOneShot(plusDeMunitionSon);
+        }
+        if(GameManager.instance.munitionActuelleSMG == 0 && isSubMachineGun)
+        {
+            audioSource.PlayOneShot(plusDeMunitionSon);
+        }
+        if(GameManager.instance.munitionActuelleAR == 0 && isAssaultRiffle)
+        {
+            audioSource.PlayOneShot(plusDeMunitionSon);
+        }
+    }
+
+    IEnumerator FireBurst()
+    {
+        for (int i = 0; i < burstCount; i++)
+        {
+            yield return new WaitForSeconds(timeBetweenShots);
         }
     }
 
