@@ -221,13 +221,13 @@ public class PlayerLogic : MonoBehaviour
             // BodyShot
             if(hit.collider.gameObject.name == "Ennemi" || hit.collider.gameObject.name == "Corps")
                 {
-                    GameManager.instance.bodyShot();
+                    hit.collider.gameObject.GetComponentInParent<EnnemiLogic>().bodyShot();
                 }
 
                 // Le reste du coprs
                 if(hit.collider.gameObject.name == "MainDroite" || hit.collider.gameObject.name == "MainGauche")
                 {
-                    GameManager.instance.otherPartShot();
+                    hit.collider.gameObject.GetComponentInParent<EnnemiLogic>().otherPartShot();
                 } 
         }
         else

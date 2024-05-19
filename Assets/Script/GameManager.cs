@@ -267,43 +267,6 @@ public class GameManager : MonoBehaviour
         messageObjectMissing.SetActive(true);
     }
 
-    public void bodyShot() {
-        // Si le jeu n'est pas en pause, infliger des dégâts à l'ennemi selon le type d'arme utilisé.
-        if (jeuEnPause == false) {
-            if (ennemiLogic != null && playerLogic.isPistol) 
-            {
-                ennemiLogic.TakeDamage(pistolDamage);
-            }
-            if(ennemiLogic != null && playerLogic.isSubMachineGun)
-            {
-                ennemiLogic.TakeDamage(submachineGunDamage);
-            }
-            if(ennemiLogic != null && playerLogic.isAssaultRiffle)
-            {
-                ennemiLogic.TakeDamage(assaultRiffleDamage);
-            }
-        }
-    }
-
-    public void otherPartShot() {
-        // Si le jeu n'est pas en pause, infliger des dégâts à l'ennemi selon le type d'arme utilisé.
-        if (jeuEnPause == false) 
-        {
-            if (ennemiLogic != null && playerLogic.isPistol) 
-            {
-                ennemiLogic.TakeDamage(pistolDamage * bodyDamageRatio);
-            } 
-            if(ennemiLogic != null && playerLogic.isSubMachineGun)
-            {
-                ennemiLogic.TakeDamage(submachineGunDamage * bodyDamageRatio);
-            }
-            if(ennemiLogic != null && playerLogic.isAssaultRiffle)
-            {
-                ennemiLogic.TakeDamage(assaultRiffleDamage * bodyDamageRatio);
-            }
-        }
-    }
-
     public void onPlayerHit() {
         // Si le jeu n'est pas en pause, infliger des dégâts au joueur.
         if(jeuEnPause == false)

@@ -106,6 +106,43 @@ public class EnnemiLogic : MonoBehaviour
         }
     }
 
+    public void bodyShot() {
+        // Si le jeu n'est pas en pause, infliger des dégâts à l'ennemi selon le type d'arme utilisé.
+        if (GameManager.instance.jeuEnPause == false) {
+            if (playerLogic.isPistol) 
+            {
+                TakeDamage(GameManager.instance.pistolDamage);
+            }
+            if(playerLogic.isSubMachineGun)
+            {
+                TakeDamage(GameManager.instance.submachineGunDamage);
+            }
+            if(playerLogic.isAssaultRiffle)
+            {
+                TakeDamage(GameManager.instance.assaultRiffleDamage);
+            }
+        }
+    }
+
+    public void otherPartShot() {
+        // Si le jeu n'est pas en pause, infliger des dégâts à l'ennemi selon le type d'arme utilisé.
+        if (GameManager.instance.jeuEnPause == false) 
+        {
+            if (playerLogic.isPistol) 
+            {
+                TakeDamage(GameManager.instance.pistolDamage * GameManager.instance.bodyDamageRatio);
+            } 
+            if (playerLogic.isSubMachineGun)
+            {
+                TakeDamage(GameManager.instance.submachineGunDamage * GameManager.instance.bodyDamageRatio);
+            }
+            if (playerLogic.isAssaultRiffle)
+            {
+                TakeDamage(GameManager.instance.assaultRiffleDamage * GameManager.instance.bodyDamageRatio);
+            }
+        }
+    }
+
     public void detectionJoueur()
     {
         // Distance entre l'ennemi et le joueur
