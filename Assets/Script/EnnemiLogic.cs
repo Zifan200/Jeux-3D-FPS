@@ -16,7 +16,7 @@ public class EnnemiLogic : MonoBehaviour
     [SerializeField] private GameObject player;
     public float stopDistance = 5f;
     [SerializeField]
-    private float detectionDistance;
+    public float detectionDistance;
     [SerializeField]
     public float distanceThreshold;
     private float tempsEcouleDepuisTir = 0f;
@@ -43,6 +43,8 @@ public class EnnemiLogic : MonoBehaviour
     private AudioClip recharge;
     private bool isRecharging = false;
     private PlayerLogic playerLogic;
+    public bool isPatrolling = true;
+    public float ennemiSpeed = 1f;
 
     void Start()
     {
@@ -55,6 +57,7 @@ public class EnnemiLogic : MonoBehaviour
         audioSource.volume = AudioManager.instance.soundVolume;
         ennemiMunitionActuelle = ennemiChargeur;
         playerLogic = player.GetComponent<PlayerLogic>();
+        agent.speed = ennemiSpeed;
     }
 
     // Update is called once per frame
@@ -129,6 +132,7 @@ public class EnnemiLogic : MonoBehaviour
     {
         // Définir la position de destination de l'agent sur celle du joueur au démarrage
         agent.SetDestination(playerTransform.position);
+        isPatrolling = false;
     }
 
     public void tirerJoueur()
@@ -152,7 +156,7 @@ public class EnnemiLogic : MonoBehaviour
                 if (hit.transform.CompareTag("Player"))
                 {
                     float chanceDeToucher = Random.value;
-                    if (chanceDeToucher <= 0.33f) // 33% de chance
+                    if (chanceDeToucher <= GameManager.instance.pourcentageDeToucher) // 33% de chance
                     {
                         GameManager.instance.onPlayerHit();
                         Instantiate(etincellePrefab, hit.point, Quaternion.identity);

@@ -293,6 +293,7 @@ public class MenuJouer : MonoBehaviour
 
     public void onButtonDifficile()
     {
+        GameManager.difficulte = "difficile";
         SceneManager.LoadScene("Level_01");
     }
 }

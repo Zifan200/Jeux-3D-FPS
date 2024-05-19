@@ -12,9 +12,11 @@ public class WayPoints : MonoBehaviour
 
     private int currentWPIndex;  
     private NavMeshAgent agent; 
+    EnnemiLogic ennemiLogic;
     // Start is called before the first frame update
     void Start()
     {
+        ennemiLogic = GetComponent<EnnemiLogic>();
         // Récupérer les waypoints
         waypoints = new List<Vector3>();
 
@@ -38,7 +40,7 @@ public class WayPoints : MonoBehaviour
     }
 
     private void suivreWaypoints(){
-        if(agent.remainingDistance <= agent.stoppingDistance)
+        if(agent.remainingDistance <= agent.stoppingDistance && ennemiLogic.isPatrolling)
         {
             currentWPIndex = ++currentWPIndex % waypoints.Count;
             agent.SetDestination(waypoints[currentWPIndex]);

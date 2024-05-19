@@ -183,3 +183,10 @@ Main menu navigation:
             1- Une qui cache la clé.
             2- Une qui cache le document A.
             3- Une qui cache le document B.
+        6- Il ne doit pas avoir de trou.
+    
+    Niveau de difficulté:
+        1- la portée de détection des ennemis augmente de 30%.
+        2- la précision des ennemis passe à 50%.
+        3- la vitesse de déplacement des ennemis augmente de 25%.
+

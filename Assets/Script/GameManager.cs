@@ -64,6 +64,8 @@ public class GameManager : MonoBehaviour
     private GameObject munition;
     private bool isTempsEcoule = false;
     public bool isGrenadeThrown = false;
+    public static string difficulte;
+    public float pourcentageDeToucher = 0.33f;
     
     private void Awake()
     {
@@ -110,6 +112,14 @@ public class GameManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         munition = GameObject.Find("Bullet");
         audioSource.volume = AudioManager.instance.soundVolume;
+        
+
+        Debug.Log(difficulte);
+        // Verifier la difficulté choisiee
+        if(difficulte == "difficile")
+        {
+            modeDifficile();
+        }
 
         addItemToList();
         ObjectPasTrouve();
@@ -144,6 +154,12 @@ public class GameManager : MonoBehaviour
         changerArmeHUD();
     }
     
+    public void modeDifficile()
+    {
+       ennemiLogic.detectionDistance = ennemiLogic.detectionDistance + (ennemiLogic.detectionDistance * 0.3f);
+       pourcentageDeToucher = 0.5f;
+       ennemiLogic.ennemiSpeed = ennemiLogic.ennemiSpeed + (ennemiLogic.ennemiSpeed *0.5f);
+    }
 
     private void addItemToList(){
         // Ajouter les objets dans la liste

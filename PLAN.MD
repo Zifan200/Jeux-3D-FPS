@@ -137,3 +137,8 @@ Zone de jeu
 - porte.
 - Objets cachés.
 - Pas de vide.
+
+Niveau de difficulté:
+- Détection des ennemis.
+- Précision des ennemis
+- Vitesse des ennemis.

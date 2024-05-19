@@ -246,7 +246,8 @@ public class MenuPrincipal : MonoBehaviour
 
     public void onButtonCommencer()
     {
-        StartCoroutine(FadeInTitre());
+        titreColor.a = 1;
+        titre.color = titreColor;
         MoveTitreToPosition();
         StartCoroutine(FadeInButtonPlay());
         StartCoroutine(FadeInButtonOption());
