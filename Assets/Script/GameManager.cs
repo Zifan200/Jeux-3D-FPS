@@ -70,7 +70,6 @@ public class GameManager : MonoBehaviour
         if (instance == null) 
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else if (instance != this)
         {
@@ -517,5 +516,11 @@ public class GameManager : MonoBehaviour
     {
         // Jouer le son d'explosion de grenade
         audioSource.PlayOneShot(explosionGrenadeSon);
+    }
+    public void onBoutterRejouer()
+    {
+        // Rejouer le jeu
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        jeuEnPause = false;
     }
 }

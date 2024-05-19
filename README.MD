@@ -167,3 +167,6 @@ Main menu navigation:
     
     Chargeur des ennemis:
         1- L'ennemi doit prendre 3 secondes pour recharger si son chargeur est vide.
+    
+    Boutton recommencer
+        1- Cliquer sur le boutton recommencer va reload toute la scene de jeu.

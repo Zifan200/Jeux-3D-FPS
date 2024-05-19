@@ -8,8 +8,8 @@ public class EnnemiLogic : MonoBehaviour
 {
     [SerializeField] public float maxHealth = 100f;
     [SerializeField] public float currentHealth = 100f;
-    public GameObject healthBar;
-    public TextMeshProUGUI healthText;
+    [SerializeField] private GameObject healthBar;
+    [SerializeField] private TextMeshProUGUI healthText;
     private NavMeshAgent agent;
     private Transform playerTransform;
     private Vector3 initialPosition;
@@ -47,8 +47,6 @@ public class EnnemiLogic : MonoBehaviour
         player = GameObject.Find("Player");
         playerTransform = player.transform;
         healthBar = GameObject.Find("HP");
-        healthText = healthBar.GetComponent<TextMeshProUGUI>();
-        healthText.text = $"{currentHealth}/{maxHealth}";
         agent = GetComponent<NavMeshAgent>();
         agent.stoppingDistance = stopDistance;
         audioSource = GetComponent<AudioSource>();

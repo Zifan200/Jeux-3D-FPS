@@ -123,3 +123,6 @@ Gestion des munition er recharge pour AR et SMG:
 
 Chargeur des ennemis:
 - Recharge
+
+Boutton recommencer:
+- reset le jeu.
