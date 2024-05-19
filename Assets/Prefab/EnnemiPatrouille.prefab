@@ -1095,7 +1095,7 @@ GameObject:
   - component: {fileID: 1356520834974873259}
   - component: {fileID: 6536489484019097423}
   m_Layer: 0
-  m_Name: Ennemi
+  m_Name: EnnemiPatrouille
   m_TagString: Ennemi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1141,7 +1141,7 @@ MonoBehaviour:
   healthText: {fileID: 8581304188312489675}
   player: {fileID: 5094271414991943477, guid: 0574f021d971ed343b2c536b5f2a18e6, type: 3}
   stopDistance: 5
-  detectionDistance: 5
+  detectionDistance: 10
   distanceThreshold: 15
   delaiCadenceTir: 2
   smokePrefab: {fileID: 100000, guid: fad0c563b44f1e744be433dade05be3f, type: 3}
@@ -1153,6 +1153,7 @@ MonoBehaviour:
   - {fileID: 7316538885775564673, guid: 040d29504a4c3904fa132b23376bf972, type: 3}
   - {fileID: 3678447897941033243, guid: 6c5149719716be8409f39c572f8159bd, type: 3}
   recharge: {fileID: 8300000, guid: 2dc35d77cfe164a2eab57d08500740e2, type: 3}
+  waypointsParent: {fileID: 0}
 --- !u!65 &4582528704814979058
 BoxCollider:
   m_ObjectHideFlags: 0

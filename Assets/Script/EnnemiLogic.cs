@@ -15,7 +15,8 @@ public class EnnemiLogic : MonoBehaviour
     private Vector3 initialPosition;
     [SerializeField] private GameObject player;
     public float stopDistance = 5f;
-    public float detectionDistance = 10f;
+    [SerializeField]
+    private float detectionDistance;
     [SerializeField]
     public float distanceThreshold;
     private float tempsEcouleDepuisTir = 0f;
@@ -119,7 +120,7 @@ public class EnnemiLogic : MonoBehaviour
 
             // Raycast pour tirer sur le joueur
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.forward, out hit, detectionDistance))
+            if (Physics.Raycast(transform.position, transform.forward, out hit, (detectionDistance)))
             {
                 // Effet spécial smoke
                 Vector3 spawnPosition = transform.position + transform.forward * 1f + transform.right * 0.5f;

@@ -126,3 +126,7 @@ Chargeur des ennemis:
 
 Boutton recommencer:
 - reset le jeu.
+
+Patrouille des ennemis:
+- waypoints.
+- navMeshAgent.
