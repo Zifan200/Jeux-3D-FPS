@@ -42,6 +42,7 @@ public class EnnemiLogic : MonoBehaviour
     [SerializeField]
     private AudioClip recharge;
     private bool isRecharging = false;
+    private PlayerLogic playerLogic;
 
     void Start()
     {
@@ -53,6 +54,7 @@ public class EnnemiLogic : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         audioSource.volume = AudioManager.instance.soundVolume;
         ennemiMunitionActuelle = ennemiChargeur;
+        playerLogic = player.GetComponent<PlayerLogic>();
     }
 
     // Update is called once per frame
@@ -81,6 +83,24 @@ public class EnnemiLogic : MonoBehaviour
             healthText.text = $"{currentHealth}/{maxHealth}";
         }
         mortEnnemi();
+    }
+
+     public void headShot() {
+        // Si le jeu n'est pas en pause, infliger des dégâts à l'ennemi selon le type d'arme utilisé.
+        if (GameManager.instance.jeuEnPause == false) {
+            if (playerLogic.isPistol) 
+            {
+                TakeDamage(GameManager.instance.pistolDamage * GameManager.instance.headDamageRatio);
+            }
+            if(playerLogic.isSubMachineGun)
+            {
+                TakeDamage(GameManager.instance.submachineGunDamage * GameManager.instance.headDamageRatio);
+            }
+            if(playerLogic.isAssaultRiffle)
+            {
+                TakeDamage(GameManager.instance.assaultRiffleDamage * GameManager.instance.headDamageRatio);
+            }
+        }
     }
 
     public void detectionJoueur()

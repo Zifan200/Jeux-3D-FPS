@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     private EnnemiLogic ennemiLogic;
     private GameObject timer;
     private TextMeshProUGUI timerText;
-    private float timeElapsed = 91f;
+    private float timeElapsed = 600f;
     public GameObject tempsEcoule;
     public TextMeshProUGUI tempsEcouleText;
     GrenadeLogic grenadeLogic;
@@ -269,24 +269,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void headShot() {
-        // Si le jeu n'est pas en pause, infliger des dégâts à l'ennemi selon le type d'arme utilisé.
-        if (jeuEnPause == false) {
-            if (ennemiLogic != null && playerLogic.isPistol) 
-            {
-                ennemiLogic.TakeDamage(pistolDamage * headDamageRatio);
-            }
-            if(ennemiLogic != null && playerLogic.isSubMachineGun)
-            {
-                ennemiLogic.TakeDamage(submachineGunDamage * headDamageRatio);
-            }
-            if(ennemiLogic != null && playerLogic.isAssaultRiffle)
-            {
-                ennemiLogic.TakeDamage(assaultRiffleDamage * headDamageRatio);
-            }
-        }
-    }
-
     public void otherPartShot() {
         // Si le jeu n'est pas en pause, infliger des dégâts à l'ennemi selon le type d'arme utilisé.
         if (jeuEnPause == false) 
@@ -344,7 +326,7 @@ public class GameManager : MonoBehaviour
     void UpdateTimeEcouleText()
     {
         // Calculer le temps écoulé en secondes
-        float tempsEcouleSeconds = Mathf.Abs(Mathf.Floor(timeElapsed) - 90);
+        float tempsEcouleSeconds = Mathf.Abs(Mathf.Floor(timeElapsed) - 600);
 
         // Formater le temps écoulé en format "SS secondes"
         string timeString = string.Format("Temps écoulé: {0} secondes", tempsEcouleSeconds);

@@ -216,7 +216,7 @@ public class PlayerLogic : MonoBehaviour
             // Headshot
             if(hit.collider.gameObject.name == "Tete" || hit.collider.gameObject.name == "YeuxDroit" || hit.collider.gameObject.name == "YeuxGauche")
             {
-                GameManager.instance.headShot();
+                hit.collider.gameObject.GetComponentInParent<EnnemiLogic>().headShot();
             }
             // BodyShot
             if(hit.collider.gameObject.name == "Ennemi" || hit.collider.gameObject.name == "Corps")

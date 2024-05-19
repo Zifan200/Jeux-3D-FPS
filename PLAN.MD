@@ -130,3 +130,10 @@ Boutton recommencer:
 Patrouille des ennemis:
 - waypoints.
 - navMeshAgent.
+
+Zone de jeu
+- 10 ennemis.
+- 6 cabanes.
+- porte.
+- Objets cachés.
+- Pas de vide.
