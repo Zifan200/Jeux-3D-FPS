@@ -4,7 +4,8 @@ using TMPro;
 
 public class MenuOption : MonoBehaviour
 {
-    public GameObject menuOption;
+    [SerializeField]
+    private GameObject menuOption;
     [SerializeField] private Slider sliderSon;
     [SerializeField] private Slider sliderMusique;
     [SerializeField] private TextMeshProUGUI textSon;
@@ -21,6 +22,7 @@ public class MenuOption : MonoBehaviour
         // Set le texte des sliders
         textSon.text = (int)(sliderSon.value * 100) + "%";
         textMusique.text = (int)(sliderMusique.value * 100) + "%";
+        setMenuOptionInvisible();
     }
 
     public void onSliderMusique()
@@ -36,6 +38,20 @@ public class MenuOption : MonoBehaviour
         // Update the displayed volume for sound effects
         AudioManager.instance.soundVolume = sliderSon.value;
         textSon.text = (int)(sliderSon.value * 100) + "%";
+    }
 
+    public void setMenuOptionInvisible()
+    {
+        menuOption.SetActive(false);
+    }
+
+    public void onButtonOption()
+    {
+        menuOption.SetActive(true);
+    }
+
+    public void onButtonRetour()
+    {
+        menuOption.SetActive(false);
     }
 }

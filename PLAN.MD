@@ -99,4 +99,9 @@ Main menu animation:
         - Titre fade-in
         - Boutton
         - Position du titre.
+    MenuPrincipal:
+        - Titre mouvement vers le haut.
+        - Fade-In
+        - fade-Out
+        - Boutton mouvement
 

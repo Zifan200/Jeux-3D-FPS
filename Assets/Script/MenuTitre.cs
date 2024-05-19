@@ -1,39 +1,47 @@
-using System.Collections;
 using UnityEngine;
 using TMPro;
+using System.Collections;
 using UnityEngine.UI;
 
 public class MenuTitre : MonoBehaviour
 {
-    public GameObject menuTitre;
-    public Button buttonCommencer;
-    public TextMeshProUGUI titre;
+    [SerializeField]
+    private GameObject menuTitre;
+    [SerializeField]
+    private Button buttonCommencer;
+    [SerializeField]
+    private TextMeshProUGUI titre;
     private Color colorTitre;
     private Color buttonColor;
     private TextMeshProUGUI buttonText;
     private Color buttonTextColor;
+    private Color colorMenu;
 
     // Start is called before the first frame update
     void Start()
     {
         // Initialiser la couleur du titre
         colorTitre = titre.color;
-        colorTitre.a = 0;
+        colorTitre.a = 1; // Couleur initiale (complètement visible)
         titre.color = colorTitre;
 
         // Initialiser la couleur du bouton
         buttonColor = buttonCommencer.image.color;
-        buttonColor.a = 0;
+        buttonColor.a = 0; // Rendre le bouton invisible au démarrage
         buttonCommencer.image.color = buttonColor;
 
         // Récupérer le composant TextMeshProUGUI du bouton et initialiser sa couleur
         buttonText = buttonCommencer.GetComponentInChildren<TextMeshProUGUI>();
         buttonTextColor = buttonText.color;
-        buttonTextColor.a = 0;
+        buttonTextColor.a = 0; // Rendre le texte du bouton invisible au démarrage
         buttonText.color = buttonTextColor;
 
         // Démarrer la coroutine de fondu pour le titre
         StartCoroutine(FadeInTitre());
+    }
+    void Update()
+    {
+        
     }
 
     // Coroutine pour le fondu du titre
@@ -81,8 +89,40 @@ public class MenuTitre : MonoBehaviour
         buttonTextColor.a = 1;
         buttonText.color = buttonTextColor;
     }
-    public void onButtonCommencer()
+
+    // Méthode pour rendre le menuTitre invisible
+    public void MakeMenuInvisible()
     {
         menuTitre.SetActive(false);
+    }
+
+    IEnumerator fadeOutBouttonCommencer()
+    {
+        float duration = 2f; // Durée du fondu en secondes
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            buttonColor.a = 1 - Mathf.Clamp01(elapsedTime / duration);
+            buttonCommencer.image.color = buttonColor;
+
+            buttonTextColor.a = 1 - Mathf.Clamp01(elapsedTime / duration);
+            buttonText.color = buttonTextColor;
+
+            yield return null;
+        }
+
+        buttonColor.a = 0;
+        buttonCommencer.image.color = buttonColor;
+
+        buttonTextColor.a = 0;
+        buttonText.color = buttonTextColor;
+    }
+   
+
+    public void onButtonCommencer()
+    {
+        MakeMenuInvisible();
     }
 }

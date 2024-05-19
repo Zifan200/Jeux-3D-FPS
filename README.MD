@@ -120,4 +120,14 @@ Main menu navigation:
     MenuTitre:
         1- Lors du démarrare du jeu, dans le menuTitre, le titre doit fade-in de 2 secondes.
         2- Une fois que le titre est fade-in le boutton du même menu doit faire un fade-in de 1 seconde.
+    MenuPrincipal
+        1- lorsqu'on clique sur le boutton commencé, le titre va monter vers le haut
+        2- Lorsqu'on clique sur le boutton option, le titre va fade-out pendant 1.5s.
+        3- Lorsqu'on retourne dans le menu principal, le titre va fade-in pendant 1.5s.
+        4- Lorsqu'on entre dans le menu principal, les deux bouttons vont commencer leurs animations à 0.5s 
+         d'intervalle et vont slide vers la droite et fade-in pendant 1.5s.
+        5- Lorsqu'on quitte le menu principal, les deux bouttons vont commencer leurs animations à 0.5s 
+         d'intervalle et vont slide vers la gauche et fade-in pendant 1.5s.
+        6- Lorsqu'on revient dans le menu principal, les deux bouttons vont commencer leurs animations à 0.5s 
+         d'intervalle et vont slide vers la droite et fade-in pendant 1.5s. 
     
