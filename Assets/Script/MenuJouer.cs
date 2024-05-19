@@ -248,8 +248,6 @@ public class MenuJouer : MonoBehaviour
 
     IEnumerator SliderAnimationGaucheDroite()
     {
-        // Attendre 0,5 seconde avant de commencer les animations suivantes
-        yield return new WaitForSeconds(0.5f);
 
         yield return SlideCoroutine(startPositionInitiale, 1.5f); // Attendre que le glissement soit terminé
     }

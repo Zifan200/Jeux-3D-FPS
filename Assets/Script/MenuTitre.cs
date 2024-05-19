@@ -93,12 +93,6 @@ public class MenuTitre : MonoBehaviour
         buttonText.color = buttonTextColor;
     }
 
-    // Méthode pour rendre le menuTitre invisible
-    public void MakeMenuInvisible()
-    {
-        menuTitre.SetActive(false);
-    }
-
     IEnumerator fadeOutBouttonCommencer()
     {
         float duration = 1f; // Durée du fondu en secondes

@@ -108,4 +108,8 @@ Main menu animation:
         -Fade-in.
         -Fade-Out.
         -Mouvements des bouttons.
+    MenuOption:
+        -Fade-in.
+        -Fade-Out.
+        -Mouvements des bouttons.
 

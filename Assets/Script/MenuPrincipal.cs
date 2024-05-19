@@ -35,18 +35,18 @@ public class MenuPrincipal : MonoBehaviour
         // Rendre le titre invisible
         startPosition = titre.transform.position;
         titreColor = titre.color;
-        titre.color = titreColor;
+        titre.color = new Color(titreColor.r, titreColor.g, titreColor.b, 0f);
 
         startPositionInitiale = buttonMenuPrincipal.transform.position;
         startPositionFinale = buttonPositionFinale.transform.position;
 
-        // Rendre les boutons "Option" et "Jouer" invisibles au départ avec leur couleur définie
+        // Rendre les boutons "Jouer" invisibles au départ
         buttonPlayColor = buttonPlay.image.color;
         buttonPlay.image.color = new Color(buttonPlayColor.r, buttonPlayColor.g, buttonPlayColor.b, 0f);
         buttonPlayText = buttonPlay.GetComponentInChildren<TextMeshProUGUI>();
         buttonPlayText.color = new Color(buttonPlayText.color.r, buttonPlayText.color.g, buttonPlayText.color.b, 0f);
         
-
+        // Rendre le bouton "Option" invisible au départ
         buttonOptionColor = buttonOption.image.color;
         buttonOption.image.color = new Color(buttonOptionColor.r, buttonOptionColor.g, buttonOptionColor.b, 0f);
         buttonOptionText = buttonOption.GetComponentInChildren<TextMeshProUGUI>();
@@ -246,11 +246,11 @@ public class MenuPrincipal : MonoBehaviour
 
     public void onButtonCommencer()
     {
+        StartCoroutine(FadeInTitre());
+        MoveTitreToPosition();
         StartCoroutine(FadeInButtonPlay());
         StartCoroutine(FadeInButtonOption());
         sliderGaucheDroite();
-        MoveTitreToPosition();
-        
     }
     public void onButtonPlayOption()
     {

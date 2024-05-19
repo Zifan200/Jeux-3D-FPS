@@ -142,4 +142,17 @@ Main menu navigation:
          d'intervalle et vont glisser vers la gauche et fade-in pendant 1.5s.
         6- Lorsqu'on revient dans le menu principal, les deux bouttons vont commencer leurs animations à 0.5s 
          d'intervalle et vont glisser vers la droite et fade-in pendant 1.5s.
+
+     MenuOption:
+        1- Lorsqu'on clique sur le boutton option, le titre fade-in pendant 1.5s.
+        2- Lorsqu'on retourne sur le menuOption, le titre fade-in pendant 1.5s.
+        3- Lorsqu'on quitte le menuOption, le titre va fade-out pendant 1.5s.
+        4- Lorsqu'on clique sur le boutton option, les bouttons vont commencer leurs animations à 0.5s 
+         d'intervalle et vont glisser vers la droite et fade-in pendant 1.5s.
+        5- Lorsqu'on quitte le menu option, les deux bouttons vont commencer leurs animations à 0.5s 
+         d'intervalle et vont glisser vers la gauche et fade-in pendant 1.5s.
+        6- Lorsqu'on revient dans le menu option, les deux bouttons vont commencer leurs animations à 0.5s 
+         d'intervalle et vont glisser vers la droite et fade-in pendant 1.5s.
+        7- Lorsqu'on entre dans le menu option, les sliders et leur texte vont fade-in pendant 1 seconde avec intervalle de 1s entre musique et son.
+        8- Lorsqu'on quitte le menu option, les sliders et leur texte vont fade-out pendant 1 seconde intervalle de 1s entre musique et son.
     
