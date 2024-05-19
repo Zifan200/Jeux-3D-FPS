@@ -201,29 +201,33 @@ public class PlayerLogic : MonoBehaviour
     }    
      void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "SMG" && !gunList.Contains(subMachineGunPlayer))
+        if (other.gameObject.name.StartsWith("SMG"))
         {
-            // Ajouter l'arme à la liste des armes
-            gunList.Add(subMachineGunPlayer);
-            afficherListe();
+            if(!gunList.Contains(subMachineGunPlayer))
+            {
+                // Ajouter l'arme à la liste des armes
+                gunList.Add(subMachineGunPlayer);
+                afficherListe();
 
+                Debug.Log(gunList.Count);
+            }
             // Son de récupération d'arme
             audioSource.PlayOneShot(ramasserArmeSon);
-
-
-            Debug.Log(gunList.Count);
-            Destroy(other.gameObject); 
+            Destroy(other.gameObject);
         }
-        if (other.gameObject.name == "AssaultRiffle" && !gunList.Contains(assaultRifflePlayer))
+        if (other.gameObject.name.StartsWith("AssaultRiffle"))
         {
-            // Ajouter l'arme à la liste des armes
-            gunList.Add(assaultRifflePlayer);
-            afficherListe();
+            if(!gunList.Contains(assaultRifflePlayer))
+            {
+                // Ajouter l'arme à la liste des armes
+                gunList.Add(assaultRifflePlayer);
+                afficherListe();
 
+                 Debug.Log(gunList.Count);
+            }
+            
             // Son de récupération d'arme
             audioSource.PlayOneShot(ramasserArmeSon);
-            
-            Debug.Log(gunList.Count);
             Destroy(other.gameObject);
         }
        

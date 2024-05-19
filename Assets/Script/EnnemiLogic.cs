@@ -31,7 +31,10 @@ public class EnnemiLogic : MonoBehaviour
     private AudioClip scream;
     AudioSource audioSource;
     private bool isDead = false;
-
+    [SerializeField]
+    private GameObject bulletPrefab;
+    [SerializeField]
+    private List<GameObject> listeArmes;
     // Start is called before the first frame update
     void Start()
     {
@@ -139,6 +142,13 @@ public class EnnemiLogic : MonoBehaviour
         {
             // Instancier le son à la mort de l'ennemi
             GameManager.instance.playScreamSon();
+
+            // Instancier les munitions
+            Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+
+            // Instancier une arme aléatoire
+            int indexArme = Random.Range(0, listeArmes.Count);
+            Instantiate(listeArmes[indexArme], transform.position, Quaternion.identity);
 
             isDead = true;
         

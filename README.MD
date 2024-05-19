@@ -156,3 +156,7 @@ Main menu navigation:
         7- Lorsqu'on entre dans le menu option, les sliders et leur texte vont fade-in pendant 1 seconde avec intervalle de 1s entre musique et son.
         8- Lorsqu'on quitte le menu option, les sliders et leur texte vont fade-out pendant 1 seconde intervalle de 1s entre musique et son.
     
+    Gestion mort d'un ennemi:
+        1- Lorsque l'ennemi à 0 point de vie, un prefab de munition apparait.
+        2- Lorsque l'ennemi à 0 point de vie, un prefab random d'une arme va apparaitre.
+    

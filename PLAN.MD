@@ -112,4 +112,7 @@ Main menu animation:
         -Fade-in.
         -Fade-Out.
         -Mouvements des bouttons.
-
+    
+Mort de l'ennemi:
+- Drop munition
+- Drop random gun 

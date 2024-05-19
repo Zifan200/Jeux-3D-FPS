@@ -35,7 +35,7 @@ public class ItemLogic : MonoBehaviour
                     GameManager.instance.grenadeTrouve();
                 }            
             }
-            if (gameObject.name == "Bullet"){
+            if (gameObject.name.StartsWith("Bullet")){
                 GameManager.instance.munitionTrouve();
             }
 
