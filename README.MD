@@ -160,8 +160,10 @@ Main menu navigation:
         1- Lorsque l'ennemi à 0 point de vie, un prefab de munition apparait.
         2- Lorsque l'ennemi à 0 point de vie, un prefab random d'une arme va apparaitre.
 
-    Gestion de SMG et AR
+    Gestion de SMG et AR:
         1- le Chargeur du SMG doit avoir 30 balles.
         2- Le chargeur du AR doit avoir 20 balles.
         3- Lorsque le joueur appuie sur le boutton R, le HUD doit mettre à jour les munitions et leurs chargeurs.
     
+    Chargeur des ennemis:
+        1- L'ennemi doit prendre 3 secondes pour recharger si son chargeur est vide.

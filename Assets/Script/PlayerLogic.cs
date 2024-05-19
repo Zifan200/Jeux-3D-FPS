@@ -142,7 +142,7 @@ public class PlayerLogic : MonoBehaviour
             {
                 // Jouer le son de tir
                 audioSource.PlayOneShot(tirPistol);
-
+                StartCoroutine(FireBurst());
                 // Réduire le nombre de munitions
                 GameManager.instance.gestionMunition();
 

@@ -35,7 +35,13 @@ public class EnnemiLogic : MonoBehaviour
     private GameObject bulletPrefab;
     [SerializeField]
     private List<GameObject> listeArmes;
-    // Start is called before the first frame update
+    private float ennemiMunitionActuelle;
+    private float ennemiChargeur = 10f;
+    private float tempsDeRecharge = 3f;
+    [SerializeField]
+    private AudioClip recharge;
+    private bool isRecharging = false;
+
     void Start()
     {
         player = GameObject.Find("Player");
@@ -47,6 +53,7 @@ public class EnnemiLogic : MonoBehaviour
         agent.stoppingDistance = stopDistance;
         audioSource = GetComponent<AudioSource>();
         audioSource.volume = AudioManager.instance.soundVolume;
+        ennemiMunitionActuelle = ennemiChargeur;
     }
 
     // Update is called once per frame
@@ -91,49 +98,71 @@ public class EnnemiLogic : MonoBehaviour
         if (playerDetected)
         {
             pourSuivreJoueur();
-            if(tempsEcouleDepuisTir >= delaiCadenceTir)
+            if (tempsEcouleDepuisTir >= delaiCadenceTir && !isRecharging)
             {
                 // Tirer sur le joueur
                 tirerJoueur();
             }
         }
     }
+
     private void pourSuivreJoueur()
     {
         // Définir la position de destination de l'agent sur celle du joueur au démarrage
         agent.SetDestination(playerTransform.position);
     }
+
     public void tirerJoueur()
     {
-        if(!isDead){
-        // Raycast pour tirer sur le joueur
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, detectionDistance))
+        if (!isDead && ennemiMunitionActuelle > 0)
         {
-            // Effet special smoke
-            Vector3 spawnPosition = transform.position + transform.forward * 1f + transform.right * 0.5f;
-            Instantiate(smokePrefab, spawnPosition, Quaternion.identity);
-
             // Effet sonore pour le tir
             audioSource.PlayOneShot(tirPistol);
 
-            if (hit.transform.CompareTag("Player"))
+            // Raycast pour tirer sur le joueur
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.forward, out hit, detectionDistance))
             {
-             float chanceDeToucher = Random.value;
-                if (chanceDeToucher <= 0.33f) // 33% de chance
+                // Effet spécial smoke
+                Vector3 spawnPosition = transform.position + transform.forward * 1f + transform.right * 0.5f;
+                Instantiate(smokePrefab, spawnPosition, Quaternion.identity);
+
+                // Effet sonore pour le tir
+                audioSource.PlayOneShot(tirPistol);
+
+                if (hit.transform.CompareTag("Player"))
                 {
-                    GameManager.instance.onPlayerHit();
-                    // Effet pour l'impact de la balle
-                    Instantiate(etincellePrefab, hit.point, Quaternion.identity);
-                }
-                else
-                {
-                    Debug.Log("Raté");
+                    float chanceDeToucher = Random.value;
+                    if (chanceDeToucher <= 0.33f) // 33% de chance
+                    {
+                        GameManager.instance.onPlayerHit();
+                        Instantiate(etincellePrefab, hit.point, Quaternion.identity);
+                    }
+                    else
+                    {
+                        Debug.Log("Raté");
+                    }
                 }
             }
+            // Réduire la munition actuelle
+            ennemiMunitionActuelle--;
+            Debug.Log($"Munition actuelle: {ennemiMunitionActuelle}");
+            tempsEcouleDepuisTir = 0;
+
+            if (ennemiMunitionActuelle <= 0)
+            {
+                StartCoroutine(rechargeMunitionCoroutine());
+            }
         }
-        tempsEcouleDepuisTir = 0;
-        }
+    }
+
+    IEnumerator rechargeMunitionCoroutine()
+    {
+        isRecharging = true;
+        audioSource.PlayOneShot(recharge);
+        yield return new WaitForSeconds(tempsDeRecharge);
+        ennemiMunitionActuelle = ennemiChargeur;
+        isRecharging = false;
     }
 
     public void mortEnnemi()
@@ -156,6 +185,4 @@ public class EnnemiLogic : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    
 }
