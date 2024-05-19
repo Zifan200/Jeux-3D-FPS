@@ -96,12 +96,16 @@ Audio Main menu:
 
 Main menu animation:
     MenuTitre:
-        - Titre fade-in
-        - Boutton
+        - Titre fade-in.
+        - Boutton.
         - Position du titre.
     MenuPrincipal:
         - Titre mouvement vers le haut.
-        - Fade-In
-        - fade-Out
-        - Boutton mouvement
+        - Fade-In.
+        - fade-Out.
+        - Bouttons mouvements.
+    MenuJouer:
+        -Fade-in.
+        -Fade-Out.
+        -Mouvements des bouttons.
 

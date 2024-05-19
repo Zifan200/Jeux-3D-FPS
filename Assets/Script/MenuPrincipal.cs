@@ -32,9 +32,10 @@ public class MenuPrincipal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Initialiser les positions pour l'animation du titre
+        // Rendre le titre invisible
         startPosition = titre.transform.position;
         titreColor = titre.color;
+        titre.color = titreColor;
 
         startPositionInitiale = buttonMenuPrincipal.transform.position;
         startPositionFinale = buttonPositionFinale.transform.position;
@@ -51,21 +52,12 @@ public class MenuPrincipal : MonoBehaviour
         buttonOptionText = buttonOption.GetComponentInChildren<TextMeshProUGUI>();
         buttonOptionText.color = new Color(buttonOptionText.color.r, buttonOptionText.color.g, buttonOptionText.color.b, 0f);
 
-        MakeMenuInvisible();
     }
 
     // Update is called once per frame
     void Update()
     {
         
-    }
-    void MakeMenuInvisible()
-    {
-       menuPrincipal.SetActive(false);
-    }
-    void MakeMenuVisible()
-    {
-        menuPrincipal.SetActive(true);
     }
 
     // Méthode pour déplacer le titre vers la position finale en une certaine durée
@@ -254,7 +246,6 @@ public class MenuPrincipal : MonoBehaviour
 
     public void onButtonCommencer()
     {
-        menuPrincipal.SetActive(true);
         StartCoroutine(FadeInButtonPlay());
         StartCoroutine(FadeInButtonOption());
         sliderGaucheDroite();
@@ -267,7 +258,6 @@ public class MenuPrincipal : MonoBehaviour
         StartCoroutine(FadeOutButtonPlay());
         StartCoroutine(FadeOutButtonOption());
         sliderDroiteGauche();
-        menuPrincipal.SetActive(false);
     }
 
     public void onButtonRetour()
@@ -276,7 +266,7 @@ public class MenuPrincipal : MonoBehaviour
         StartCoroutine(FadeInButtonPlay());
         StartCoroutine(FadeInButtonOption());
         sliderGaucheDroite();
-        menuPrincipal.SetActive(true);
+        
     }
 
 }

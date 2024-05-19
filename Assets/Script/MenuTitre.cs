@@ -16,6 +16,9 @@ public class MenuTitre : MonoBehaviour
     private TextMeshProUGUI buttonText;
     private Color buttonTextColor;
     private Color colorMenu;
+    [SerializeField]
+    private TextMeshProUGUI auteur;
+
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +39,7 @@ public class MenuTitre : MonoBehaviour
         buttonTextColor.a = 0; // Rendre le texte du bouton invisible au démarrage
         buttonText.color = buttonTextColor;
 
-        // Démarrer la coroutine de fondu pour le titre
+        // Fade in du titre
         StartCoroutine(FadeInTitre());
     }
     void Update()
@@ -98,7 +101,7 @@ public class MenuTitre : MonoBehaviour
 
     IEnumerator fadeOutBouttonCommencer()
     {
-        float duration = 2f; // Durée du fondu en secondes
+        float duration = 1f; // Durée du fondu en secondes
         float elapsedTime = 0f;
 
         while (elapsedTime < duration)
@@ -123,6 +126,16 @@ public class MenuTitre : MonoBehaviour
 
     public void onButtonCommencer()
     {
-        MakeMenuInvisible();
+        // Rendre le titre invisible instantanément
+        colorTitre.a = 0;
+        titre.color = colorTitre;
+
+        // Rendre l'auteur invisible instantanément
+        Color colorAuteur = auteur.color;
+        colorAuteur.a = 0;
+        auteur.color = colorAuteur;
+
+        // Démarrer la coroutine pour faire disparaître le bouton
+        StartCoroutine(fadeOutBouttonCommencer());
     }
 }
