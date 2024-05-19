@@ -114,5 +114,9 @@ Main menu animation:
         -Mouvements des bouttons.
     
 Mort de l'ennemi:
-- Drop munition
-- Drop random gun 
+- Drop munition.
+- Drop random gun. 
+
+Gestion des munition er recharge pour AR et SMG
+- Chaques armes ont leur propre chargeur.
+- Recharge et update du HUD.

@@ -41,7 +41,11 @@ public class GameManager : MonoBehaviour
     private GameObject extraBalles;
     public TextMeshProUGUI ballesExtraText;
     private float chargeurMaxPistol = 10;
+    private float chargeurMaxSMG = 30;
+    private float chargeurMaxAR = 20;
     public float munitionActuellePistol;
+    private float munitionActuelleSMG = 30;
+    private float munitionActuelleAR = 20;
     private float munitionExtra = 10;
     private float extraMaxMunition = 100;
     public RawImage pistolIcon;
@@ -137,6 +141,7 @@ public class GameManager : MonoBehaviour
         menuPauseActive();
         reload();
         munitionMax();
+        changerArmeHUD();
     }
     
 
@@ -388,10 +393,32 @@ public class GameManager : MonoBehaviour
     public void gestionMunition()
     {
         // Uodate le HUD des balles
-        if(munitionActuellePistol > 0 && jeuEnPause == false)
+        if(munitionActuellePistol > 0 && jeuEnPause == false && playerLogic.isPistol)
         {
             munitionActuellePistol--;
+        }
+        if(munitionActuelleSMG > 0 && jeuEnPause == false && playerLogic.isSubMachineGun)
+        {
+            munitionActuelleSMG--;
+        }
+        if(munitionActuelleAR > 0 && jeuEnPause == false && playerLogic.isAssaultRiffle)
+        {
+            munitionActuelleAR--;
+        }
+    }
+    public void changerArmeHUD()
+    {
+        if(playerLogic.isPistol)
+        {
             ballesActuellesText.text = "Nombre de balles dans le chargeur: " + munitionActuellePistol + "/" + chargeurMaxPistol;
+        }
+        if(playerLogic.isSubMachineGun)
+        {
+            ballesActuellesText.text = "Nombre de balles dans le chargeur: " + munitionActuelleSMG + "/" + chargeurMaxSMG;
+        }
+        if(playerLogic.isAssaultRiffle)
+        {
+            ballesActuellesText.text = "Nombre de balles dans le chargeur: " + munitionActuelleAR + "/" + chargeurMaxAR;
         }
     }
 
@@ -402,24 +429,66 @@ public class GameManager : MonoBehaviour
         {
             // Son de rechargement
             audioSource.PlayOneShot(rechargeSon);
-
-            // Calculer le nombre de balles supplémentaires nécessaires pour remplir le chargeur
-            float ballesSupplementaires = chargeurMaxPistol - munitionActuellePistol;
-
-            // Vérifier si le nombre de balles supplémentaires est supérieur à celles disponibles
-             if (ballesSupplementaires > munitionExtra)
+            if(playerLogic.isPistol)
             {
-                // ajouter toutes les munitions supplémentaires restantes
-                ballesSupplementaires = munitionExtra;
+                // Calculer le nombre de balles supplémentaires nécessaires pour remplir le chargeur
+                float ballesSupplementaires = chargeurMaxPistol - munitionActuellePistol;
+
+                // Vérifier si le nombre de balles supplémentaires est supérieur à celles disponibles
+                if (ballesSupplementaires > munitionExtra)
+                {
+                    // ajouter toutes les munitions supplémentaires restantes
+                    ballesSupplementaires = munitionExtra;
+                }
+
+                // Mettre à jour le nombre de balles dans le chargeur et les balles supplémentaires
+                munitionActuellePistol += ballesSupplementaires;
+                munitionExtra -= ballesSupplementaires;
+
+                // Mettre à jour les textes affichant les informations sur les balles
+                ballesActuellesText.text = "Nombre de balles dans le chargeur: " + munitionActuellePistol + "/" + chargeurMaxPistol;
+                ballesExtraText.text = "Nombre de balles supplémentaires: " + munitionExtra;
             }
+            if(playerLogic.isSubMachineGun)
+            {
+                // Calculer le nombre de balles supplémentaires nécessaires pour remplir le chargeur
+                float ballesSupplementaires = chargeurMaxSMG - munitionActuelleSMG;
 
-            // Mettre à jour le nombre de balles dans le chargeur et les balles supplémentaires
-            munitionActuellePistol += ballesSupplementaires;
-            munitionExtra -= ballesSupplementaires;
+                // Vérifier si le nombre de balles supplémentaires est supérieur à celles disponibles
+                if (ballesSupplementaires > munitionExtra)
+                {
+                    // ajouter toutes les munitions supplémentaires restantes
+                    ballesSupplementaires = munitionExtra;
+                }
 
-            // Mettre à jour les textes affichant les informations sur les balles
-            ballesActuellesText.text = "Nombre de balles dans le chargeur: " + munitionActuellePistol + "/" + chargeurMaxPistol;
-            ballesExtraText.text = "Nombre de balles supplémentaires: " + munitionExtra;
+                // Mettre à jour le nombre de balles dans le chargeur et les balles supplémentaires
+                munitionActuelleSMG += ballesSupplementaires;
+                munitionExtra -= ballesSupplementaires;
+
+                // Mettre à jour les textes affichant les informations sur les balles
+                ballesActuellesText.text = "Nombre de balles dans le chargeur: " + munitionActuelleSMG + "/" + chargeurMaxSMG;
+                ballesExtraText.text = "Nombre de balles supplémentaires: " + munitionExtra;
+            }
+            if(playerLogic.isAssaultRiffle)
+            {
+                // Calculer le nombre de balles supplémentaires nécessaires pour remplir le chargeur
+                float ballesSupplementaires = chargeurMaxAR - munitionActuelleAR;
+
+                // Vérifier si le nombre de balles supplémentaires est supérieur à celles disponibles
+                if (ballesSupplementaires > munitionExtra)
+                {
+                    // ajouter toutes les munitions supplémentaires restantes
+                    ballesSupplementaires = munitionExtra;
+                }
+
+                // Mettre à jour le nombre de balles dans le chargeur et les balles supplémentaires
+                munitionActuelleAR += ballesSupplementaires;
+                munitionExtra -= ballesSupplementaires;
+
+                // Mettre à jour les textes affichant les informations sur les balles
+                ballesActuellesText.text = "Nombre de balles dans le chargeur: " + munitionActuelleAR + "/" + chargeurMaxAR;
+                ballesExtraText.text = "Nombre de balles supplémentaires: " + munitionExtra;
+            }
         }
     }
     public void munitionMax()
