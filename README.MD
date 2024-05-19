@@ -173,3 +173,13 @@ Main menu navigation:
     
     Patrouille de l'ennemi:
         1- l'ennemi va vers ses waypoints tant qu'il n'a pas détecté le joueur.
+
+    Zone de jeu:
+        1- Il doit avoir 2 ennemis immobiles pour protéger la porte attaque le joueur s'il est proche.
+        2- Il doit avoir 4 ennemis qui patrouille et attaque le joueur s'il est proche.
+        3- Il doit avoir 1 ennemi dans une cabane qui protège une arme.
+        4- Il doit avoir 3 ennemi qui restent immobile jusqu'à temps que le joueur s'approche à une certaine distance.
+        5- Il doit avoir 6 cabanes:
+            1- Une qui cache la clé.
+            2- Une qui cache le document A.
+            3- Une qui cache le document B.
