@@ -1,3 +1,6 @@
+description : Ce projet est un jeu 3D développé avec Unity dans lequel le joueur contrôle un personnage capable d’explorer l’environnement, d’interagir avec des objets et de tirer sur des ennemis
+
+
 Plan de test
 
 Player Mouvement:
